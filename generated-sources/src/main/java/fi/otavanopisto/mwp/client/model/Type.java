@@ -38,7 +38,7 @@ import java.util.List;
 /**
  * Type
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-09T13:53:05.535+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-09T13:58:07.033+03:00")
 public class Type   {
   @JsonProperty("capabilities")
   private List<String> capabilities = new ArrayList<String>();
