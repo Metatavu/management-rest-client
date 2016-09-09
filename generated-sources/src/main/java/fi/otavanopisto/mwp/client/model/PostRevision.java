@@ -37,7 +37,7 @@ import java.time.LocalDateTime;
 /**
  * PostRevision
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-09T13:39:10.275+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-09T13:45:34.520+03:00")
 public class PostRevision   {
   @JsonProperty("author")
   private Integer author = null;
