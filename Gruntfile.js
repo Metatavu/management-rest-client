@@ -42,7 +42,7 @@ module.exports = function(grunt) {
     },
     'shell': {
       'generate-mwp-java-client': {
-        command : 'mv mwp-rest-client/pom.xml mwp-rest-client/pom.xml.before && \
+        command : 'mv generated-sources/pom.xml generated-sources/pom.xml.before && \
           java -jar swagger-codegen-cli.jar generate \
           -i http://manage.kunta-api.dev/wp-json/apigenerate/swagger \
           -l java \
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
           --model-package fi.otavanopisto.mwp.client.model \
           --group-id fi.otavanopisto.mwp.mwp-rest-client \
           --artifact-id mwp-rest-client\
-          --artifact-version `mvn -f mwp-rest-client/pom.xml.before -q -Dexec.executable=\'echo\' -Dexec.args=\'${project.version}\' --non-recursive org.codehaus.mojo:exec-maven-plugin:1.3.1:exec` \
+          --artifact-version `mvn -f generated-sources/pom.xml.before -q -Dexec.executable=\'echo\' -Dexec.args=\'${project.version}\' --non-recursive org.codehaus.mojo:exec-maven-plugin:1.3.1:exec` \
           --template-dir templates \
           --library jersey2 \
           --additional-properties dateLibrary=java8-localdatetime \
