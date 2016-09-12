@@ -36,7 +36,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * PageKuntaapidata
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-12T12:27:01.289+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-12T15:45:04.951+03:00")
 public class PageKuntaapidata   {
   @JsonProperty("service-id")
   private String serviceId = null;

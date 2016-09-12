@@ -39,6 +39,7 @@ import fi.otavanopisto.mwp.client.model.PostRevision;
 import fi.otavanopisto.mwp.client.model.Status;
 import fi.otavanopisto.mwp.client.model.Tag;
 import fi.otavanopisto.mwp.client.model.Taxonomy;
+import fi.otavanopisto.mwp.client.model.Tile;
 import fi.otavanopisto.mwp.client.model.Type;
 import fi.otavanopisto.mwp.client.model.User;
 
@@ -47,7 +48,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-12T12:27:01.289+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-12T15:45:04.951+03:00")
 public class DefaultApi {
 
   public DefaultApi(ApiClient client) {
@@ -1598,6 +1599,178 @@ if (type != null)
       
     ResultType<Taxonomy> resultType = new ResultType<Taxonomy>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param context Scope under which the request is made; determines fields present in response. (optional, default to view)
+   * @param page Current page of the collection. (optional, default to 1)
+   * @param perPage Maximum number of items to be returned in result set. (optional, default to 10)
+   * @param search Limit results to those matching a string. (optional)
+   * @param after Limit response to resources published after a given ISO8601 compliant date. (optional)
+   * @param before Limit response to resources published before a given ISO8601 compliant date. (optional)
+   * @param exclude Ensure result set excludes specific ids. (optional)
+   * @param include Limit result set to specific ids. (optional)
+   * @param offset Offset the result set by a specific number of items. (optional)
+   * @param order Order sort attribute ascending or descending. (optional, default to desc)
+   * @param orderby Sort collection by object attribute. (optional, default to date)
+   * @param slug Limit result set to posts with a specific slug. (optional)
+   * @param status Limit result set to posts assigned a specific status. (optional, default to publish)
+   * @param filter Use WP Query arguments to modify the response; private query vars require appropriate authorization. (optional)
+   */
+  public ApiResponse<List<Tile>> wpV2TileGet(String context, Integer page, Integer perPage, String search, LocalDateTime after, LocalDateTime before, List<String> exclude, List<String> include, Integer offset, String order, String orderby, String slug, String status, String filter) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (page != null)
+    queryParams.put("page", page);
+if (perPage != null)
+    queryParams.put("per_page", perPage);
+if (search != null)
+    queryParams.put("search", search);
+if (after != null)
+    queryParams.put("after", after);
+if (before != null)
+    queryParams.put("before", before);
+if (exclude != null)
+    queryParams.put("exclude", exclude);
+if (include != null)
+    queryParams.put("include", include);
+if (offset != null)
+    queryParams.put("offset", offset);
+if (order != null)
+    queryParams.put("order", order);
+if (orderby != null)
+    queryParams.put("orderby", orderby);
+if (slug != null)
+    queryParams.put("slug", slug);
+if (status != null)
+    queryParams.put("status", status);
+if (filter != null)
+    queryParams.put("filter", filter);
+    
+        
+    String path = "/wp/v2/tile";
+      
+    ResultType<List<Tile>> resultType = new ResultType<List<Tile>>() {};
+    return client.doGETRequest(path, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param force Whether to bypass trash and force deletion. (optional)
+   */
+  public ApiResponse<Tile> wpV2TileIdDelete(String id, String force) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (force != null)
+    queryParams.put("force", force);
+    
+        
+    String path = "/wp/v2/tile/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id);
+      
+    ResultType<Tile> resultType = new ResultType<Tile>() {};
+    return client.doDELETERequest(path, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param context Scope under which the request is made; determines fields present in response. (optional, default to view)
+   */
+  public ApiResponse<Tile> wpV2TileIdGet(String id, String context) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+    
+        
+    String path = "/wp/v2/tile/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id);
+      
+    ResultType<Tile> resultType = new ResultType<Tile>() {};
+    return client.doGETRequest(path, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param date The date the object was published, in the site&#39;s timezone. (optional)
+   * @param dateGmt The date the object was published, as GMT. (optional)
+   * @param password A password to protect access to the post. (optional)
+   * @param slug An alphanumeric identifier for the object unique to its type. (optional)
+   * @param status A named status for the object. (optional)
+   * @param title The title for the object. (optional)
+   * @param content The content for the object. (optional)
+   * @param featuredMedia The id of the featured media for the object. (optional)
+   */
+  public ApiResponse<Tile> wpV2TileIdPost(String id, LocalDateTime date, LocalDateTime dateGmt, String password, String slug, String status, String title, String content, Integer featuredMedia) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+    if (date != null)
+      formParams.put("date", date);
+if (dateGmt != null)
+      formParams.put("date_gmt", dateGmt);
+if (password != null)
+      formParams.put("password", password);
+if (slug != null)
+      formParams.put("slug", slug);
+if (status != null)
+      formParams.put("status", status);
+if (title != null)
+      formParams.put("title", title);
+if (content != null)
+      formParams.put("content", content);
+if (featuredMedia != null)
+      formParams.put("featured_media", featuredMedia);
+    
+    String path = "/wp/v2/tile/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id);
+      
+    ResultType<Tile> resultType = new ResultType<Tile>() {};
+    return client.doPOSTRequest(path, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param date The date the object was published, in the site&#39;s timezone. (optional)
+   * @param dateGmt The date the object was published, as GMT. (optional)
+   * @param password A password to protect access to the post. (optional)
+   * @param slug An alphanumeric identifier for the object unique to its type. (optional)
+   * @param status A named status for the object. (optional)
+   * @param title The title for the object. (optional)
+   * @param content The content for the object. (optional)
+   * @param featuredMedia The id of the featured media for the object. (optional)
+   */
+  public ApiResponse<Tile> wpV2TilePost(LocalDateTime date, LocalDateTime dateGmt, String password, String slug, String status, String title, String content, Integer featuredMedia) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+    if (date != null)
+      formParams.put("date", date);
+if (dateGmt != null)
+      formParams.put("date_gmt", dateGmt);
+if (password != null)
+      formParams.put("password", password);
+if (slug != null)
+      formParams.put("slug", slug);
+if (status != null)
+      formParams.put("status", status);
+if (title != null)
+      formParams.put("title", title);
+if (content != null)
+      formParams.put("content", content);
+if (featuredMedia != null)
+      formParams.put("featured_media", featuredMedia);
+    
+    String path = "/wp/v2/tile";
+      
+    ResultType<Tile> resultType = new ResultType<Tile>() {};
+    return client.doPOSTRequest(path, resultType, queryParams, formParams);
   }
   /**
    * 

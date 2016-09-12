@@ -28,6 +28,9 @@ package fi.otavanopisto.mwp.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import fi.otavanopisto.mwp.client.model.PostContent;
+import fi.otavanopisto.mwp.client.model.PostGuid;
+import fi.otavanopisto.mwp.client.model.PostTitle;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDateTime;
@@ -35,13 +38,10 @@ import java.time.LocalDateTime;
 
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 /**
- * PostRevision
+ * Tile
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-12T15:45:04.951+03:00")
-public class PostRevision   {
-  @JsonProperty("author")
-  private Integer author = null;
-
+public class Tile   {
   @JsonProperty("date")
   @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)  
   @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)  
@@ -53,10 +53,13 @@ public class PostRevision   {
   private LocalDateTime dateGmt = null;
 
   @JsonProperty("guid")
-  private String guid = null;
+  private PostGuid guid = null;
 
   @JsonProperty("id")
   private Integer id = null;
+
+  @JsonProperty("link")
+  private String link = null;
 
   @JsonProperty("modified")
   @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)  
@@ -68,49 +71,76 @@ public class PostRevision   {
   @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)  
   private LocalDateTime modifiedGmt = null;
 
-  @JsonProperty("parent")
-  private Integer parent = null;
+  @JsonProperty("password")
+  private String password = null;
 
   @JsonProperty("slug")
   private String slug = null;
 
+  /**
+   * A named status for the object.
+   */
+  public enum StatusEnum {
+    PUBLISH("publish"),
+    
+    FUTURE("future"),
+    
+    DRAFT("draft"),
+    
+    PENDING("pending"),
+    
+    PRIVATE("private");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static StatusEnum fromValue(String text) {
+      for (StatusEnum b : StatusEnum.values()) {
+          if (String.valueOf(b.value).equals(text)) {
+              return b;
+          }
+      }
+      return null;
+    }
+  }
+
+  @JsonProperty("status")
+  private StatusEnum status = null;
+
+  @JsonProperty("type")
+  private String type = null;
+
   @JsonProperty("title")
-  private String title = null;
+  private PostTitle title = null;
 
   @JsonProperty("content")
-  private String content = null;
+  private PostContent content = null;
 
-  @JsonProperty("excerpt")
-  private String excerpt = null;
+  @JsonProperty("featured_media")
+  private Integer featuredMedia = null;
 
-  public PostRevision author(Integer author) {
-    this.author = author;
-    return this;
-  }
+  @JsonProperty("tile-link")
+  private String tileLink = null;
 
-   /**
-   * The id for the author of the object.
-   * @return author
-  **/
-  @ApiModelProperty(example = "null", value = "The id for the author of the object.")
-  public Integer getAuthor() {
-    return author;
-  }
-
-  public void setAuthor(Integer author) {
-    this.author = author;
-  }
-
-  public PostRevision date(LocalDateTime date) {
+  public Tile date(LocalDateTime date) {
     this.date = date;
     return this;
   }
 
    /**
-   * The date the object was published.
+   * The date the object was published, in the site's timezone.
    * @return date
   **/
-  @ApiModelProperty(example = "null", value = "The date the object was published.")
+  @ApiModelProperty(example = "null", value = "The date the object was published, in the site's timezone.")
   public LocalDateTime getDate() {
     return date;
   }
@@ -119,7 +149,7 @@ public class PostRevision   {
     this.date = date;
   }
 
-  public PostRevision dateGmt(LocalDateTime dateGmt) {
+  public Tile dateGmt(LocalDateTime dateGmt) {
     this.dateGmt = dateGmt;
     return this;
   }
@@ -137,25 +167,25 @@ public class PostRevision   {
     this.dateGmt = dateGmt;
   }
 
-  public PostRevision guid(String guid) {
+  public Tile guid(PostGuid guid) {
     this.guid = guid;
     return this;
   }
 
    /**
-   * GUID for the object, as it exists in the database.
+   * Get guid
    * @return guid
   **/
-  @ApiModelProperty(example = "null", value = "GUID for the object, as it exists in the database.")
-  public String getGuid() {
+  @ApiModelProperty(example = "null", value = "")
+  public PostGuid getGuid() {
     return guid;
   }
 
-  public void setGuid(String guid) {
+  public void setGuid(PostGuid guid) {
     this.guid = guid;
   }
 
-  public PostRevision id(Integer id) {
+  public Tile id(Integer id) {
     this.id = id;
     return this;
   }
@@ -173,16 +203,34 @@ public class PostRevision   {
     this.id = id;
   }
 
-  public PostRevision modified(LocalDateTime modified) {
+  public Tile link(String link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * URL to the object.
+   * @return link
+  **/
+  @ApiModelProperty(example = "null", value = "URL to the object.")
+  public String getLink() {
+    return link;
+  }
+
+  public void setLink(String link) {
+    this.link = link;
+  }
+
+  public Tile modified(LocalDateTime modified) {
     this.modified = modified;
     return this;
   }
 
    /**
-   * The date the object was last modified.
+   * The date the object was last modified, in the site's timezone.
    * @return modified
   **/
-  @ApiModelProperty(example = "null", value = "The date the object was last modified.")
+  @ApiModelProperty(example = "null", value = "The date the object was last modified, in the site's timezone.")
   public LocalDateTime getModified() {
     return modified;
   }
@@ -191,7 +239,7 @@ public class PostRevision   {
     this.modified = modified;
   }
 
-  public PostRevision modifiedGmt(LocalDateTime modifiedGmt) {
+  public Tile modifiedGmt(LocalDateTime modifiedGmt) {
     this.modifiedGmt = modifiedGmt;
     return this;
   }
@@ -209,25 +257,25 @@ public class PostRevision   {
     this.modifiedGmt = modifiedGmt;
   }
 
-  public PostRevision parent(Integer parent) {
-    this.parent = parent;
+  public Tile password(String password) {
+    this.password = password;
     return this;
   }
 
    /**
-   * The id for the parent of the object.
-   * @return parent
+   * A password to protect access to the post.
+   * @return password
   **/
-  @ApiModelProperty(example = "null", value = "The id for the parent of the object.")
-  public Integer getParent() {
-    return parent;
+  @ApiModelProperty(example = "null", value = "A password to protect access to the post.")
+  public String getPassword() {
+    return password;
   }
 
-  public void setParent(Integer parent) {
-    this.parent = parent;
+  public void setPassword(String password) {
+    this.password = password;
   }
 
-  public PostRevision slug(String slug) {
+  public Tile slug(String slug) {
     this.slug = slug;
     return this;
   }
@@ -245,58 +293,112 @@ public class PostRevision   {
     this.slug = slug;
   }
 
-  public PostRevision title(String title) {
+  public Tile status(StatusEnum status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * A named status for the object.
+   * @return status
+  **/
+  @ApiModelProperty(example = "null", value = "A named status for the object.")
+  public StatusEnum getStatus() {
+    return status;
+  }
+
+  public void setStatus(StatusEnum status) {
+    this.status = status;
+  }
+
+  public Tile type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Type of Post for the object.
+   * @return type
+  **/
+  @ApiModelProperty(example = "null", value = "Type of Post for the object.")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public Tile title(PostTitle title) {
     this.title = title;
     return this;
   }
 
    /**
-   * Title for the object, as it exists in the database.
+   * Get title
    * @return title
   **/
-  @ApiModelProperty(example = "null", value = "Title for the object, as it exists in the database.")
-  public String getTitle() {
+  @ApiModelProperty(example = "null", value = "")
+  public PostTitle getTitle() {
     return title;
   }
 
-  public void setTitle(String title) {
+  public void setTitle(PostTitle title) {
     this.title = title;
   }
 
-  public PostRevision content(String content) {
+  public Tile content(PostContent content) {
     this.content = content;
     return this;
   }
 
    /**
-   * Content for the object, as it exists in the database.
+   * Get content
    * @return content
   **/
-  @ApiModelProperty(example = "null", value = "Content for the object, as it exists in the database.")
-  public String getContent() {
+  @ApiModelProperty(example = "null", value = "")
+  public PostContent getContent() {
     return content;
   }
 
-  public void setContent(String content) {
+  public void setContent(PostContent content) {
     this.content = content;
   }
 
-  public PostRevision excerpt(String excerpt) {
-    this.excerpt = excerpt;
+  public Tile featuredMedia(Integer featuredMedia) {
+    this.featuredMedia = featuredMedia;
     return this;
   }
 
    /**
-   * Excerpt for the object, as it exists in the database.
-   * @return excerpt
+   * The id of the featured media for the object.
+   * @return featuredMedia
   **/
-  @ApiModelProperty(example = "null", value = "Excerpt for the object, as it exists in the database.")
-  public String getExcerpt() {
-    return excerpt;
+  @ApiModelProperty(example = "null", value = "The id of the featured media for the object.")
+  public Integer getFeaturedMedia() {
+    return featuredMedia;
   }
 
-  public void setExcerpt(String excerpt) {
-    this.excerpt = excerpt;
+  public void setFeaturedMedia(Integer featuredMedia) {
+    this.featuredMedia = featuredMedia;
+  }
+
+  public Tile tileLink(String tileLink) {
+    this.tileLink = tileLink;
+    return this;
+  }
+
+   /**
+   * Tile link
+   * @return tileLink
+  **/
+  @ApiModelProperty(example = "null", value = "Tile link")
+  public String getTileLink() {
+    return tileLink;
+  }
+
+  public void setTileLink(String tileLink) {
+    this.tileLink = tileLink;
   }
 
 
@@ -308,43 +410,49 @@ public class PostRevision   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PostRevision postRevision = (PostRevision) o;
-    return Objects.equals(this.author, postRevision.author) &&
-        Objects.equals(this.date, postRevision.date) &&
-        Objects.equals(this.dateGmt, postRevision.dateGmt) &&
-        Objects.equals(this.guid, postRevision.guid) &&
-        Objects.equals(this.id, postRevision.id) &&
-        Objects.equals(this.modified, postRevision.modified) &&
-        Objects.equals(this.modifiedGmt, postRevision.modifiedGmt) &&
-        Objects.equals(this.parent, postRevision.parent) &&
-        Objects.equals(this.slug, postRevision.slug) &&
-        Objects.equals(this.title, postRevision.title) &&
-        Objects.equals(this.content, postRevision.content) &&
-        Objects.equals(this.excerpt, postRevision.excerpt);
+    Tile tile = (Tile) o;
+    return Objects.equals(this.date, tile.date) &&
+        Objects.equals(this.dateGmt, tile.dateGmt) &&
+        Objects.equals(this.guid, tile.guid) &&
+        Objects.equals(this.id, tile.id) &&
+        Objects.equals(this.link, tile.link) &&
+        Objects.equals(this.modified, tile.modified) &&
+        Objects.equals(this.modifiedGmt, tile.modifiedGmt) &&
+        Objects.equals(this.password, tile.password) &&
+        Objects.equals(this.slug, tile.slug) &&
+        Objects.equals(this.status, tile.status) &&
+        Objects.equals(this.type, tile.type) &&
+        Objects.equals(this.title, tile.title) &&
+        Objects.equals(this.content, tile.content) &&
+        Objects.equals(this.featuredMedia, tile.featuredMedia) &&
+        Objects.equals(this.tileLink, tile.tileLink);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(author, date, dateGmt, guid, id, modified, modifiedGmt, parent, slug, title, content, excerpt);
+    return Objects.hash(date, dateGmt, guid, id, link, modified, modifiedGmt, password, slug, status, type, title, content, featuredMedia, tileLink);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PostRevision {\n");
+    sb.append("class Tile {\n");
     
-    sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    dateGmt: ").append(toIndentedString(dateGmt)).append("\n");
     sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    modifiedGmt: ").append(toIndentedString(modifiedGmt)).append("\n");
-    sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    excerpt: ").append(toIndentedString(excerpt)).append("\n");
+    sb.append("    featuredMedia: ").append(toIndentedString(featuredMedia)).append("\n");
+    sb.append("    tileLink: ").append(toIndentedString(tileLink)).append("\n");
     sb.append("}");
     return sb.toString();
   }
