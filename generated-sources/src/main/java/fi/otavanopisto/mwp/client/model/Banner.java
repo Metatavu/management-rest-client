@@ -40,7 +40,7 @@ import java.time.LocalDateTime;
 /**
  * Banner
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-12T05:58:29.959+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-12T12:27:01.289+03:00")
 public class Banner   {
   @JsonProperty("date")
   @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)  
@@ -127,6 +127,9 @@ public class Banner   {
 
   @JsonProperty("featured_media")
   private Integer featuredMedia = null;
+
+  @JsonProperty("banner-link")
+  private String bannerLink = null;
 
   public Banner date(LocalDateTime date) {
     this.date = date;
@@ -380,6 +383,24 @@ public class Banner   {
     this.featuredMedia = featuredMedia;
   }
 
+  public Banner bannerLink(String bannerLink) {
+    this.bannerLink = bannerLink;
+    return this;
+  }
+
+   /**
+   * Banner link
+   * @return bannerLink
+  **/
+  @ApiModelProperty(example = "null", value = "Banner link")
+  public String getBannerLink() {
+    return bannerLink;
+  }
+
+  public void setBannerLink(String bannerLink) {
+    this.bannerLink = bannerLink;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -403,12 +424,13 @@ public class Banner   {
         Objects.equals(this.type, banner.type) &&
         Objects.equals(this.title, banner.title) &&
         Objects.equals(this.content, banner.content) &&
-        Objects.equals(this.featuredMedia, banner.featuredMedia);
+        Objects.equals(this.featuredMedia, banner.featuredMedia) &&
+        Objects.equals(this.bannerLink, banner.bannerLink);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, dateGmt, guid, id, link, modified, modifiedGmt, password, slug, status, type, title, content, featuredMedia);
+    return Objects.hash(date, dateGmt, guid, id, link, modified, modifiedGmt, password, slug, status, type, title, content, featuredMedia, bannerLink);
   }
 
   @Override
@@ -430,6 +452,7 @@ public class Banner   {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    featuredMedia: ").append(toIndentedString(featuredMedia)).append("\n");
+    sb.append("    bannerLink: ").append(toIndentedString(bannerLink)).append("\n");
     sb.append("}");
     return sb.toString();
   }

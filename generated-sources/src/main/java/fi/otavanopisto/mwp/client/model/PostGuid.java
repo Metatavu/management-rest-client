@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiModelProperty;
  * The globally unique identifier for the object.
  */
 @ApiModel(description = "The globally unique identifier for the object.")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-12T05:58:29.959+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-12T12:27:01.289+03:00")
 public class PostGuid   {
   @JsonProperty("raw")
   private String raw = null;
