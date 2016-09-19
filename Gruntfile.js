@@ -55,7 +55,8 @@ module.exports = function(grunt) {
           --template-dir templates \
           --library jersey2 \
           --additional-properties dateLibrary=java8-localdatetime \
-          -o generated-sources/'
+          -o generated-sources/ && \
+          rm generated-sources/pom.xml.before'
       },
       'install-mwp-java-client': {
         command : 'mvn install',
