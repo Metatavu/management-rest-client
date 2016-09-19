@@ -48,11 +48,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-19T13:15:17.958+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-19T13:31:56.930+03:00")
 public class DefaultApi {
 
-  public DefaultApi(ApiClient client) {
+  private ApiClient client;
+  private String baseUrl;
+
+  public DefaultApi(String baseUrl, ApiClient client) {
     this.client = client;
+    this.baseUrl = baseUrl;
   }
   
   /**
@@ -106,7 +110,7 @@ if (filter != null)
     queryParams.put("filter", filter);
     
         
-    String path = "/wp/v2/banner";
+    String path = String.format("%s//wp/v2/banner", baseUrl);
       
     ResultType<List<Banner>> resultType = new ResultType<List<Banner>>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -124,8 +128,8 @@ if (filter != null)
     queryParams.put("force", force);
     
         
-    String path = "/wp/v2/banner/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/banner/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Banner> resultType = new ResultType<Banner>() {};
     return client.doDELETERequest(path, resultType, queryParams, formParams);
@@ -143,8 +147,8 @@ if (filter != null)
     queryParams.put("context", context);
     
         
-    String path = "/wp/v2/banner/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/banner/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Banner> resultType = new ResultType<Banner>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -183,8 +187,8 @@ if (content != null)
 if (featuredMedia != null)
       formParams.put("featured_media", featuredMedia);
     
-    String path = "/wp/v2/banner/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/banner/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Banner> resultType = new ResultType<Banner>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
@@ -222,7 +226,7 @@ if (content != null)
 if (featuredMedia != null)
       formParams.put("featured_media", featuredMedia);
     
-    String path = "/wp/v2/banner";
+    String path = String.format("%s//wp/v2/banner", baseUrl);
       
     ResultType<Banner> resultType = new ResultType<Banner>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
@@ -272,7 +276,7 @@ if (slug != null)
     queryParams.put("slug", slug);
     
         
-    String path = "/wp/v2/categories";
+    String path = String.format("%s//wp/v2/categories", baseUrl);
       
     ResultType<List<Category>> resultType = new ResultType<List<Category>>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -290,8 +294,8 @@ if (slug != null)
     queryParams.put("force", force);
     
         
-    String path = "/wp/v2/categories/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/categories/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Category> resultType = new ResultType<Category>() {};
     return client.doDELETERequest(path, resultType, queryParams, formParams);
@@ -309,8 +313,8 @@ if (slug != null)
     queryParams.put("context", context);
     
         
-    String path = "/wp/v2/categories/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/categories/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Category> resultType = new ResultType<Category>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -337,8 +341,8 @@ if (slug != null)
 if (parent != null)
       formParams.put("parent", parent);
     
-    String path = "/wp/v2/categories/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/categories/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Category> resultType = new ResultType<Category>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
@@ -364,7 +368,7 @@ if (slug != null)
 if (parent != null)
       formParams.put("parent", parent);
     
-    String path = "/wp/v2/categories";
+    String path = String.format("%s//wp/v2/categories", baseUrl);
       
     ResultType<Category> resultType = new ResultType<Category>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
@@ -438,7 +442,7 @@ if (type != null)
     queryParams.put("type", type);
     
         
-    String path = "/wp/v2/comments";
+    String path = String.format("%s//wp/v2/comments", baseUrl);
       
     ResultType<List<Comment>> resultType = new ResultType<List<Comment>>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -456,8 +460,8 @@ if (type != null)
     queryParams.put("force", force);
     
         
-    String path = "/wp/v2/comments/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/comments/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Comment> resultType = new ResultType<Comment>() {};
     return client.doDELETERequest(path, resultType, queryParams, formParams);
@@ -475,8 +479,8 @@ if (type != null)
     queryParams.put("context", context);
     
         
-    String path = "/wp/v2/comments/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/comments/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Comment> resultType = new ResultType<Comment>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -527,8 +531,8 @@ if (status != null)
 if (type != null)
       formParams.put("type", type);
     
-    String path = "/wp/v2/comments/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/comments/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Comment> resultType = new ResultType<Comment>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
@@ -578,7 +582,7 @@ if (status != null)
 if (type != null)
       formParams.put("type", type);
     
-    String path = "/wp/v2/comments";
+    String path = String.format("%s//wp/v2/comments", baseUrl);
       
     ResultType<Comment> resultType = new ResultType<Comment>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
@@ -652,7 +656,7 @@ if (mimeType != null)
     queryParams.put("mime_type", mimeType);
     
         
-    String path = "/wp/v2/media";
+    String path = String.format("%s//wp/v2/media", baseUrl);
       
     ResultType<List<Attachment>> resultType = new ResultType<List<Attachment>>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -670,8 +674,8 @@ if (mimeType != null)
     queryParams.put("force", force);
     
         
-    String path = "/wp/v2/media/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/media/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Attachment> resultType = new ResultType<Attachment>() {};
     return client.doDELETERequest(path, resultType, queryParams, formParams);
@@ -689,8 +693,8 @@ if (mimeType != null)
     queryParams.put("context", context);
     
         
-    String path = "/wp/v2/media/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/media/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Attachment> resultType = new ResultType<Attachment>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -744,8 +748,8 @@ if (description != null)
 if (post != null)
       formParams.put("post", post);
     
-    String path = "/wp/v2/media/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/media/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Attachment> resultType = new ResultType<Attachment>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
@@ -798,7 +802,7 @@ if (description != null)
 if (post != null)
       formParams.put("post", post);
     
-    String path = "/wp/v2/media";
+    String path = String.format("%s//wp/v2/media", baseUrl);
       
     ResultType<Attachment> resultType = new ResultType<Attachment>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
@@ -872,7 +876,7 @@ if (categories != null)
     queryParams.put("categories", categories);
     
         
-    String path = "/wp/v2/pages";
+    String path = String.format("%s//wp/v2/pages", baseUrl);
       
     ResultType<List<Page>> resultType = new ResultType<List<Page>>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -890,8 +894,8 @@ if (categories != null)
     queryParams.put("force", force);
     
         
-    String path = "/wp/v2/pages/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/pages/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Page> resultType = new ResultType<Page>() {};
     return client.doDELETERequest(path, resultType, queryParams, formParams);
@@ -909,8 +913,8 @@ if (categories != null)
     queryParams.put("context", context);
     
         
-    String path = "/wp/v2/pages/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/pages/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Page> resultType = new ResultType<Page>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -973,8 +977,8 @@ if (template != null)
 if (categories != null)
       formParams.put("categories", categories);
     
-    String path = "/wp/v2/pages/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/pages/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Page> resultType = new ResultType<Page>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
@@ -992,8 +996,8 @@ if (categories != null)
     queryParams.put("context", context);
     
         
-    String path = "/wp/v2/pages/{parent}/revisions"
-      .replaceAll("\\{" + "parent" + "\\}", parent);
+    String path = String.format("%s//wp/v2/pages/{parent}/revisions"
+      .replaceAll("\\{" + "parent" + "\\}", parent), baseUrl);
       
     ResultType<List<PageRevision>> resultType = new ResultType<List<PageRevision>>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -1009,9 +1013,9 @@ if (categories != null)
     Map<String, Object> formParams = new HashMap<>();
         
         
-    String path = "/wp/v2/pages/{parent}/revisions/{id}"
+    String path = String.format("%s//wp/v2/pages/{parent}/revisions/{id}"
       .replaceAll("\\{" + "parent" + "\\}", parent)
-      .replaceAll("\\{" + "id" + "\\}", id);
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<PageRevision> resultType = new ResultType<PageRevision>() {};
     return client.doDELETERequest(path, resultType, queryParams, formParams);
@@ -1030,9 +1034,9 @@ if (categories != null)
     queryParams.put("context", context);
     
         
-    String path = "/wp/v2/pages/{parent}/revisions/{id}"
+    String path = String.format("%s//wp/v2/pages/{parent}/revisions/{id}"
       .replaceAll("\\{" + "parent" + "\\}", parent)
-      .replaceAll("\\{" + "id" + "\\}", id);
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<PageRevision> resultType = new ResultType<PageRevision>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -1094,7 +1098,7 @@ if (template != null)
 if (categories != null)
       formParams.put("categories", categories);
     
-    String path = "/wp/v2/pages";
+    String path = String.format("%s//wp/v2/pages", baseUrl);
       
     ResultType<Page> resultType = new ResultType<Page>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
@@ -1162,7 +1166,7 @@ if (tags != null)
     queryParams.put("tags", tags);
     
         
-    String path = "/wp/v2/posts";
+    String path = String.format("%s//wp/v2/posts", baseUrl);
       
     ResultType<List<Post>> resultType = new ResultType<List<Post>>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -1180,8 +1184,8 @@ if (tags != null)
     queryParams.put("force", force);
     
         
-    String path = "/wp/v2/posts/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/posts/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Post> resultType = new ResultType<Post>() {};
     return client.doDELETERequest(path, resultType, queryParams, formParams);
@@ -1199,8 +1203,8 @@ if (tags != null)
     queryParams.put("context", context);
     
         
-    String path = "/wp/v2/posts/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/posts/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Post> resultType = new ResultType<Post>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -1263,8 +1267,8 @@ if (categories != null)
 if (tags != null)
       formParams.put("tags", tags);
     
-    String path = "/wp/v2/posts/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/posts/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Post> resultType = new ResultType<Post>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
@@ -1282,8 +1286,8 @@ if (tags != null)
     queryParams.put("context", context);
     
         
-    String path = "/wp/v2/posts/{parent}/revisions"
-      .replaceAll("\\{" + "parent" + "\\}", parent);
+    String path = String.format("%s//wp/v2/posts/{parent}/revisions"
+      .replaceAll("\\{" + "parent" + "\\}", parent), baseUrl);
       
     ResultType<List<PostRevision>> resultType = new ResultType<List<PostRevision>>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -1299,9 +1303,9 @@ if (tags != null)
     Map<String, Object> formParams = new HashMap<>();
         
         
-    String path = "/wp/v2/posts/{parent}/revisions/{id}"
+    String path = String.format("%s//wp/v2/posts/{parent}/revisions/{id}"
       .replaceAll("\\{" + "parent" + "\\}", parent)
-      .replaceAll("\\{" + "id" + "\\}", id);
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<PostRevision> resultType = new ResultType<PostRevision>() {};
     return client.doDELETERequest(path, resultType, queryParams, formParams);
@@ -1320,9 +1324,9 @@ if (tags != null)
     queryParams.put("context", context);
     
         
-    String path = "/wp/v2/posts/{parent}/revisions/{id}"
+    String path = String.format("%s//wp/v2/posts/{parent}/revisions/{id}"
       .replaceAll("\\{" + "parent" + "\\}", parent)
-      .replaceAll("\\{" + "id" + "\\}", id);
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<PostRevision> resultType = new ResultType<PostRevision>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -1384,7 +1388,7 @@ if (categories != null)
 if (tags != null)
       formParams.put("tags", tags);
     
-    String path = "/wp/v2/posts";
+    String path = String.format("%s//wp/v2/posts", baseUrl);
       
     ResultType<Post> resultType = new ResultType<Post>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
@@ -1401,7 +1405,7 @@ if (tags != null)
     queryParams.put("context", context);
     
         
-    String path = "/wp/v2/statuses";
+    String path = String.format("%s//wp/v2/statuses", baseUrl);
       
     ResultType<List<Status>> resultType = new ResultType<List<Status>>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -1419,8 +1423,8 @@ if (tags != null)
     queryParams.put("context", context);
     
         
-    String path = "/wp/v2/statuses/{status}"
-      .replaceAll("\\{" + "status" + "\\}", status);
+    String path = String.format("%s//wp/v2/statuses/{status}"
+      .replaceAll("\\{" + "status" + "\\}", status), baseUrl);
       
     ResultType<Status> resultType = new ResultType<Status>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -1470,7 +1474,7 @@ if (slug != null)
     queryParams.put("slug", slug);
     
         
-    String path = "/wp/v2/tags";
+    String path = String.format("%s//wp/v2/tags", baseUrl);
       
     ResultType<List<Tag>> resultType = new ResultType<List<Tag>>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -1488,8 +1492,8 @@ if (slug != null)
     queryParams.put("force", force);
     
         
-    String path = "/wp/v2/tags/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/tags/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Tag> resultType = new ResultType<Tag>() {};
     return client.doDELETERequest(path, resultType, queryParams, formParams);
@@ -1507,8 +1511,8 @@ if (slug != null)
     queryParams.put("context", context);
     
         
-    String path = "/wp/v2/tags/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/tags/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Tag> resultType = new ResultType<Tag>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -1532,8 +1536,8 @@ if (name != null)
 if (slug != null)
       formParams.put("slug", slug);
     
-    String path = "/wp/v2/tags/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/tags/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Tag> resultType = new ResultType<Tag>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
@@ -1556,7 +1560,7 @@ if (name != null)
 if (slug != null)
       formParams.put("slug", slug);
     
-    String path = "/wp/v2/tags";
+    String path = String.format("%s//wp/v2/tags", baseUrl);
       
     ResultType<Tag> resultType = new ResultType<Tag>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
@@ -1576,7 +1580,7 @@ if (type != null)
     queryParams.put("type", type);
     
         
-    String path = "/wp/v2/taxonomies";
+    String path = String.format("%s//wp/v2/taxonomies", baseUrl);
       
     ResultType<List<Taxonomy>> resultType = new ResultType<List<Taxonomy>>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -1594,8 +1598,8 @@ if (type != null)
     queryParams.put("context", context);
     
         
-    String path = "/wp/v2/taxonomies/{taxonomy}"
-      .replaceAll("\\{" + "taxonomy" + "\\}", taxonomy);
+    String path = String.format("%s//wp/v2/taxonomies/{taxonomy}"
+      .replaceAll("\\{" + "taxonomy" + "\\}", taxonomy), baseUrl);
       
     ResultType<Taxonomy> resultType = new ResultType<Taxonomy>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -1651,7 +1655,7 @@ if (filter != null)
     queryParams.put("filter", filter);
     
         
-    String path = "/wp/v2/tile";
+    String path = String.format("%s//wp/v2/tile", baseUrl);
       
     ResultType<List<Tile>> resultType = new ResultType<List<Tile>>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -1669,8 +1673,8 @@ if (filter != null)
     queryParams.put("force", force);
     
         
-    String path = "/wp/v2/tile/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/tile/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Tile> resultType = new ResultType<Tile>() {};
     return client.doDELETERequest(path, resultType, queryParams, formParams);
@@ -1688,8 +1692,8 @@ if (filter != null)
     queryParams.put("context", context);
     
         
-    String path = "/wp/v2/tile/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/tile/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Tile> resultType = new ResultType<Tile>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -1728,8 +1732,8 @@ if (content != null)
 if (featuredMedia != null)
       formParams.put("featured_media", featuredMedia);
     
-    String path = "/wp/v2/tile/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/tile/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<Tile> resultType = new ResultType<Tile>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
@@ -1767,7 +1771,7 @@ if (content != null)
 if (featuredMedia != null)
       formParams.put("featured_media", featuredMedia);
     
-    String path = "/wp/v2/tile";
+    String path = String.format("%s//wp/v2/tile", baseUrl);
       
     ResultType<Tile> resultType = new ResultType<Tile>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
@@ -1784,7 +1788,7 @@ if (featuredMedia != null)
     queryParams.put("context", context);
     
         
-    String path = "/wp/v2/types";
+    String path = String.format("%s//wp/v2/types", baseUrl);
       
     ResultType<List<Type>> resultType = new ResultType<List<Type>>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -1802,8 +1806,8 @@ if (featuredMedia != null)
     queryParams.put("context", context);
     
         
-    String path = "/wp/v2/types/{type}"
-      .replaceAll("\\{" + "type" + "\\}", type);
+    String path = String.format("%s//wp/v2/types/{type}"
+      .replaceAll("\\{" + "type" + "\\}", type), baseUrl);
       
     ResultType<Type> resultType = new ResultType<Type>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -1850,7 +1854,7 @@ if (roles != null)
     queryParams.put("roles", roles);
     
         
-    String path = "/wp/v2/users";
+    String path = String.format("%s//wp/v2/users", baseUrl);
       
     ResultType<List<User>> resultType = new ResultType<List<User>>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -1871,8 +1875,8 @@ if (reassign != null)
     queryParams.put("reassign", reassign);
     
         
-    String path = "/wp/v2/users/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/users/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<User> resultType = new ResultType<User>() {};
     return client.doDELETERequest(path, resultType, queryParams, formParams);
@@ -1890,8 +1894,8 @@ if (reassign != null)
     queryParams.put("context", context);
     
         
-    String path = "/wp/v2/users/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/users/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<User> resultType = new ResultType<User>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
@@ -1942,8 +1946,8 @@ if (password != null)
 if (capabilities != null)
       formParams.put("capabilities", capabilities);
     
-    String path = "/wp/v2/users/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id);
+    String path = String.format("%s//wp/v2/users/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
     ResultType<User> resultType = new ResultType<User>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
@@ -1993,11 +1997,10 @@ if (password != null)
 if (capabilities != null)
       formParams.put("capabilities", capabilities);
     
-    String path = "/wp/v2/users";
+    String path = String.format("%s//wp/v2/users", baseUrl);
       
     ResultType<User> resultType = new ResultType<User>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
   }
   
-  private ApiClient client;
 }
