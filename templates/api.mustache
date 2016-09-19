@@ -17,8 +17,12 @@ import java.util.Map;
 {{#operations}}
 public class {{classname}} {
 
-  public {{classname}}(ApiClient client) {
+  private ApiClient client;
+  private String baseUrl;
+
+  public {{classname}}(String baseUrl, ApiClient client) {
     this.client = client;
+    this.baseUrl = baseUrl;
   }
   
   {{#operation}}
@@ -38,14 +42,13 @@ public class {{classname}} {
       formParams.put("{{baseName}}", {{paramName}});
     {{/formParams}}
     
-    String path = "{{{path}}}"{{#pathParams}}
-      .replaceAll("\\{" + "{{baseName}}" + "\\}", {{paramName}}){{/pathParams}};
+    String path = String.format("%s/{{{path}}}"{{#pathParams}}
+      .replaceAll("\\{" + "{{baseName}}" + "\\}", {{paramName}}){{/pathParams}}, baseUrl);
       
     ResultType<{{{returnType}}}> resultType = new ResultType<{{{returnType}}}>() {};
     return client.do{{httpMethod}}Request(path, resultType, queryParams, formParams);
   }
   {{/operation}}
   
-  private ApiClient client;
 }
 {{/operations}}
