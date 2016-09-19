@@ -24,7 +24,8 @@ module.exports = function(grunt) {
         'generated-sources/src/main/java/io',
         'generated-sources/src/main/java/fi/otavanopisto/mwp/auth',
         'generated-sources/src/main/java/fi/otavanopisto/mwp/*.java'
-      ]
+      ],
+      'sources': ['generated-sources/src']
     },
     'copy': {
       'copy-mwp-rest-client-extras': {
@@ -76,6 +77,6 @@ module.exports = function(grunt) {
   });
   
   grunt.registerTask('download-dependencies', 'if-missing:curl:swagger-codegen');
-  grunt.registerTask('default', ['download-dependencies', 'shell:generate-mwp-java-client', 'clean:clean-mwp-java-client-cruft', 'copy:copy-mwp-rest-client-extras', 'shell:install-mwp-java-client', 'shell:release-mwp-java-client' ]);
+  grunt.registerTask('default', ['download-dependencies', 'clean:sources', 'shell:generate-mwp-java-client', 'clean:clean-mwp-java-client-cruft', 'copy:copy-mwp-rest-client-extras', 'shell:install-mwp-java-client', 'shell:release-mwp-java-client' ]);
   
 };
