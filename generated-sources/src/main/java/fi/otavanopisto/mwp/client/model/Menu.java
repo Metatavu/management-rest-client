@@ -30,55 +30,97 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 
 
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 /**
- * The title for the object.
+ * Menu
  */
-@ApiModel(description = "The title for the object.")
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-27T11:34:56.957+03:00")
-public class PostTitle   {
-  @JsonProperty("raw")
-  private String raw = null;
+public class Menu   {
+  @JsonProperty("id")
+  private BigDecimal id = null;
 
-  @JsonProperty("rendered")
-  private String rendered = null;
+  @JsonProperty("slug")
+  private String slug = null;
 
-  public PostTitle raw(String raw) {
-    this.raw = raw;
+  @JsonProperty("name")
+  private String name = null;
+
+  @JsonProperty("description")
+  private String description = null;
+
+  public Menu id(BigDecimal id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Title for the object, as it exists in the database.
-   * @return raw
+   * Get id
+   * @return id
   **/
-  @ApiModelProperty(example = "null", value = "Title for the object, as it exists in the database.")
-  public String getRaw() {
-    return raw;
+  @ApiModelProperty(example = "null", value = "")
+  public BigDecimal getId() {
+    return id;
   }
 
-  public void setRaw(String raw) {
-    this.raw = raw;
+  public void setId(BigDecimal id) {
+    this.id = id;
   }
 
-  public PostTitle rendered(String rendered) {
-    this.rendered = rendered;
+  public Menu slug(String slug) {
+    this.slug = slug;
     return this;
   }
 
    /**
-   * HTML title for the object, transformed for display.
-   * @return rendered
+   * Get slug
+   * @return slug
   **/
-  @ApiModelProperty(example = "null", value = "HTML title for the object, transformed for display.")
-  public String getRendered() {
-    return rendered;
+  @ApiModelProperty(example = "null", value = "")
+  public String getSlug() {
+    return slug;
   }
 
-  public void setRendered(String rendered) {
-    this.rendered = rendered;
+  public void setSlug(String slug) {
+    this.slug = slug;
+  }
+
+  public Menu name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Menu description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -90,23 +132,27 @@ public class PostTitle   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PostTitle postTitle = (PostTitle) o;
-    return Objects.equals(this.raw, postTitle.raw) &&
-        Objects.equals(this.rendered, postTitle.rendered);
+    Menu menu = (Menu) o;
+    return Objects.equals(this.id, menu.id) &&
+        Objects.equals(this.slug, menu.slug) &&
+        Objects.equals(this.name, menu.name) &&
+        Objects.equals(this.description, menu.description);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(raw, rendered);
+    return Objects.hash(id, slug, name, description);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PostTitle {\n");
+    sb.append("class Menu {\n");
     
-    sb.append("    raw: ").append(toIndentedString(raw)).append("\n");
-    sb.append("    rendered: ").append(toIndentedString(rendered)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");
     return sb.toString();
   }

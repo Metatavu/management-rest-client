@@ -38,7 +38,7 @@ import java.util.List;
 /**
  * Taxonomy
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-19T15:18:26.058+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-27T11:34:56.957+03:00")
 public class Taxonomy   {
   @JsonProperty("capabilities")
   private List<String> capabilities = new ArrayList<String>();

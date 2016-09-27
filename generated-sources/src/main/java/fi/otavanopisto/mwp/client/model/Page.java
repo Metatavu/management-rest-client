@@ -28,7 +28,6 @@ package fi.otavanopisto.mwp.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import fi.otavanopisto.mwp.client.model.PageKuntaapidata;
 import fi.otavanopisto.mwp.client.model.PostContent;
 import fi.otavanopisto.mwp.client.model.PostExcerpt;
 import fi.otavanopisto.mwp.client.model.PostGuid;
@@ -36,15 +35,13 @@ import fi.otavanopisto.mwp.client.model.PostTitle;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 /**
  * Page
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-19T15:18:26.058+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-27T11:34:56.957+03:00")
 public class Page   {
   @JsonProperty("date")
   @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)  
@@ -212,12 +209,6 @@ public class Page   {
 
   @JsonProperty("template")
   private String template = null;
-
-  @JsonProperty("categories")
-  private List<String> categories = new ArrayList<String>();
-
-  @JsonProperty("kunta-api-data")
-  private PageKuntaapidata kuntaApiData = null;
 
   public Page date(LocalDateTime date) {
     this.date = date;
@@ -597,47 +588,6 @@ public class Page   {
     this.template = template;
   }
 
-  public Page categories(List<String> categories) {
-    this.categories = categories;
-    return this;
-  }
-
-  public Page addCategoriesItem(String categoriesItem) {
-    this.categories.add(categoriesItem);
-    return this;
-  }
-
-   /**
-   * The terms assigned to the object in the category taxonomy.
-   * @return categories
-  **/
-  @ApiModelProperty(example = "null", value = "The terms assigned to the object in the category taxonomy.")
-  public List<String> getCategories() {
-    return categories;
-  }
-
-  public void setCategories(List<String> categories) {
-    this.categories = categories;
-  }
-
-  public Page kuntaApiData(PageKuntaapidata kuntaApiData) {
-    this.kuntaApiData = kuntaApiData;
-    return this;
-  }
-
-   /**
-   * Get kuntaApiData
-   * @return kuntaApiData
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public PageKuntaapidata getKuntaApiData() {
-    return kuntaApiData;
-  }
-
-  public void setKuntaApiData(PageKuntaapidata kuntaApiData) {
-    this.kuntaApiData = kuntaApiData;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -668,14 +618,12 @@ public class Page   {
         Objects.equals(this.commentStatus, page.commentStatus) &&
         Objects.equals(this.pingStatus, page.pingStatus) &&
         Objects.equals(this.menuOrder, page.menuOrder) &&
-        Objects.equals(this.template, page.template) &&
-        Objects.equals(this.categories, page.categories) &&
-        Objects.equals(this.kuntaApiData, page.kuntaApiData);
+        Objects.equals(this.template, page.template);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, dateGmt, guid, id, link, modified, modifiedGmt, password, slug, status, type, parent, title, content, author, excerpt, featuredMedia, commentStatus, pingStatus, menuOrder, template, categories, kuntaApiData);
+    return Objects.hash(date, dateGmt, guid, id, link, modified, modifiedGmt, password, slug, status, type, parent, title, content, author, excerpt, featuredMedia, commentStatus, pingStatus, menuOrder, template);
   }
 
   @Override
@@ -704,8 +652,6 @@ public class Page   {
     sb.append("    pingStatus: ").append(toIndentedString(pingStatus)).append("\n");
     sb.append("    menuOrder: ").append(toIndentedString(menuOrder)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
-    sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
-    sb.append("    kuntaApiData: ").append(toIndentedString(kuntaApiData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -32,6 +32,8 @@ import fi.otavanopisto.mwp.client.model.Error;
 import fi.otavanopisto.mwp.client.model.Category;
 import fi.otavanopisto.mwp.client.model.Comment;
 import fi.otavanopisto.mwp.client.model.Attachment;
+import fi.otavanopisto.mwp.client.model.Menu;
+import fi.otavanopisto.mwp.client.model.Menuitem;
 import fi.otavanopisto.mwp.client.model.Page;
 import fi.otavanopisto.mwp.client.model.PageRevision;
 import fi.otavanopisto.mwp.client.model.Post;
@@ -48,7 +50,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-19T15:18:26.058+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-27T11:34:56.957+03:00")
 public class DefaultApi {
 
   private ApiClient client;
@@ -810,6 +812,52 @@ if (post != null)
   /**
    * 
    * 
+   */
+  public ApiResponse<List<Menu>> wpV2MenusGet() {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+        
+    String path = String.format("%s/wp/v2/menus", baseUrl);
+      
+    ResultType<List<Menu>> resultType = new ResultType<List<Menu>>() {};
+    return client.doGETRequest(path, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   */
+  public ApiResponse<Menu> wpV2MenusIdGet(String id) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+        
+    String path = String.format("%s/wp/v2/menus/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Menu> resultType = new ResultType<Menu>() {};
+    return client.doGETRequest(path, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   */
+  public ApiResponse<List<Menuitem>> wpV2MenusIdItemsGet(String id) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+        
+    String path = String.format("%s/wp/v2/menus/{id}/items"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<List<Menuitem>> resultType = new ResultType<List<Menuitem>>() {};
+    return client.doGETRequest(path, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
    * @param context Scope under which the request is made; determines fields present in response. (optional, default to view)
    * @param page Current page of the collection. (optional, default to 1)
    * @param perPage Maximum number of items to be returned in result set. (optional, default to 10)
@@ -829,9 +877,8 @@ if (post != null)
    * @param slug Limit result set to posts with a specific slug. (optional)
    * @param status Limit result set to posts assigned a specific status. (optional, default to publish)
    * @param filter Use WP Query arguments to modify the response; private query vars require appropriate authorization. (optional)
-   * @param categories Limit result set to all items that have the specified term assigned in the categories taxonomy. (optional)
    */
-  public ApiResponse<List<Page>> wpV2PagesGet(String context, Integer page, Integer perPage, String search, LocalDateTime after, List<String> author, List<String> authorExclude, LocalDateTime before, List<String> exclude, List<String> include, Integer menuOrder, Integer offset, String order, String orderby, List<String> parent, List<String> parentExclude, String slug, String status, String filter, List<String> categories) {
+  public ApiResponse<List<Page>> wpV2PagesGet(String context, Integer page, Integer perPage, String search, LocalDateTime after, List<String> author, List<String> authorExclude, LocalDateTime before, List<String> exclude, List<String> include, Integer menuOrder, Integer offset, String order, String orderby, List<String> parent, List<String> parentExclude, String slug, String status, String filter) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
     if (context != null)
@@ -872,8 +919,6 @@ if (status != null)
     queryParams.put("status", status);
 if (filter != null)
     queryParams.put("filter", filter);
-if (categories != null)
-    queryParams.put("categories", categories);
     
         
     String path = String.format("%s/wp/v2/pages", baseUrl);
@@ -938,9 +983,8 @@ if (categories != null)
    * @param pingStatus Whether or not the object can be pinged. (optional)
    * @param menuOrder The order of the object in relation to other object of its type. (optional)
    * @param template The theme file to use to display the object. (optional)
-   * @param categories The terms assigned to the object in the category taxonomy. (optional)
    */
-  public ApiResponse<Page> wpV2PagesIdPost(String id, LocalDateTime date, LocalDateTime dateGmt, String password, String slug, String status, Integer parent, String title, String content, Integer author, String excerpt, Integer featuredMedia, String commentStatus, String pingStatus, Integer menuOrder, String template, List<String> categories) {
+  public ApiResponse<Page> wpV2PagesIdPost(String id, LocalDateTime date, LocalDateTime dateGmt, String password, String slug, String status, Integer parent, String title, String content, Integer author, String excerpt, Integer featuredMedia, String commentStatus, String pingStatus, Integer menuOrder, String template) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
         
@@ -974,8 +1018,6 @@ if (menuOrder != null)
       formParams.put("menu_order", menuOrder);
 if (template != null)
       formParams.put("template", template);
-if (categories != null)
-      formParams.put("categories", categories);
     
     String path = String.format("%s/wp/v2/pages/{id}"
       .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
@@ -1059,9 +1101,8 @@ if (categories != null)
    * @param pingStatus Whether or not the object can be pinged. (optional)
    * @param menuOrder The order of the object in relation to other object of its type. (optional)
    * @param template The theme file to use to display the object. (optional)
-   * @param categories The terms assigned to the object in the category taxonomy. (optional)
    */
-  public ApiResponse<Page> wpV2PagesPost(LocalDateTime date, LocalDateTime dateGmt, String password, String slug, String status, Integer parent, String title, String content, Integer author, String excerpt, Integer featuredMedia, String commentStatus, String pingStatus, Integer menuOrder, String template, List<String> categories) {
+  public ApiResponse<Page> wpV2PagesPost(LocalDateTime date, LocalDateTime dateGmt, String password, String slug, String status, Integer parent, String title, String content, Integer author, String excerpt, Integer featuredMedia, String commentStatus, String pingStatus, Integer menuOrder, String template) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
         
@@ -1095,8 +1136,6 @@ if (menuOrder != null)
       formParams.put("menu_order", menuOrder);
 if (template != null)
       formParams.put("template", template);
-if (categories != null)
-      formParams.put("categories", categories);
     
     String path = String.format("%s/wp/v2/pages", baseUrl);
       
