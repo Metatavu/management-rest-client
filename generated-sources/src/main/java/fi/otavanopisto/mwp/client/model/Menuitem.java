@@ -36,10 +36,13 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Menuitem
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-27T13:15:18.318+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-27T13:34:40.094+03:00")
 public class Menuitem   {
   @JsonProperty("id")
   private Long id = null;
+
+  @JsonProperty("parentItemId")
+  private Long parentItemId = null;
 
   @JsonProperty("type")
   private String type = null;
@@ -75,6 +78,24 @@ public class Menuitem   {
 
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public Menuitem parentItemId(Long parentItemId) {
+    this.parentItemId = parentItemId;
+    return this;
+  }
+
+   /**
+   * Get parentItemId
+   * @return parentItemId
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Long getParentItemId() {
+    return parentItemId;
+  }
+
+  public void setParentItemId(Long parentItemId) {
+    this.parentItemId = parentItemId;
   }
 
   public Menuitem type(String type) {
@@ -196,6 +217,7 @@ public class Menuitem   {
     }
     Menuitem menuitem = (Menuitem) o;
     return Objects.equals(this.id, menuitem.id) &&
+        Objects.equals(this.parentItemId, menuitem.parentItemId) &&
         Objects.equals(this.type, menuitem.type) &&
         Objects.equals(this.title, menuitem.title) &&
         Objects.equals(this.order, menuitem.order) &&
@@ -206,7 +228,7 @@ public class Menuitem   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, title, order, pageId, postId, url);
+    return Objects.hash(id, parentItemId, type, title, order, pageId, postId, url);
   }
 
   @Override
@@ -215,6 +237,7 @@ public class Menuitem   {
     sb.append("class Menuitem {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    parentItemId: ").append(toIndentedString(parentItemId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
