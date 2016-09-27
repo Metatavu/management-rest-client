@@ -26,14 +26,14 @@ package fi.otavanopisto.mwp.client;
 
 import fi.otavanopisto.mwp.client.model.*;
 
+import fi.otavanopisto.mwp.client.model.Error;
+import fi.otavanopisto.mwp.client.model.Menu;
+import fi.otavanopisto.mwp.client.model.Menuitem;
 import java.time.LocalDateTime;
 import fi.otavanopisto.mwp.client.model.Banner;
-import fi.otavanopisto.mwp.client.model.Error;
 import fi.otavanopisto.mwp.client.model.Category;
 import fi.otavanopisto.mwp.client.model.Comment;
 import fi.otavanopisto.mwp.client.model.Attachment;
-import fi.otavanopisto.mwp.client.model.Menu;
-import fi.otavanopisto.mwp.client.model.Menuitem;
 import fi.otavanopisto.mwp.client.model.Page;
 import fi.otavanopisto.mwp.client.model.PageRevision;
 import fi.otavanopisto.mwp.client.model.Post;
@@ -50,7 +50,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-27T11:34:56.957+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-27T11:37:23.213+03:00")
 public class DefaultApi {
 
   private ApiClient client;
@@ -61,6 +61,52 @@ public class DefaultApi {
     this.baseUrl = baseUrl;
   }
   
+  /**
+   * 
+   * 
+   */
+  public ApiResponse<List<Menu>> kuntaApiMenusGet() {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+        
+    String path = String.format("%s/kunta-api/menus", baseUrl);
+      
+    ResultType<List<Menu>> resultType = new ResultType<List<Menu>>() {};
+    return client.doGETRequest(path, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   */
+  public ApiResponse<Menu> kuntaApiMenusIdGet(String id) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+        
+    String path = String.format("%s/kunta-api/menus/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Menu> resultType = new ResultType<Menu>() {};
+    return client.doGETRequest(path, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   */
+  public ApiResponse<List<Menuitem>> kuntaApiMenusIdItemsGet(String id) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+        
+    String path = String.format("%s/kunta-api/menus/{id}/items"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<List<Menuitem>> resultType = new ResultType<List<Menuitem>>() {};
+    return client.doGETRequest(path, resultType, queryParams, formParams);
+  }
   /**
    * 
    * 
@@ -808,52 +854,6 @@ if (post != null)
       
     ResultType<Attachment> resultType = new ResultType<Attachment>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
-  }
-  /**
-   * 
-   * 
-   */
-  public ApiResponse<List<Menu>> wpV2MenusGet() {
-    Map<String, Object> queryParams = new HashMap<>();
-    Map<String, Object> formParams = new HashMap<>();
-        
-        
-    String path = String.format("%s/wp/v2/menus", baseUrl);
-      
-    ResultType<List<Menu>> resultType = new ResultType<List<Menu>>() {};
-    return client.doGETRequest(path, resultType, queryParams, formParams);
-  }
-  /**
-   * 
-   * 
-   * @param id  (required)
-   */
-  public ApiResponse<Menu> wpV2MenusIdGet(String id) {
-    Map<String, Object> queryParams = new HashMap<>();
-    Map<String, Object> formParams = new HashMap<>();
-        
-        
-    String path = String.format("%s/wp/v2/menus/{id}"
-      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
-      
-    ResultType<Menu> resultType = new ResultType<Menu>() {};
-    return client.doGETRequest(path, resultType, queryParams, formParams);
-  }
-  /**
-   * 
-   * 
-   * @param id  (required)
-   */
-  public ApiResponse<List<Menuitem>> wpV2MenusIdItemsGet(String id) {
-    Map<String, Object> queryParams = new HashMap<>();
-    Map<String, Object> formParams = new HashMap<>();
-        
-        
-    String path = String.format("%s/wp/v2/menus/{id}/items"
-      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
-      
-    ResultType<List<Menuitem>> resultType = new ResultType<List<Menuitem>>() {};
-    return client.doGETRequest(path, resultType, queryParams, formParams);
   }
   /**
    * 
