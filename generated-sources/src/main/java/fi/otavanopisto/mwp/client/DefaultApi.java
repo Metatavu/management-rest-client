@@ -50,7 +50,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-27T11:37:23.213+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-27T13:15:18.318+03:00")
 public class DefaultApi {
 
   private ApiClient client;
@@ -64,11 +64,14 @@ public class DefaultApi {
   /**
    * 
    * 
+   * @param slug  (optional)
    */
-  public ApiResponse<List<Menu>> kuntaApiMenusGet() {
+  public ApiResponse<List<Menu>> kuntaApiMenusGet(String slug) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
-        
+    if (slug != null)
+    queryParams.put("slug", slug);
+    
         
     String path = String.format("%s/kunta-api/menus", baseUrl);
       
@@ -94,15 +97,15 @@ public class DefaultApi {
   /**
    * 
    * 
-   * @param id  (required)
+   * @param menuId  (required)
    */
-  public ApiResponse<List<Menuitem>> kuntaApiMenusIdItemsGet(String id) {
+  public ApiResponse<List<Menuitem>> kuntaApiMenusMenuIdItemsGet(String menuId) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
         
         
-    String path = String.format("%s/kunta-api/menus/{id}/items"
-      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+    String path = String.format("%s/kunta-api/menus/{menuId}/items"
+      .replaceAll("\\{" + "menuId" + "\\}", menuId), baseUrl);
       
     ResultType<List<Menuitem>> resultType = new ResultType<List<Menuitem>>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);

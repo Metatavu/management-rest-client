@@ -30,31 +30,36 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 
 
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 /**
  * Menuitem
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-27T11:37:23.213+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-27T13:15:18.318+03:00")
 public class Menuitem   {
   @JsonProperty("id")
-  private BigDecimal id = null;
+  private Long id = null;
 
-  @JsonProperty("slug")
-  private String slug = null;
+  @JsonProperty("type")
+  private String type = null;
+
+  @JsonProperty("title")
+  private String title = null;
+
+  @JsonProperty("order")
+  private Long order = null;
+
+  @JsonProperty("pageId")
+  private Long pageId = null;
 
   @JsonProperty("postId")
-  private BigDecimal postId = null;
-
-  @JsonProperty("postParentId")
-  private BigDecimal postParentId = null;
+  private Long postId = null;
 
   @JsonProperty("url")
   private String url = null;
 
-  public Menuitem id(BigDecimal id) {
+  public Menuitem id(Long id) {
     this.id = id;
     return this;
   }
@@ -64,33 +69,87 @@ public class Menuitem   {
    * @return id
   **/
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(BigDecimal id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
-  public Menuitem slug(String slug) {
-    this.slug = slug;
+  public Menuitem type(String type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get slug
-   * @return slug
+   * Get type
+   * @return type
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getSlug() {
-    return slug;
+  public String getType() {
+    return type;
   }
 
-  public void setSlug(String slug) {
-    this.slug = slug;
+  public void setType(String type) {
+    this.type = type;
   }
 
-  public Menuitem postId(BigDecimal postId) {
+  public Menuitem title(String title) {
+    this.title = title;
+    return this;
+  }
+
+   /**
+   * Get title
+   * @return title
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public Menuitem order(Long order) {
+    this.order = order;
+    return this;
+  }
+
+   /**
+   * Get order
+   * @return order
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Long getOrder() {
+    return order;
+  }
+
+  public void setOrder(Long order) {
+    this.order = order;
+  }
+
+  public Menuitem pageId(Long pageId) {
+    this.pageId = pageId;
+    return this;
+  }
+
+   /**
+   * Get pageId
+   * @return pageId
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Long getPageId() {
+    return pageId;
+  }
+
+  public void setPageId(Long pageId) {
+    this.pageId = pageId;
+  }
+
+  public Menuitem postId(Long postId) {
     this.postId = postId;
     return this;
   }
@@ -100,30 +159,12 @@ public class Menuitem   {
    * @return postId
   **/
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getPostId() {
+  public Long getPostId() {
     return postId;
   }
 
-  public void setPostId(BigDecimal postId) {
+  public void setPostId(Long postId) {
     this.postId = postId;
-  }
-
-  public Menuitem postParentId(BigDecimal postParentId) {
-    this.postParentId = postParentId;
-    return this;
-  }
-
-   /**
-   * Get postParentId
-   * @return postParentId
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getPostParentId() {
-    return postParentId;
-  }
-
-  public void setPostParentId(BigDecimal postParentId) {
-    this.postParentId = postParentId;
   }
 
   public Menuitem url(String url) {
@@ -155,15 +196,17 @@ public class Menuitem   {
     }
     Menuitem menuitem = (Menuitem) o;
     return Objects.equals(this.id, menuitem.id) &&
-        Objects.equals(this.slug, menuitem.slug) &&
+        Objects.equals(this.type, menuitem.type) &&
+        Objects.equals(this.title, menuitem.title) &&
+        Objects.equals(this.order, menuitem.order) &&
+        Objects.equals(this.pageId, menuitem.pageId) &&
         Objects.equals(this.postId, menuitem.postId) &&
-        Objects.equals(this.postParentId, menuitem.postParentId) &&
         Objects.equals(this.url, menuitem.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, slug, postId, postParentId, url);
+    return Objects.hash(id, type, title, order, pageId, postId, url);
   }
 
   @Override
@@ -172,9 +215,11 @@ public class Menuitem   {
     sb.append("class Menuitem {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    order: ").append(toIndentedString(order)).append("\n");
+    sb.append("    pageId: ").append(toIndentedString(pageId)).append("\n");
     sb.append("    postId: ").append(toIndentedString(postId)).append("\n");
-    sb.append("    postParentId: ").append(toIndentedString(postParentId)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -30,17 +30,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 
 
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 /**
  * Menu
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-27T11:37:23.213+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-27T13:15:18.318+03:00")
 public class Menu   {
   @JsonProperty("id")
-  private BigDecimal id = null;
+  private Long id = null;
 
   @JsonProperty("slug")
   private String slug = null;
@@ -51,7 +50,7 @@ public class Menu   {
   @JsonProperty("description")
   private String description = null;
 
-  public Menu id(BigDecimal id) {
+  public Menu id(Long id) {
     this.id = id;
     return this;
   }
@@ -61,11 +60,11 @@ public class Menu   {
    * @return id
   **/
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(BigDecimal id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
