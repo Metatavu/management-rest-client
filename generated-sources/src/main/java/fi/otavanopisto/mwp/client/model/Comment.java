@@ -39,7 +39,7 @@ import java.time.LocalDateTime;
 /**
  * Comment
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-11-30T13:16:42.776+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-11-30T14:46:18.068+02:00")
 public class Comment   {
   @JsonProperty("id")
   private Integer id = null;

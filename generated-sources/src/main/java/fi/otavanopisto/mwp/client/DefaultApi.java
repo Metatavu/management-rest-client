@@ -30,7 +30,7 @@ import fi.otavanopisto.mwp.client.model.Error;
 import fi.otavanopisto.mwp.client.model.Menu;
 import fi.otavanopisto.mwp.client.model.Menuitem;
 import java.time.LocalDateTime;
-import fi.otavanopisto.mwp.client.model.Annoucements;
+import fi.otavanopisto.mwp.client.model.Announcement;
 import fi.otavanopisto.mwp.client.model.Banner;
 import fi.otavanopisto.mwp.client.model.Category;
 import fi.otavanopisto.mwp.client.model.Comment;
@@ -51,7 +51,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-11-30T13:16:42.776+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-11-30T14:46:18.068+02:00")
 public class DefaultApi {
 
   private ApiClient client;
@@ -129,7 +129,7 @@ public class DefaultApi {
    * @param status Limit result set to posts assigned a specific status. (optional, default to publish)
    * @param filter Use WP Query arguments to modify the response; private query vars require appropriate authorization. (optional)
    */
-  public ApiResponse<List<Annoucements>> wpV2AnnoucementsGet(String context, Integer page, Integer perPage, String search, LocalDateTime after, LocalDateTime before, List<String> exclude, List<String> include, Integer offset, String order, String orderby, String slug, String status, String filter) {
+  public ApiResponse<List<Announcement>> wpV2AnnouncementGet(String context, Integer page, Integer perPage, String search, LocalDateTime after, LocalDateTime before, List<String> exclude, List<String> include, Integer offset, String order, String orderby, String slug, String status, String filter) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
     if (context != null)
@@ -162,9 +162,9 @@ if (filter != null)
     queryParams.put("filter", filter);
     
         
-    String path = String.format("%s/wp/v2/annoucements", baseUrl);
+    String path = String.format("%s/wp/v2/announcement", baseUrl);
       
-    ResultType<List<Annoucements>> resultType = new ResultType<List<Annoucements>>() {};
+    ResultType<List<Announcement>> resultType = new ResultType<List<Announcement>>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
   }
   /**
@@ -173,17 +173,17 @@ if (filter != null)
    * @param id  (required)
    * @param force Whether to bypass trash and force deletion. (optional)
    */
-  public ApiResponse<Annoucements> wpV2AnnoucementsIdDelete(String id, String force) {
+  public ApiResponse<Announcement> wpV2AnnouncementIdDelete(String id, String force) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
     if (force != null)
     queryParams.put("force", force);
     
         
-    String path = String.format("%s/wp/v2/annoucements/{id}"
+    String path = String.format("%s/wp/v2/announcement/{id}"
       .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
-    ResultType<Annoucements> resultType = new ResultType<Annoucements>() {};
+    ResultType<Announcement> resultType = new ResultType<Announcement>() {};
     return client.doDELETERequest(path, resultType, queryParams, formParams);
   }
   /**
@@ -192,17 +192,17 @@ if (filter != null)
    * @param id  (required)
    * @param context Scope under which the request is made; determines fields present in response. (optional, default to view)
    */
-  public ApiResponse<Annoucements> wpV2AnnoucementsIdGet(String id, String context) {
+  public ApiResponse<Announcement> wpV2AnnouncementIdGet(String id, String context) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
     if (context != null)
     queryParams.put("context", context);
     
         
-    String path = String.format("%s/wp/v2/annoucements/{id}"
+    String path = String.format("%s/wp/v2/announcement/{id}"
       .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
-    ResultType<Annoucements> resultType = new ResultType<Annoucements>() {};
+    ResultType<Announcement> resultType = new ResultType<Announcement>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
   }
   /**
@@ -218,7 +218,7 @@ if (filter != null)
    * @param content The content for the object. (optional)
    * @param featuredMedia The id of the featured media for the object. (optional)
    */
-  public ApiResponse<Annoucements> wpV2AnnoucementsIdPost(String id, LocalDateTime date, LocalDateTime dateGmt, String password, String slug, String status, String title, String content, Integer featuredMedia) {
+  public ApiResponse<Announcement> wpV2AnnouncementIdPost(String id, LocalDateTime date, LocalDateTime dateGmt, String password, String slug, String status, String title, String content, Integer featuredMedia) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
         
@@ -239,10 +239,10 @@ if (content != null)
 if (featuredMedia != null)
       formParams.put("featured_media", featuredMedia);
     
-    String path = String.format("%s/wp/v2/annoucements/{id}"
+    String path = String.format("%s/wp/v2/announcement/{id}"
       .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
       
-    ResultType<Annoucements> resultType = new ResultType<Annoucements>() {};
+    ResultType<Announcement> resultType = new ResultType<Announcement>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
   }
   /**
@@ -257,7 +257,7 @@ if (featuredMedia != null)
    * @param content The content for the object. (optional)
    * @param featuredMedia The id of the featured media for the object. (optional)
    */
-  public ApiResponse<Annoucements> wpV2AnnoucementsPost(LocalDateTime date, LocalDateTime dateGmt, String password, String slug, String status, String title, String content, Integer featuredMedia) {
+  public ApiResponse<Announcement> wpV2AnnouncementPost(LocalDateTime date, LocalDateTime dateGmt, String password, String slug, String status, String title, String content, Integer featuredMedia) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
         
@@ -278,9 +278,9 @@ if (content != null)
 if (featuredMedia != null)
       formParams.put("featured_media", featuredMedia);
     
-    String path = String.format("%s/wp/v2/annoucements", baseUrl);
+    String path = String.format("%s/wp/v2/announcement", baseUrl);
       
-    ResultType<Annoucements> resultType = new ResultType<Annoucements>() {};
+    ResultType<Announcement> resultType = new ResultType<Announcement>() {};
     return client.doPOSTRequest(path, resultType, queryParams, formParams);
   }
   /**

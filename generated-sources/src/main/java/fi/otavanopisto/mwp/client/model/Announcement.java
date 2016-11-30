@@ -38,10 +38,10 @@ import java.time.LocalDateTime;
 
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 /**
- * Annoucements
+ * Announcement
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-11-30T13:16:42.776+02:00")
-public class Annoucements   {
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-11-30T14:46:18.068+02:00")
+public class Announcement   {
   @JsonProperty("date")
   @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)  
   @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)  
@@ -128,7 +128,7 @@ public class Annoucements   {
   @JsonProperty("featured_media")
   private Integer featuredMedia = null;
 
-  public Annoucements date(LocalDateTime date) {
+  public Announcement date(LocalDateTime date) {
     this.date = date;
     return this;
   }
@@ -146,7 +146,7 @@ public class Annoucements   {
     this.date = date;
   }
 
-  public Annoucements dateGmt(LocalDateTime dateGmt) {
+  public Announcement dateGmt(LocalDateTime dateGmt) {
     this.dateGmt = dateGmt;
     return this;
   }
@@ -164,7 +164,7 @@ public class Annoucements   {
     this.dateGmt = dateGmt;
   }
 
-  public Annoucements guid(PostGuid guid) {
+  public Announcement guid(PostGuid guid) {
     this.guid = guid;
     return this;
   }
@@ -182,7 +182,7 @@ public class Annoucements   {
     this.guid = guid;
   }
 
-  public Annoucements id(Integer id) {
+  public Announcement id(Integer id) {
     this.id = id;
     return this;
   }
@@ -200,7 +200,7 @@ public class Annoucements   {
     this.id = id;
   }
 
-  public Annoucements link(String link) {
+  public Announcement link(String link) {
     this.link = link;
     return this;
   }
@@ -218,7 +218,7 @@ public class Annoucements   {
     this.link = link;
   }
 
-  public Annoucements modified(LocalDateTime modified) {
+  public Announcement modified(LocalDateTime modified) {
     this.modified = modified;
     return this;
   }
@@ -236,7 +236,7 @@ public class Annoucements   {
     this.modified = modified;
   }
 
-  public Annoucements modifiedGmt(LocalDateTime modifiedGmt) {
+  public Announcement modifiedGmt(LocalDateTime modifiedGmt) {
     this.modifiedGmt = modifiedGmt;
     return this;
   }
@@ -254,7 +254,7 @@ public class Annoucements   {
     this.modifiedGmt = modifiedGmt;
   }
 
-  public Annoucements password(String password) {
+  public Announcement password(String password) {
     this.password = password;
     return this;
   }
@@ -272,7 +272,7 @@ public class Annoucements   {
     this.password = password;
   }
 
-  public Annoucements slug(String slug) {
+  public Announcement slug(String slug) {
     this.slug = slug;
     return this;
   }
@@ -290,7 +290,7 @@ public class Annoucements   {
     this.slug = slug;
   }
 
-  public Annoucements status(StatusEnum status) {
+  public Announcement status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -308,7 +308,7 @@ public class Annoucements   {
     this.status = status;
   }
 
-  public Annoucements type(String type) {
+  public Announcement type(String type) {
     this.type = type;
     return this;
   }
@@ -326,7 +326,7 @@ public class Annoucements   {
     this.type = type;
   }
 
-  public Annoucements title(PostTitle title) {
+  public Announcement title(PostTitle title) {
     this.title = title;
     return this;
   }
@@ -344,7 +344,7 @@ public class Annoucements   {
     this.title = title;
   }
 
-  public Annoucements content(PostContent content) {
+  public Announcement content(PostContent content) {
     this.content = content;
     return this;
   }
@@ -362,7 +362,7 @@ public class Annoucements   {
     this.content = content;
   }
 
-  public Annoucements featuredMedia(Integer featuredMedia) {
+  public Announcement featuredMedia(Integer featuredMedia) {
     this.featuredMedia = featuredMedia;
     return this;
   }
@@ -389,21 +389,21 @@ public class Annoucements   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Annoucements annoucements = (Annoucements) o;
-    return Objects.equals(this.date, annoucements.date) &&
-        Objects.equals(this.dateGmt, annoucements.dateGmt) &&
-        Objects.equals(this.guid, annoucements.guid) &&
-        Objects.equals(this.id, annoucements.id) &&
-        Objects.equals(this.link, annoucements.link) &&
-        Objects.equals(this.modified, annoucements.modified) &&
-        Objects.equals(this.modifiedGmt, annoucements.modifiedGmt) &&
-        Objects.equals(this.password, annoucements.password) &&
-        Objects.equals(this.slug, annoucements.slug) &&
-        Objects.equals(this.status, annoucements.status) &&
-        Objects.equals(this.type, annoucements.type) &&
-        Objects.equals(this.title, annoucements.title) &&
-        Objects.equals(this.content, annoucements.content) &&
-        Objects.equals(this.featuredMedia, annoucements.featuredMedia);
+    Announcement announcement = (Announcement) o;
+    return Objects.equals(this.date, announcement.date) &&
+        Objects.equals(this.dateGmt, announcement.dateGmt) &&
+        Objects.equals(this.guid, announcement.guid) &&
+        Objects.equals(this.id, announcement.id) &&
+        Objects.equals(this.link, announcement.link) &&
+        Objects.equals(this.modified, announcement.modified) &&
+        Objects.equals(this.modifiedGmt, announcement.modifiedGmt) &&
+        Objects.equals(this.password, announcement.password) &&
+        Objects.equals(this.slug, announcement.slug) &&
+        Objects.equals(this.status, announcement.status) &&
+        Objects.equals(this.type, announcement.type) &&
+        Objects.equals(this.title, announcement.title) &&
+        Objects.equals(this.content, announcement.content) &&
+        Objects.equals(this.featuredMedia, announcement.featuredMedia);
   }
 
   @Override
@@ -414,7 +414,7 @@ public class Annoucements   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Annoucements {\n");
+    sb.append("class Announcement {\n");
     
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    dateGmt: ").append(toIndentedString(dateGmt)).append("\n");
