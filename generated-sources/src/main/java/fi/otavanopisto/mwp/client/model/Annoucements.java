@@ -38,10 +38,10 @@ import java.time.LocalDateTime;
 
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 /**
- * Banner
+ * Annoucements
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-11-30T13:16:42.776+02:00")
-public class Banner   {
+public class Annoucements   {
   @JsonProperty("date")
   @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)  
   @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)  
@@ -128,10 +128,7 @@ public class Banner   {
   @JsonProperty("featured_media")
   private Integer featuredMedia = null;
 
-  @JsonProperty("banner-link")
-  private String bannerLink = null;
-
-  public Banner date(LocalDateTime date) {
+  public Annoucements date(LocalDateTime date) {
     this.date = date;
     return this;
   }
@@ -149,7 +146,7 @@ public class Banner   {
     this.date = date;
   }
 
-  public Banner dateGmt(LocalDateTime dateGmt) {
+  public Annoucements dateGmt(LocalDateTime dateGmt) {
     this.dateGmt = dateGmt;
     return this;
   }
@@ -167,7 +164,7 @@ public class Banner   {
     this.dateGmt = dateGmt;
   }
 
-  public Banner guid(PostGuid guid) {
+  public Annoucements guid(PostGuid guid) {
     this.guid = guid;
     return this;
   }
@@ -185,7 +182,7 @@ public class Banner   {
     this.guid = guid;
   }
 
-  public Banner id(Integer id) {
+  public Annoucements id(Integer id) {
     this.id = id;
     return this;
   }
@@ -203,7 +200,7 @@ public class Banner   {
     this.id = id;
   }
 
-  public Banner link(String link) {
+  public Annoucements link(String link) {
     this.link = link;
     return this;
   }
@@ -221,7 +218,7 @@ public class Banner   {
     this.link = link;
   }
 
-  public Banner modified(LocalDateTime modified) {
+  public Annoucements modified(LocalDateTime modified) {
     this.modified = modified;
     return this;
   }
@@ -239,7 +236,7 @@ public class Banner   {
     this.modified = modified;
   }
 
-  public Banner modifiedGmt(LocalDateTime modifiedGmt) {
+  public Annoucements modifiedGmt(LocalDateTime modifiedGmt) {
     this.modifiedGmt = modifiedGmt;
     return this;
   }
@@ -257,7 +254,7 @@ public class Banner   {
     this.modifiedGmt = modifiedGmt;
   }
 
-  public Banner password(String password) {
+  public Annoucements password(String password) {
     this.password = password;
     return this;
   }
@@ -275,7 +272,7 @@ public class Banner   {
     this.password = password;
   }
 
-  public Banner slug(String slug) {
+  public Annoucements slug(String slug) {
     this.slug = slug;
     return this;
   }
@@ -293,7 +290,7 @@ public class Banner   {
     this.slug = slug;
   }
 
-  public Banner status(StatusEnum status) {
+  public Annoucements status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -311,7 +308,7 @@ public class Banner   {
     this.status = status;
   }
 
-  public Banner type(String type) {
+  public Annoucements type(String type) {
     this.type = type;
     return this;
   }
@@ -329,7 +326,7 @@ public class Banner   {
     this.type = type;
   }
 
-  public Banner title(PostTitle title) {
+  public Annoucements title(PostTitle title) {
     this.title = title;
     return this;
   }
@@ -347,7 +344,7 @@ public class Banner   {
     this.title = title;
   }
 
-  public Banner content(PostContent content) {
+  public Annoucements content(PostContent content) {
     this.content = content;
     return this;
   }
@@ -365,7 +362,7 @@ public class Banner   {
     this.content = content;
   }
 
-  public Banner featuredMedia(Integer featuredMedia) {
+  public Annoucements featuredMedia(Integer featuredMedia) {
     this.featuredMedia = featuredMedia;
     return this;
   }
@@ -383,24 +380,6 @@ public class Banner   {
     this.featuredMedia = featuredMedia;
   }
 
-  public Banner bannerLink(String bannerLink) {
-    this.bannerLink = bannerLink;
-    return this;
-  }
-
-   /**
-   * Banner link
-   * @return bannerLink
-  **/
-  @ApiModelProperty(example = "null", value = "Banner link")
-  public String getBannerLink() {
-    return bannerLink;
-  }
-
-  public void setBannerLink(String bannerLink) {
-    this.bannerLink = bannerLink;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -410,33 +389,32 @@ public class Banner   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Banner banner = (Banner) o;
-    return Objects.equals(this.date, banner.date) &&
-        Objects.equals(this.dateGmt, banner.dateGmt) &&
-        Objects.equals(this.guid, banner.guid) &&
-        Objects.equals(this.id, banner.id) &&
-        Objects.equals(this.link, banner.link) &&
-        Objects.equals(this.modified, banner.modified) &&
-        Objects.equals(this.modifiedGmt, banner.modifiedGmt) &&
-        Objects.equals(this.password, banner.password) &&
-        Objects.equals(this.slug, banner.slug) &&
-        Objects.equals(this.status, banner.status) &&
-        Objects.equals(this.type, banner.type) &&
-        Objects.equals(this.title, banner.title) &&
-        Objects.equals(this.content, banner.content) &&
-        Objects.equals(this.featuredMedia, banner.featuredMedia) &&
-        Objects.equals(this.bannerLink, banner.bannerLink);
+    Annoucements annoucements = (Annoucements) o;
+    return Objects.equals(this.date, annoucements.date) &&
+        Objects.equals(this.dateGmt, annoucements.dateGmt) &&
+        Objects.equals(this.guid, annoucements.guid) &&
+        Objects.equals(this.id, annoucements.id) &&
+        Objects.equals(this.link, annoucements.link) &&
+        Objects.equals(this.modified, annoucements.modified) &&
+        Objects.equals(this.modifiedGmt, annoucements.modifiedGmt) &&
+        Objects.equals(this.password, annoucements.password) &&
+        Objects.equals(this.slug, annoucements.slug) &&
+        Objects.equals(this.status, annoucements.status) &&
+        Objects.equals(this.type, annoucements.type) &&
+        Objects.equals(this.title, annoucements.title) &&
+        Objects.equals(this.content, annoucements.content) &&
+        Objects.equals(this.featuredMedia, annoucements.featuredMedia);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, dateGmt, guid, id, link, modified, modifiedGmt, password, slug, status, type, title, content, featuredMedia, bannerLink);
+    return Objects.hash(date, dateGmt, guid, id, link, modified, modifiedGmt, password, slug, status, type, title, content, featuredMedia);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Banner {\n");
+    sb.append("class Annoucements {\n");
     
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    dateGmt: ").append(toIndentedString(dateGmt)).append("\n");
@@ -452,7 +430,6 @@ public class Banner   {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    featuredMedia: ").append(toIndentedString(featuredMedia)).append("\n");
-    sb.append("    bannerLink: ").append(toIndentedString(bannerLink)).append("\n");
     sb.append("}");
     return sb.toString();
   }

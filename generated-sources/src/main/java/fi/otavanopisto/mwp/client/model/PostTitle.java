@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiModelProperty;
  * The title for the object.
  */
 @ApiModel(description = "The title for the object.")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-09-27T13:34:40.094+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-11-30T13:16:42.776+02:00")
 public class PostTitle   {
   @JsonProperty("raw")
   private String raw = null;
