@@ -1,13 +1,14 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   
   <modelVersion>4.0.0</modelVersion>
-  <groupId>fi.otavanopisto.mwp.mwp-rest-client</groupId>
-  <artifactId>mwp-rest-client</artifactId>
+  <groupId>fi.metatavu.kunta-api-management.kunta-api-management-rest-client</groupId>
+  <artifactId>management-rest-client</artifactId>
   <packaging>jar</packaging>
-  <name>mwp-rest-client</name>
+  <name>management-rest-client</name>
   <description>REST client library for Kunta API management Wordpress</description>
   <version>0.0.21</version>
-  <url>https://github.com/otavanopisto/mwp-rest-client</url>
+  <url>https://github.com/metatavu/management-rest-client</url>
   <licenses>
     <license>
       <name>GNU Affero General Public License v3</name>
@@ -18,32 +19,32 @@
   
   <developers>
     <developer>
-      <id>otavanopisto</id>
-      <email>ratkaisutiimi@otavanopisto.fi</email>
-      <name>Otavan Opisto</name>
-      <organization>Otavan Opisto</organization>
-      <organizationUrl>http://www.otavanopisto.fi/</organizationUrl>
-      <roles>
-        <role>Owner</role>
-      </roles>
+      <name>Metatavu Oy</name>
+      <organization>Metatavu Oy</organization>
+      <organizationUrl>http://www.metatavu.fi</organizationUrl>
+    </developer>
+    <developer>
+      <name>City of Mikkeli</name>
+      <organization>City of Mikkeli</organization>
+      <organizationUrl>http://www.mikkeli.fi/</organizationUrl>
     </developer>
   </developers>
 
   <issueManagement>
     <system>GitHub</system>
-    <url>https://github.com/otavanopisto/mwp-rest-client/issues</url>
+    <url>https://github.com/metatavu/management-rest-client/issues</url>
   </issueManagement>
 
   <scm>
-    <developerConnection>scm:git:git@github.com:otavanopisto/mwp-rest-client.git</developerConnection>
-    <url>git@github.com:otavanopisto/mwp-rest-client.git</url>
-    <connection>scm:git:git@github.com:otavanopisto/mwp-rest-client.git</connection>
-    <tag>0.0.21</tag>
+    <developerConnection>scm:git:git@github.com:metatavu/management-rest-client.git</developerConnection>
+    <url>git@github.com:metatavu/management-rest-client.git</url>
+    <connection>scm:git:git@github.com:metatavu/management-rest-client.git</connection>
+    <tag>HEAD</tag>
   </scm>
 
   <organization>
-    <name>Otava Folk High School</name>
-    <url>http://www.otavanopisto.fi</url>
+    <name>Metatavu Oy</name>
+    <url>http://www.metatavu.fi</url>
   </organization>
   
   <properties>
