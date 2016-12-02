@@ -1,4 +1,4 @@
-package fi.otavanopisto.mwp.client;
+package fi.metatavu.management.client;
 
 public class ApiResponse<T> {
 

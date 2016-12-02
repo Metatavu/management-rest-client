@@ -7,7 +7,7 @@ module.exports = function(grunt) {
   
   grunt.initConfig({
     'clean': {
-      'clean-mwp-java-client-cruft': [
+      'cruft': [
         'generated-sources/docs', 
         'generated-sources/gradle', 
         'generated-sources/build.gradle',
@@ -22,13 +22,13 @@ module.exports = function(grunt) {
         'generated-sources/src/test',
         'generated-sources/src/main/AndroidManifest.xml',
         'generated-sources/src/main/java/io',
-        'generated-sources/src/main/java/fi/otavanopisto/mwp/auth',
-        'generated-sources/src/main/java/fi/otavanopisto/mwp/*.java'
+        'generated-sources/src/main/java/fi/metatavu/management/auth',
+        'generated-sources/src/main/java/fi/metatavu/management/*.java'
       ],
       'sources': ['generated-sources/src']
     },
     'copy': {
-      'copy-mwp-rest-client-extras': {
+      'client-extras': {
         src: '**',
         dest: 'generated-sources',
         cwd: 'client-extras',
@@ -42,22 +42,22 @@ module.exports = function(grunt) {
       }
     },
     'shell': {
-      'generate-mwp-java-client': {
-        command : 'mv generated-sources/pom.xml generated-sources/pom.xml.before && \
-          java -jar swagger-codegen-cli.jar generate \
-          -i http://manage.kunta-api.dev/wp-json/apigenerate/swagger \
-          -l java \
-          --api-package fi.otavanopisto.mwp.client\
-          --model-package fi.otavanopisto.mwp.client.model \
-          --group-id fi.otavanopisto.mwp.mwp-rest-client \
-          --artifact-id mwp-rest-client\
-          --artifact-version `mvn -f generated-sources/pom.xml.before -q -Dexec.executable=\'echo\' -Dexec.args=\'${project.version}\' --non-recursive org.codehaus.mojo:exec-maven-plugin:1.3.1:exec` \
-          --template-dir templates \
-          --library jersey2 \
-          --additional-properties dateLibrary=java8-localdatetime \
-          -o generated-sources/'
+      'generate-java-client': {
+        command : 'mv generated-sources/pom.xml generated-sources/pom.xml.before && ' +
+          'java -jar swagger-codegen-cli.jar generate ' +
+          '-i http://manage.kunta-api.dev/wp-json/apigenerate/swagger ' +
+          '-l java ' +
+          '--api-package fi.metatavu.kunta-api-management.client ' +
+          '--model-package fi.metatavu.kunta-api-management.client.model ' +
+          '--group-id fi.metatavu.kunta-api-management.kunta-api-management-rest-client ' +
+          '--artifact-id management-rest-client ' +
+          '--artifact-version `mvn -f generated-sources/pom.xml.before -q -Dexec.executable=\'echo\' -Dexec.args=\'${project.version}\' --non-recursive org.codehaus.mojo:exec-maven-plugin:1.3.1:exec` ' +
+          '--template-dir templates ' +
+          '--library jersey2 ' +
+          '--additional-properties dateLibrary=java8-localdatetime ' +
+          '-o generated-sources/'
       },
-      'install-mwp-java-client': {
+      'install': {
         command : 'mvn install',
         options: {
           execOptions: {
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
           }
         }
       },
-      'release-mwp-java-client': {
+      'release': {
         command : 'git add src pom.xml && git commit -m "Generated source" && git push && mvn -B release:clean release:prepare release:perform',
         options: {
           execOptions: {
@@ -77,6 +77,6 @@ module.exports = function(grunt) {
   });
   
   grunt.registerTask('download-dependencies', 'if-missing:curl:swagger-codegen');
-  grunt.registerTask('default', ['download-dependencies', 'clean:sources', 'shell:generate-mwp-java-client', 'clean:clean-mwp-java-client-cruft', 'copy:copy-mwp-rest-client-extras', 'shell:install-mwp-java-client', 'shell:release-mwp-java-client' ]);
+  grunt.registerTask('default', ['download-dependencies', 'clean:sources', 'shell:generate-java-client', 'clean:cruft', 'copy:client-extras', 'shell:install', 'shell:release' ]);
   
 };
