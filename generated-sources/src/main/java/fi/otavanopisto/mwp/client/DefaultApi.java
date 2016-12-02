@@ -51,7 +51,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-11-30T14:46:18.068+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-12-02T13:55:41.023+02:00")
 public class DefaultApi {
 
   private ApiClient client;
@@ -216,9 +216,8 @@ if (filter != null)
    * @param status A named status for the object. (optional)
    * @param title The title for the object. (optional)
    * @param content The content for the object. (optional)
-   * @param featuredMedia The id of the featured media for the object. (optional)
    */
-  public ApiResponse<Announcement> wpV2AnnouncementIdPost(String id, LocalDateTime date, LocalDateTime dateGmt, String password, String slug, String status, String title, String content, Integer featuredMedia) {
+  public ApiResponse<Announcement> wpV2AnnouncementIdPost(String id, LocalDateTime date, LocalDateTime dateGmt, String password, String slug, String status, String title, String content) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
         
@@ -236,8 +235,6 @@ if (title != null)
       formParams.put("title", title);
 if (content != null)
       formParams.put("content", content);
-if (featuredMedia != null)
-      formParams.put("featured_media", featuredMedia);
     
     String path = String.format("%s/wp/v2/announcement/{id}"
       .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
@@ -255,9 +252,8 @@ if (featuredMedia != null)
    * @param status A named status for the object. (optional)
    * @param title The title for the object. (optional)
    * @param content The content for the object. (optional)
-   * @param featuredMedia The id of the featured media for the object. (optional)
    */
-  public ApiResponse<Announcement> wpV2AnnouncementPost(LocalDateTime date, LocalDateTime dateGmt, String password, String slug, String status, String title, String content, Integer featuredMedia) {
+  public ApiResponse<Announcement> wpV2AnnouncementPost(LocalDateTime date, LocalDateTime dateGmt, String password, String slug, String status, String title, String content) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
         
@@ -275,8 +271,6 @@ if (title != null)
       formParams.put("title", title);
 if (content != null)
       formParams.put("content", content);
-if (featuredMedia != null)
-      formParams.put("featured_media", featuredMedia);
     
     String path = String.format("%s/wp/v2/announcement", baseUrl);
       

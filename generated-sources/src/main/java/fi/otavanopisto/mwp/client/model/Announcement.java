@@ -40,7 +40,7 @@ import java.time.LocalDateTime;
 /**
  * Announcement
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-11-30T14:46:18.068+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-12-02T13:55:41.023+02:00")
 public class Announcement   {
   @JsonProperty("date")
   @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)  
@@ -124,9 +124,6 @@ public class Announcement   {
 
   @JsonProperty("content")
   private PostContent content = null;
-
-  @JsonProperty("featured_media")
-  private Integer featuredMedia = null;
 
   public Announcement date(LocalDateTime date) {
     this.date = date;
@@ -362,24 +359,6 @@ public class Announcement   {
     this.content = content;
   }
 
-  public Announcement featuredMedia(Integer featuredMedia) {
-    this.featuredMedia = featuredMedia;
-    return this;
-  }
-
-   /**
-   * The id of the featured media for the object.
-   * @return featuredMedia
-  **/
-  @ApiModelProperty(example = "null", value = "The id of the featured media for the object.")
-  public Integer getFeaturedMedia() {
-    return featuredMedia;
-  }
-
-  public void setFeaturedMedia(Integer featuredMedia) {
-    this.featuredMedia = featuredMedia;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -402,13 +381,12 @@ public class Announcement   {
         Objects.equals(this.status, announcement.status) &&
         Objects.equals(this.type, announcement.type) &&
         Objects.equals(this.title, announcement.title) &&
-        Objects.equals(this.content, announcement.content) &&
-        Objects.equals(this.featuredMedia, announcement.featuredMedia);
+        Objects.equals(this.content, announcement.content);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, dateGmt, guid, id, link, modified, modifiedGmt, password, slug, status, type, title, content, featuredMedia);
+    return Objects.hash(date, dateGmt, guid, id, link, modified, modifiedGmt, password, slug, status, type, title, content);
   }
 
   @Override
@@ -429,7 +407,6 @@ public class Announcement   {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    featuredMedia: ").append(toIndentedString(featuredMedia)).append("\n");
     sb.append("}");
     return sb.toString();
   }
