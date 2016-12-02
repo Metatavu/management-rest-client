@@ -47,8 +47,8 @@ module.exports = function(grunt) {
           'java -jar swagger-codegen-cli.jar generate ' +
           '-i http://manage.kunta-api.dev/wp-json/apigenerate/swagger ' +
           '-l java ' +
-          '--api-package fi.metatavu.kunta-api-management.client ' +
-          '--model-package fi.metatavu.kunta-api-management.client.model ' +
+          '--api-package fi.metatavu.management.client ' +
+          '--model-package fi.metatavu.management.client.model ' +
           '--group-id fi.metatavu.kunta-api-management.kunta-api-management-rest-client ' +
           '--artifact-id management-rest-client ' +
           '--artifact-version `mvn -f generated-sources/pom.xml.before -q -Dexec.executable=\'echo\' -Dexec.args=\'${project.version}\' --non-recursive org.codehaus.mojo:exec-maven-plugin:1.3.1:exec` ' +
