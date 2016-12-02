@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiModelProperty;
  * The excerpt for the object.
  */
 @ApiModel(description = "The excerpt for the object.")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-12-02T14:07:12.652+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-12-02T14:08:15.286+02:00")
 public class PostExcerpt   {
   @JsonProperty("raw")
   private String raw = null;
