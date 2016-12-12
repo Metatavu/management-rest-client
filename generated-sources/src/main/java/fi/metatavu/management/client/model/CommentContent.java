@@ -38,17 +38,14 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Kohteen sisältö.")
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-12-12T06:40:24.206+02:00")
-public class PostContent   {
+public class CommentContent   {
   @JsonProperty("raw")
   private String raw = null;
 
   @JsonProperty("rendered")
   private String rendered = null;
 
-  @JsonProperty("protected")
-  private Boolean _protected = null;
-
-  public PostContent raw(String raw) {
+  public CommentContent raw(String raw) {
     this.raw = raw;
     return this;
   }
@@ -66,7 +63,7 @@ public class PostContent   {
     this.raw = raw;
   }
 
-  public PostContent rendered(String rendered) {
+  public CommentContent rendered(String rendered) {
     this.rendered = rendered;
     return this;
   }
@@ -84,24 +81,6 @@ public class PostContent   {
     this.rendered = rendered;
   }
 
-  public PostContent _protected(Boolean _protected) {
-    this._protected = _protected;
-    return this;
-  }
-
-   /**
-   * Onko sisältö suojattu salasanalla.
-   * @return _protected
-  **/
-  @ApiModelProperty(example = "null", value = "Onko sisältö suojattu salasanalla.")
-  public Boolean getProtected() {
-    return _protected;
-  }
-
-  public void setProtected(Boolean _protected) {
-    this._protected = _protected;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -111,25 +90,23 @@ public class PostContent   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PostContent postContent = (PostContent) o;
-    return Objects.equals(this.raw, postContent.raw) &&
-        Objects.equals(this.rendered, postContent.rendered) &&
-        Objects.equals(this._protected, postContent._protected);
+    CommentContent commentContent = (CommentContent) o;
+    return Objects.equals(this.raw, commentContent.raw) &&
+        Objects.equals(this.rendered, commentContent.rendered);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(raw, rendered, _protected);
+    return Objects.hash(raw, rendered);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PostContent {\n");
+    sb.append("class CommentContent {\n");
     
     sb.append("    raw: ").append(toIndentedString(raw)).append("\n");
     sb.append("    rendered: ").append(toIndentedString(rendered)).append("\n");
-    sb.append("    _protected: ").append(toIndentedString(_protected)).append("\n");
     sb.append("}");
     return sb.toString();
   }

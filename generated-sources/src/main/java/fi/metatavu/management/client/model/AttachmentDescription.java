@@ -34,30 +34,27 @@ import io.swagger.annotations.ApiModelProperty;
 
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 /**
- * Kohteen sisältö.
+ * Liitetiedoston kuvaus.
  */
-@ApiModel(description = "Kohteen sisältö.")
+@ApiModel(description = "Liitetiedoston kuvaus.")
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-12-12T06:40:24.206+02:00")
-public class PostContent   {
+public class AttachmentDescription   {
   @JsonProperty("raw")
   private String raw = null;
 
   @JsonProperty("rendered")
   private String rendered = null;
 
-  @JsonProperty("protected")
-  private Boolean _protected = null;
-
-  public PostContent raw(String raw) {
+  public AttachmentDescription raw(String raw) {
     this.raw = raw;
     return this;
   }
 
    /**
-   * Kohteen sisältö siinä muodossa kuin se on tietokannassa.
+   * Resurssin kuvaus sellaisena kuin se on tietokannassa. 
    * @return raw
   **/
-  @ApiModelProperty(example = "null", value = "Kohteen sisältö siinä muodossa kuin se on tietokannassa.")
+  @ApiModelProperty(example = "null", value = "Resurssin kuvaus sellaisena kuin se on tietokannassa. ")
   public String getRaw() {
     return raw;
   }
@@ -66,40 +63,22 @@ public class PostContent   {
     this.raw = raw;
   }
 
-  public PostContent rendered(String rendered) {
+  public AttachmentDescription rendered(String rendered) {
     this.rendered = rendered;
     return this;
   }
 
    /**
-   * Kohteen HTML-sisältö, esitettäväksi muunnettuna.
+   * Kohteen HTML-muotoinen kuvaus, sellaisena kuin se tulostetaan selaimelle.
    * @return rendered
   **/
-  @ApiModelProperty(example = "null", value = "Kohteen HTML-sisältö, esitettäväksi muunnettuna.")
+  @ApiModelProperty(example = "null", value = "Kohteen HTML-muotoinen kuvaus, sellaisena kuin se tulostetaan selaimelle.")
   public String getRendered() {
     return rendered;
   }
 
   public void setRendered(String rendered) {
     this.rendered = rendered;
-  }
-
-  public PostContent _protected(Boolean _protected) {
-    this._protected = _protected;
-    return this;
-  }
-
-   /**
-   * Onko sisältö suojattu salasanalla.
-   * @return _protected
-  **/
-  @ApiModelProperty(example = "null", value = "Onko sisältö suojattu salasanalla.")
-  public Boolean getProtected() {
-    return _protected;
-  }
-
-  public void setProtected(Boolean _protected) {
-    this._protected = _protected;
   }
 
 
@@ -111,25 +90,23 @@ public class PostContent   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PostContent postContent = (PostContent) o;
-    return Objects.equals(this.raw, postContent.raw) &&
-        Objects.equals(this.rendered, postContent.rendered) &&
-        Objects.equals(this._protected, postContent._protected);
+    AttachmentDescription attachmentDescription = (AttachmentDescription) o;
+    return Objects.equals(this.raw, attachmentDescription.raw) &&
+        Objects.equals(this.rendered, attachmentDescription.rendered);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(raw, rendered, _protected);
+    return Objects.hash(raw, rendered);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PostContent {\n");
+    sb.append("class AttachmentDescription {\n");
     
     sb.append("    raw: ").append(toIndentedString(raw)).append("\n");
     sb.append("    rendered: ").append(toIndentedString(rendered)).append("\n");
-    sb.append("    _protected: ").append(toIndentedString(_protected)).append("\n");
     sb.append("}");
     return sb.toString();
   }
