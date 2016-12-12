@@ -45,7 +45,7 @@ module.exports = function(grunt) {
       'generate-java-client': {
         command : 'mv generated-sources/pom.xml generated-sources/pom.xml.before && ' +
           'java -jar swagger-codegen-cli.jar generate ' +
-          '-i https://staging-hallinta-mikkeli.kunta-api.fi/wp-json/apigenerate/swagger ' +
+          '-i ./swagger.json ' +
           '-l java ' +
           '--api-package fi.metatavu.management.client ' +
           '--model-package fi.metatavu.management.client.model ' +
