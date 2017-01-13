@@ -51,7 +51,7 @@ module.exports = function(grunt) {
           '--model-package fi.metatavu.management.client.model ' +
           '--group-id fi.metatavu.kunta-api-management ' +
           '--artifact-id management-rest-client ' +
-          '--artifact-version `mvn -f generated-sources/pom.xml.before -q -Dexec.executable=\'echo\' -Dexec.args=\'${project.version}\' --non-recursive org.codehaus.mojo:exec-maven-plugin:1.3.1:exec` ' +
+          '--artifact-version `cat generated-sources/pom.xml.before|grep version -m 1|sed -e \'s/.*<version>//\'|sed -e \'s/<.*//\'` ' +
           '--template-dir templates ' +
           '--library jersey2 ' +
           '--additional-properties dateLibrary=java8-localdatetime ' +
