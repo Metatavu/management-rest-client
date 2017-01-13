@@ -34,6 +34,7 @@ import fi.metatavu.management.client.model.Announcement;
 import fi.metatavu.management.client.model.Banner;
 import fi.metatavu.management.client.model.Category;
 import fi.metatavu.management.client.model.Comment;
+import fi.metatavu.management.client.model.Fragment;
 import fi.metatavu.management.client.model.Attachment;
 import fi.metatavu.management.client.model.Page;
 import fi.metatavu.management.client.model.PageRevision;
@@ -52,7 +53,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-12-12T06:40:24.206+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-13T07:26:12.428+02:00")
 public class DefaultApi {
 
   private ApiClient client;
@@ -850,6 +851,178 @@ if (meta != null)
    * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
    * @param search Rajaa tulokset niihin, jotka täsmäävät merkkijonoon.  (optional)
    * @param after Rajoita tulokset artikkeleihin, jotka on julkaistu annetun ISO8601-yhteensopivan päivämäärän jälkeen. (optional)
+   * @param before Rajoita tulokset artikkeleihin, jotka on julkaistu annettua ISO8601-yhteensopivaa päivämäärää ennen. (optional)
+   * @param exclude Varmista, etteivät tulokset sisällä tiettyjä ID:itä. (optional)
+   * @param include Rajaa tulokset tiettyihin ID:ihin. (optional)
+   * @param offset Ohita määritelty määrä kohteita alusta. (optional)
+   * @param order Järjestää tulokset nousevaan tai laskevaan järjestykseen. (optional, default to desc)
+   * @param orderby Järjestä kokoelma kohteen ominaisuuden mukaan. (optional, default to date)
+   * @param slug Rajaa tulokset artikkeleihin joilla on yksi tai useampi polkutunnus. (optional)
+   * @param status Rajaa tulokset artikkeleihin, joilla yksi tai useampi tila. (optional, default to publish)
+   */
+  public ApiResponse<List<Fragment>> wpV2FragmentGet(String context, Integer page, Integer perPage, String search, LocalDateTime after, LocalDateTime before, List<String> exclude, List<String> include, Integer offset, String order, String orderby, List<String> slug, List<String> status) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (page != null)
+    queryParams.put("page", page);
+if (perPage != null)
+    queryParams.put("per_page", perPage);
+if (search != null)
+    queryParams.put("search", search);
+if (after != null)
+    queryParams.put("after", after);
+if (before != null)
+    queryParams.put("before", before);
+if (exclude != null)
+    queryParams.put("exclude", exclude);
+if (include != null)
+    queryParams.put("include", include);
+if (offset != null)
+    queryParams.put("offset", offset);
+if (order != null)
+    queryParams.put("order", order);
+if (orderby != null)
+    queryParams.put("orderby", orderby);
+if (slug != null)
+    queryParams.put("slug", slug);
+if (status != null)
+    queryParams.put("status", status);
+    
+        
+    String path = String.format("%s/wp/v2/fragment", baseUrl);
+      
+    ResultType<List<Fragment>> resultType = new ResultType<List<Fragment>>() {};
+    return client.doGETRequest(path, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param force Ohitetaanko roskakori ja pakotetaan poistaminen. (optional)
+   */
+  public ApiResponse<Fragment> wpV2FragmentIdDelete(String id, Boolean force) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (force != null)
+    queryParams.put("force", force);
+    
+        
+    String path = String.format("%s/wp/v2/fragment/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Fragment> resultType = new ResultType<Fragment>() {};
+    return client.doDELETERequest(path, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param password Artikkelin salasana, jos se on salasanasuojattu.  (optional)
+   */
+  public ApiResponse<Fragment> wpV2FragmentIdGet(String id, String context, String password) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (password != null)
+    queryParams.put("password", password);
+    
+        
+    String path = String.format("%s/wp/v2/fragment/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Fragment> resultType = new ResultType<Fragment>() {};
+    return client.doGETRequest(path, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param date Ajankohta kun kohde julkaistiin sivuston aikavyöhykkeen ajassa. (optional)
+   * @param dateGmt Ajankohta kun kohde julkaistiin GMT-ajassa. (optional)
+   * @param slug Kohteen tyypilleen uniikki alfanumeerinen tunniste. (optional)
+   * @param status Kohteen nimetty tila. (optional)
+   * @param password Salasana sisällön ja otteen suojaamiseksi.  (optional)
+   * @param title Kohteen otsikko.  (optional)
+   * @param content Kohteen sisältö. (optional)
+   * @param template Teematiedosto joka näyttää kohteen. (optional)
+   */
+  public ApiResponse<Fragment> wpV2FragmentIdPost(String id, LocalDateTime date, LocalDateTime dateGmt, String slug, String status, String password, String title, String content, String template) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+    if (date != null)
+      formParams.put("date", date);
+if (dateGmt != null)
+      formParams.put("date_gmt", dateGmt);
+if (slug != null)
+      formParams.put("slug", slug);
+if (status != null)
+      formParams.put("status", status);
+if (password != null)
+      formParams.put("password", password);
+if (title != null)
+      formParams.put("title", title);
+if (content != null)
+      formParams.put("content", content);
+if (template != null)
+      formParams.put("template", template);
+    
+    String path = String.format("%s/wp/v2/fragment/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Fragment> resultType = new ResultType<Fragment>() {};
+    return client.doPOSTRequest(path, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param date Ajankohta kun kohde julkaistiin sivuston aikavyöhykkeen ajassa. (optional)
+   * @param dateGmt Ajankohta kun kohde julkaistiin GMT-ajassa. (optional)
+   * @param slug Kohteen tyypilleen uniikki alfanumeerinen tunniste. (optional)
+   * @param status Kohteen nimetty tila. (optional)
+   * @param password Salasana sisällön ja otteen suojaamiseksi.  (optional)
+   * @param title Kohteen otsikko.  (optional)
+   * @param content Kohteen sisältö. (optional)
+   * @param template Teematiedosto joka näyttää kohteen. (optional)
+   */
+  public ApiResponse<Fragment> wpV2FragmentPost(LocalDateTime date, LocalDateTime dateGmt, String slug, String status, String password, String title, String content, String template) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+    if (date != null)
+      formParams.put("date", date);
+if (dateGmt != null)
+      formParams.put("date_gmt", dateGmt);
+if (slug != null)
+      formParams.put("slug", slug);
+if (status != null)
+      formParams.put("status", status);
+if (password != null)
+      formParams.put("password", password);
+if (title != null)
+      formParams.put("title", title);
+if (content != null)
+      formParams.put("content", content);
+if (template != null)
+      formParams.put("template", template);
+    
+    String path = String.format("%s/wp/v2/fragment", baseUrl);
+      
+    ResultType<Fragment> resultType = new ResultType<Fragment>() {};
+    return client.doPOSTRequest(path, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param page Kokoelman nykyinen sivu. (optional, default to 1)
+   * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
+   * @param search Rajaa tulokset niihin, jotka täsmäävät merkkijonoon.  (optional)
+   * @param after Rajoita tulokset artikkeleihin, jotka on julkaistu annetun ISO8601-yhteensopivan päivämäärän jälkeen. (optional)
    * @param author Rajaa tulokset tiettyjen kirjoittajien artikkeleihin.  (optional)
    * @param authorExclude Varmistaa ettei tuloksissa ole artikkeleita, jotka on liitetty tiettyihin kirjoittajiin. (optional)
    * @param before Rajoita tulokset artikkeleihin, jotka on julkaistu annettua ISO8601-yhteensopivaa päivämäärää ennen. (optional)
@@ -937,15 +1110,12 @@ if (mimeType != null)
    * 
    * @param id  (required)
    * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
-   * @param password Artikkelin salasana, jos se on salasanasuojattu.  (optional)
    */
-  public ApiResponse<Attachment> wpV2MediaIdGet(String id, String context, String password) {
+  public ApiResponse<Attachment> wpV2MediaIdGet(String id, String context) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
     if (context != null)
     queryParams.put("context", context);
-if (password != null)
-    queryParams.put("password", password);
     
         
     String path = String.format("%s/wp/v2/media/{id}"

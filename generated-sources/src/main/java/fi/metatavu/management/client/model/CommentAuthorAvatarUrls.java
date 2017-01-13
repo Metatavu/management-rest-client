@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Kohteen kirjoittajan avatarin URL.
  */
 @ApiModel(description = "Kohteen kirjoittajan avatarin URL.")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-12-12T06:40:24.206+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-13T07:26:12.428+02:00")
 public class CommentAuthorAvatarUrls   {
   @JsonProperty("24")
   private String _24 = null;

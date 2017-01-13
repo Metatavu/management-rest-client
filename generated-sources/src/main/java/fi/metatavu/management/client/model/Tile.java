@@ -40,7 +40,7 @@ import java.time.LocalDateTime;
 /**
  * Tile
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-12-12T06:40:24.206+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-13T07:26:12.428+02:00")
 public class Tile   {
   @JsonProperty("date")
   @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)  
@@ -86,7 +86,9 @@ public class Tile   {
     
     PENDING("pending"),
     
-    PRIVATE("private");
+    PRIVATE("private"),
+    
+    EXPIRATION("expiration");
 
     private String value;
 

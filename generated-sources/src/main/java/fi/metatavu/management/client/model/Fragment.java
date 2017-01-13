@@ -38,10 +38,10 @@ import java.time.LocalDateTime;
 
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 /**
- * Announcement
+ * Fragment
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-13T07:26:12.428+02:00")
-public class Announcement   {
+public class Fragment   {
   @JsonProperty("date")
   @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)  
   @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)  
@@ -130,7 +130,7 @@ public class Announcement   {
   @JsonProperty("template")
   private String template = null;
 
-  public Announcement date(LocalDateTime date) {
+  public Fragment date(LocalDateTime date) {
     this.date = date;
     return this;
   }
@@ -148,7 +148,7 @@ public class Announcement   {
     this.date = date;
   }
 
-  public Announcement dateGmt(LocalDateTime dateGmt) {
+  public Fragment dateGmt(LocalDateTime dateGmt) {
     this.dateGmt = dateGmt;
     return this;
   }
@@ -166,7 +166,7 @@ public class Announcement   {
     this.dateGmt = dateGmt;
   }
 
-  public Announcement guid(PostGuid guid) {
+  public Fragment guid(PostGuid guid) {
     this.guid = guid;
     return this;
   }
@@ -184,7 +184,7 @@ public class Announcement   {
     this.guid = guid;
   }
 
-  public Announcement id(Integer id) {
+  public Fragment id(Integer id) {
     this.id = id;
     return this;
   }
@@ -202,7 +202,7 @@ public class Announcement   {
     this.id = id;
   }
 
-  public Announcement link(String link) {
+  public Fragment link(String link) {
     this.link = link;
     return this;
   }
@@ -220,7 +220,7 @@ public class Announcement   {
     this.link = link;
   }
 
-  public Announcement modified(LocalDateTime modified) {
+  public Fragment modified(LocalDateTime modified) {
     this.modified = modified;
     return this;
   }
@@ -238,7 +238,7 @@ public class Announcement   {
     this.modified = modified;
   }
 
-  public Announcement modifiedGmt(LocalDateTime modifiedGmt) {
+  public Fragment modifiedGmt(LocalDateTime modifiedGmt) {
     this.modifiedGmt = modifiedGmt;
     return this;
   }
@@ -256,7 +256,7 @@ public class Announcement   {
     this.modifiedGmt = modifiedGmt;
   }
 
-  public Announcement slug(String slug) {
+  public Fragment slug(String slug) {
     this.slug = slug;
     return this;
   }
@@ -274,7 +274,7 @@ public class Announcement   {
     this.slug = slug;
   }
 
-  public Announcement status(StatusEnum status) {
+  public Fragment status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -292,7 +292,7 @@ public class Announcement   {
     this.status = status;
   }
 
-  public Announcement type(String type) {
+  public Fragment type(String type) {
     this.type = type;
     return this;
   }
@@ -310,7 +310,7 @@ public class Announcement   {
     this.type = type;
   }
 
-  public Announcement password(String password) {
+  public Fragment password(String password) {
     this.password = password;
     return this;
   }
@@ -328,7 +328,7 @@ public class Announcement   {
     this.password = password;
   }
 
-  public Announcement title(PostTitle title) {
+  public Fragment title(PostTitle title) {
     this.title = title;
     return this;
   }
@@ -346,7 +346,7 @@ public class Announcement   {
     this.title = title;
   }
 
-  public Announcement content(PostContent content) {
+  public Fragment content(PostContent content) {
     this.content = content;
     return this;
   }
@@ -364,7 +364,7 @@ public class Announcement   {
     this.content = content;
   }
 
-  public Announcement template(String template) {
+  public Fragment template(String template) {
     this.template = template;
     return this;
   }
@@ -391,21 +391,21 @@ public class Announcement   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Announcement announcement = (Announcement) o;
-    return Objects.equals(this.date, announcement.date) &&
-        Objects.equals(this.dateGmt, announcement.dateGmt) &&
-        Objects.equals(this.guid, announcement.guid) &&
-        Objects.equals(this.id, announcement.id) &&
-        Objects.equals(this.link, announcement.link) &&
-        Objects.equals(this.modified, announcement.modified) &&
-        Objects.equals(this.modifiedGmt, announcement.modifiedGmt) &&
-        Objects.equals(this.slug, announcement.slug) &&
-        Objects.equals(this.status, announcement.status) &&
-        Objects.equals(this.type, announcement.type) &&
-        Objects.equals(this.password, announcement.password) &&
-        Objects.equals(this.title, announcement.title) &&
-        Objects.equals(this.content, announcement.content) &&
-        Objects.equals(this.template, announcement.template);
+    Fragment fragment = (Fragment) o;
+    return Objects.equals(this.date, fragment.date) &&
+        Objects.equals(this.dateGmt, fragment.dateGmt) &&
+        Objects.equals(this.guid, fragment.guid) &&
+        Objects.equals(this.id, fragment.id) &&
+        Objects.equals(this.link, fragment.link) &&
+        Objects.equals(this.modified, fragment.modified) &&
+        Objects.equals(this.modifiedGmt, fragment.modifiedGmt) &&
+        Objects.equals(this.slug, fragment.slug) &&
+        Objects.equals(this.status, fragment.status) &&
+        Objects.equals(this.type, fragment.type) &&
+        Objects.equals(this.password, fragment.password) &&
+        Objects.equals(this.title, fragment.title) &&
+        Objects.equals(this.content, fragment.content) &&
+        Objects.equals(this.template, fragment.template);
   }
 
   @Override
@@ -416,7 +416,7 @@ public class Announcement   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Announcement {\n");
+    sb.append("class Fragment {\n");
     
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    dateGmt: ").append(toIndentedString(dateGmt)).append("\n");
