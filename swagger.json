@@ -257,7 +257,8 @@
                      "future",
                      "draft",
                      "pending",
-                     "private"
+                     "private",
+                     "expiration"
                   ]
                },
                {
@@ -488,7 +489,8 @@
                      "future",
                      "draft",
                      "pending",
-                     "private"
+                     "private",
+                     "expiration"
                   ]
                },
                {
@@ -1028,7 +1030,8 @@
                      "future",
                      "draft",
                      "pending",
-                     "private"
+                     "private",
+                     "expiration"
                   ]
                },
                {
@@ -1229,7 +1232,8 @@
                      "future",
                      "draft",
                      "pending",
-                     "private"
+                     "private",
+                     "expiration"
                   ]
                },
                {
@@ -1751,7 +1755,8 @@
                      "future",
                      "draft",
                      "pending",
-                     "private"
+                     "private",
+                     "expiration"
                   ]
                },
                {
@@ -1872,12 +1877,6 @@
                      "embed",
                      "edit"
                   ]
-               },
-               {
-                  "name":"password",
-                  "type":"string",
-                  "in":"query",
-                  "description":"Artikkelin salasana, jos se on salasanasuojattu. "
                }
             ],
             "security":[
@@ -1940,7 +1939,8 @@
                      "future",
                      "draft",
                      "pending",
-                     "private"
+                     "private",
+                     "expiration"
                   ]
                },
                {
@@ -2253,7 +2253,8 @@
                      "future",
                      "draft",
                      "pending",
-                     "private"
+                     "private",
+                     "expiration"
                   ]
                },
                {
@@ -2398,7 +2399,8 @@
                      "future",
                      "draft",
                      "pending",
-                     "private"
+                     "private",
+                     "expiration"
                   ]
                },
                {
@@ -2667,7 +2669,8 @@
                      "future",
                      "draft",
                      "pending",
-                     "private"
+                     "private",
+                     "expiration"
                   ]
                },
                {
@@ -2825,7 +2828,8 @@
                      "future",
                      "draft",
                      "pending",
-                     "private"
+                     "private",
+                     "expiration"
                   ]
                },
                {
@@ -2915,6 +2919,422 @@
                   "description":"successful operation",
                   "schema":{
                      "$ref":"#\/definitions\/banner"
+                  }
+               },
+               "default":{
+                  "description":"error",
+                  "schema":{
+                     "$ref":"#\/definitions\/error"
+                  }
+               }
+            }
+         }
+      },
+      "\/wp\/v2\/fragment":{
+         "get":{
+            "parameters":[
+               {
+                  "name":"context",
+                  "type":"string",
+                  "in":"query",
+                  "description":"Pyynn\u00f6n konteksti m\u00e4\u00e4r\u00e4\u00e4 mit\u00e4 kentti\u00e4 vastauksessa on mukana.",
+                  "default":"view",
+                  "enum":[
+                     "view",
+                     "embed",
+                     "edit"
+                  ]
+               },
+               {
+                  "name":"page",
+                  "type":"integer",
+                  "in":"query",
+                  "description":"Kokoelman nykyinen sivu.",
+                  "default":1,
+                  "minimum":1,
+                  "format":"number"
+               },
+               {
+                  "name":"per_page",
+                  "type":"integer",
+                  "in":"query",
+                  "description":"Enimm\u00e4ism\u00e4\u00e4r\u00e4 haun palauttamia tuloksia.",
+                  "default":10,
+                  "minimum":1,
+                  "format":"number",
+                  "maximum":100
+               },
+               {
+                  "name":"search",
+                  "type":"string",
+                  "in":"query",
+                  "description":"Rajaa tulokset niihin, jotka t\u00e4sm\u00e4\u00e4v\u00e4t merkkijonoon. "
+               },
+               {
+                  "name":"after",
+                  "type":"string",
+                  "in":"query",
+                  "description":"Rajoita tulokset artikkeleihin, jotka on julkaistu annetun ISO8601-yhteensopivan p\u00e4iv\u00e4m\u00e4\u00e4r\u00e4n j\u00e4lkeen.",
+                  "format":"date-time"
+               },
+               {
+                  "name":"before",
+                  "type":"string",
+                  "in":"query",
+                  "description":"Rajoita tulokset artikkeleihin, jotka on julkaistu annettua ISO8601-yhteensopivaa p\u00e4iv\u00e4m\u00e4\u00e4r\u00e4\u00e4 ennen.",
+                  "format":"date-time"
+               },
+               {
+                  "name":"exclude",
+                  "type":"array",
+                  "in":"query",
+                  "description":"Varmista, etteiv\u00e4t tulokset sis\u00e4ll\u00e4 tiettyj\u00e4 ID:it\u00e4.",
+                  "items":{
+                     "type":"string"
+                  }
+               },
+               {
+                  "name":"include",
+                  "type":"array",
+                  "in":"query",
+                  "description":"Rajaa tulokset tiettyihin ID:ihin.",
+                  "items":{
+                     "type":"string"
+                  }
+               },
+               {
+                  "name":"offset",
+                  "type":"integer",
+                  "in":"query",
+                  "description":"Ohita m\u00e4\u00e4ritelty m\u00e4\u00e4r\u00e4 kohteita alusta."
+               },
+               {
+                  "name":"order",
+                  "type":"string",
+                  "in":"query",
+                  "description":"J\u00e4rjest\u00e4\u00e4 tulokset nousevaan tai laskevaan j\u00e4rjestykseen.",
+                  "default":"desc",
+                  "enum":[
+                     "asc",
+                     "desc"
+                  ]
+               },
+               {
+                  "name":"orderby",
+                  "type":"string",
+                  "in":"query",
+                  "description":"J\u00e4rjest\u00e4 kokoelma kohteen ominaisuuden mukaan.",
+                  "default":"date",
+                  "enum":[
+                     "date",
+                     "relevance",
+                     "id",
+                     "include",
+                     "title",
+                     "slug"
+                  ]
+               },
+               {
+                  "name":"slug",
+                  "type":"array",
+                  "in":"query",
+                  "description":"Rajaa tulokset artikkeleihin joilla on yksi tai useampi polkutunnus.",
+                  "items":{
+                     "type":"string"
+                  }
+               },
+               {
+                  "name":"status",
+                  "type":"array",
+                  "in":"query",
+                  "description":"Rajaa tulokset artikkeleihin, joilla yksi tai useampi tila.",
+                  "default":"publish",
+                  "items":{
+                     "type":"string"
+                  }
+               }
+            ],
+            "security":[
+               {
+                  "cookieAuth":[
+
+                  ]
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"successful operation",
+                  "schema":{
+                     "type":"array",
+                     "items":{
+                        "$ref":"#\/definitions\/fragment"
+                     }
+                  }
+               },
+               "default":{
+                  "description":"error",
+                  "schema":{
+                     "$ref":"#\/definitions\/error"
+                  }
+               }
+            }
+         },
+         "post":{
+            "parameters":[
+               {
+                  "name":"date",
+                  "type":"string",
+                  "in":"formData",
+                  "description":"Ajankohta kun kohde julkaistiin sivuston aikavy\u00f6hykkeen ajassa.",
+                  "format":"date-time"
+               },
+               {
+                  "name":"date_gmt",
+                  "type":"string",
+                  "in":"formData",
+                  "description":"Ajankohta kun kohde julkaistiin GMT-ajassa.",
+                  "format":"date-time"
+               },
+               {
+                  "name":"slug",
+                  "type":"string",
+                  "in":"formData",
+                  "description":"Kohteen tyypilleen uniikki alfanumeerinen tunniste."
+               },
+               {
+                  "name":"status",
+                  "type":"string",
+                  "in":"formData",
+                  "description":"Kohteen nimetty tila.",
+                  "enum":[
+                     "publish",
+                     "future",
+                     "draft",
+                     "pending",
+                     "private",
+                     "expiration"
+                  ]
+               },
+               {
+                  "name":"password",
+                  "type":"string",
+                  "in":"formData",
+                  "description":"Salasana sis\u00e4ll\u00f6n ja otteen suojaamiseksi. "
+               },
+               {
+                  "name":"title",
+                  "type":"string",
+                  "in":"formData",
+                  "description":"Kohteen otsikko. "
+               },
+               {
+                  "name":"content",
+                  "type":"string",
+                  "in":"formData",
+                  "description":"Kohteen sis\u00e4lt\u00f6."
+               },
+               {
+                  "name":"template",
+                  "type":"string",
+                  "in":"formData",
+                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen."
+               }
+            ],
+            "security":[
+               {
+                  "cookieAuth":[
+
+                  ]
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"successful operation",
+                  "schema":{
+                     "$ref":"#\/definitions\/fragment"
+                  }
+               },
+               "default":{
+                  "description":"error",
+                  "schema":{
+                     "$ref":"#\/definitions\/error"
+                  }
+               },
+               "201":{
+                  "description":"successful operation",
+                  "schema":{
+                     "$ref":"#\/definitions\/fragment"
+                  }
+               }
+            }
+         }
+      },
+      "\/wp\/v2\/fragment\/{id}":{
+         "get":{
+            "parameters":[
+               {
+                  "name":"id",
+                  "type":"string",
+                  "in":"path",
+                  "required":true
+               },
+               {
+                  "name":"context",
+                  "type":"string",
+                  "in":"query",
+                  "description":"Pyynn\u00f6n konteksti m\u00e4\u00e4r\u00e4\u00e4 mit\u00e4 kentti\u00e4 vastauksessa on mukana.",
+                  "default":"view",
+                  "enum":[
+                     "view",
+                     "embed",
+                     "edit"
+                  ]
+               },
+               {
+                  "name":"password",
+                  "type":"string",
+                  "in":"query",
+                  "description":"Artikkelin salasana, jos se on salasanasuojattu. "
+               }
+            ],
+            "security":[
+               {
+                  "cookieAuth":[
+
+                  ]
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"successful operation",
+                  "schema":{
+                     "$ref":"#\/definitions\/fragment"
+                  }
+               },
+               "default":{
+                  "description":"error",
+                  "schema":{
+                     "$ref":"#\/definitions\/error"
+                  }
+               }
+            }
+         },
+         "post":{
+            "parameters":[
+               {
+                  "name":"id",
+                  "type":"string",
+                  "in":"path",
+                  "required":true
+               },
+               {
+                  "name":"date",
+                  "type":"string",
+                  "in":"formData",
+                  "description":"Ajankohta kun kohde julkaistiin sivuston aikavy\u00f6hykkeen ajassa.",
+                  "format":"date-time"
+               },
+               {
+                  "name":"date_gmt",
+                  "type":"string",
+                  "in":"formData",
+                  "description":"Ajankohta kun kohde julkaistiin GMT-ajassa.",
+                  "format":"date-time"
+               },
+               {
+                  "name":"slug",
+                  "type":"string",
+                  "in":"formData",
+                  "description":"Kohteen tyypilleen uniikki alfanumeerinen tunniste."
+               },
+               {
+                  "name":"status",
+                  "type":"string",
+                  "in":"formData",
+                  "description":"Kohteen nimetty tila.",
+                  "enum":[
+                     "publish",
+                     "future",
+                     "draft",
+                     "pending",
+                     "private",
+                     "expiration"
+                  ]
+               },
+               {
+                  "name":"password",
+                  "type":"string",
+                  "in":"formData",
+                  "description":"Salasana sis\u00e4ll\u00f6n ja otteen suojaamiseksi. "
+               },
+               {
+                  "name":"title",
+                  "type":"string",
+                  "in":"formData",
+                  "description":"Kohteen otsikko. "
+               },
+               {
+                  "name":"content",
+                  "type":"string",
+                  "in":"formData",
+                  "description":"Kohteen sis\u00e4lt\u00f6."
+               },
+               {
+                  "name":"template",
+                  "type":"string",
+                  "in":"formData",
+                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen."
+               }
+            ],
+            "security":[
+               {
+                  "cookieAuth":[
+
+                  ]
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"successful operation",
+                  "schema":{
+                     "$ref":"#\/definitions\/fragment"
+                  }
+               },
+               "default":{
+                  "description":"error",
+                  "schema":{
+                     "$ref":"#\/definitions\/error"
+                  }
+               }
+            }
+         },
+         "delete":{
+            "parameters":[
+               {
+                  "name":"id",
+                  "type":"string",
+                  "in":"path",
+                  "required":true
+               },
+               {
+                  "name":"force",
+                  "type":"boolean",
+                  "in":"query",
+                  "description":"Ohitetaanko roskakori ja pakotetaan poistaminen."
+               }
+            ],
+            "security":[
+               {
+                  "cookieAuth":[
+
+                  ]
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"successful operation",
+                  "schema":{
+                     "$ref":"#\/definitions\/fragment"
                   }
                },
                "default":{
@@ -3107,7 +3527,8 @@
                      "future",
                      "draft",
                      "pending",
-                     "private"
+                     "private",
+                     "expiration"
                   ]
                },
                {
@@ -3265,7 +3686,8 @@
                      "future",
                      "draft",
                      "pending",
-                     "private"
+                     "private",
+                     "expiration"
                   ]
                },
                {
@@ -5832,7 +6254,8 @@
                   "future",
                   "draft",
                   "pending",
-                  "private"
+                  "private",
+                  "expiration"
                ]
             },
             "type":{
@@ -6127,7 +6550,8 @@
                   "future",
                   "draft",
                   "pending",
-                  "private"
+                  "private",
+                  "expiration"
                ]
             },
             "type":{
@@ -6396,7 +6820,8 @@
                   "future",
                   "draft",
                   "pending",
-                  "private"
+                  "private",
+                  "expiration"
                ]
             },
             "type":{
@@ -6565,7 +6990,8 @@
                   "future",
                   "draft",
                   "pending",
-                  "private"
+                  "private",
+                  "expiration"
                ]
             },
             "type":{
@@ -6672,7 +7098,8 @@
                   "future",
                   "draft",
                   "pending",
-                  "private"
+                  "private",
+                  "expiration"
                ]
             },
             "type":{
@@ -6727,6 +7154,114 @@
                "type":"string",
                "format":"url",
                "description":"Banner link"
+            }
+         }
+      },
+      "fragment":{
+         "type":"object",
+         "properties":{
+            "date":{
+               "description":"Ajankohta kun kohde julkaistiin sivuston aikavy\u00f6hykkeen ajassa.",
+               "type":"string",
+               "format":"date-time"
+            },
+            "date_gmt":{
+               "description":"Ajankohta kun kohde julkaistiin GMT-ajassa.",
+               "type":"string",
+               "format":"date-time"
+            },
+            "guid":{
+               "description":"Kohteen ainutkertainen tunnusnumero.",
+               "type":"object",
+               "properties":{
+                  "raw":{
+                     "description":"Kohteen GUID sellaisena kuin se on tietokannassa.",
+                     "type":"string"
+                  },
+                  "rendered":{
+                     "description":"Kohteen GUID, sellaisena kuin se tulostetaan selaimelle.",
+                     "type":"string"
+                  }
+               }
+            },
+            "id":{
+               "description":"Kohteen uniikki tunniste.",
+               "type":"integer"
+            },
+            "link":{
+               "description":"Kohteen URL.",
+               "type":"string",
+               "format":"uri"
+            },
+            "modified":{
+               "description":"Kohteen viimeinen muokkausp\u00e4iv\u00e4m\u00e4\u00e4r\u00e4 sivuston aikavy\u00f6hykkeen ajassa.",
+               "type":"string",
+               "format":"date-time"
+            },
+            "modified_gmt":{
+               "description":"Kohteen viimeinen muokkausp\u00e4iv\u00e4m\u00e4\u00e4r\u00e4 GMT-ajassa.",
+               "type":"string",
+               "format":"date-time"
+            },
+            "slug":{
+               "description":"Kohteen tyypilleen uniikki alfanumeerinen tunniste.",
+               "type":"string"
+            },
+            "status":{
+               "description":"Kohteen nimetty tila.",
+               "type":"string",
+               "enum":[
+                  "publish",
+                  "future",
+                  "draft",
+                  "pending",
+                  "private",
+                  "expiration"
+               ]
+            },
+            "type":{
+               "description":"Kohteen artikkelityyppi.",
+               "type":"string"
+            },
+            "password":{
+               "description":"Salasana sis\u00e4ll\u00f6n ja otteen suojaamiseksi. ",
+               "type":"string"
+            },
+            "title":{
+               "description":"Kohteen otsikko. ",
+               "type":"object",
+               "properties":{
+                  "raw":{
+                     "description":"Kohteen otsikko siten, kuin se esiintyy tietokannassa. ",
+                     "type":"string"
+                  },
+                  "rendered":{
+                     "description":"Kohteen HTML-muotoinen otsikko, sellaisena kuin se tulostetaan selaimelle.",
+                     "type":"string"
+                  }
+               }
+            },
+            "content":{
+               "description":"Kohteen sis\u00e4lt\u00f6.",
+               "type":"object",
+               "properties":{
+                  "raw":{
+                     "description":"Kohteen sis\u00e4lt\u00f6 siin\u00e4 muodossa kuin se on tietokannassa.",
+                     "type":"string"
+                  },
+                  "rendered":{
+                     "description":"Kohteen HTML-sis\u00e4lt\u00f6, esitett\u00e4v\u00e4ksi muunnettuna.",
+                     "type":"string"
+                  },
+                  "protected":{
+                     "description":"Onko sis\u00e4lt\u00f6 suojattu salasanalla.",
+                     "type":"boolean"
+                  }
+               }
+            },
+            "template":{
+               "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
+               "type":"string"
             }
          }
       },
@@ -6788,7 +7323,8 @@
                   "future",
                   "draft",
                   "pending",
-                  "private"
+                  "private",
+                  "expiration"
                ]
             },
             "type":{
