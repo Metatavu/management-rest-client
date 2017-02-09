@@ -7,7 +7,7 @@
    "host":"localhost",
    "basePath":"\/wp-json",
    "schemes":[
-      "https"
+      "http"
    ],
    "consumes":[
       "multipart\/form-data"
@@ -349,8 +349,8 @@
                   "name":"template",
                   "type":"string",
                   "in":"formData",
-                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen."
-               },
+                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
+                                 },
                {
                   "name":"categories",
                   "type":"array",
@@ -591,8 +591,8 @@
                   "name":"template",
                   "type":"string",
                   "in":"formData",
-                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen."
-               },
+                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
+                                 },
                {
                   "name":"categories",
                   "type":"array",
@@ -1156,8 +1156,8 @@
                   "name":"template",
                   "type":"string",
                   "in":"formData",
-                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen."
-               },
+                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
+                                 },
                {
                   "name":"banner-image",
                   "type":"integer",
@@ -1377,8 +1377,8 @@
                   "name":"template",
                   "type":"string",
                   "in":"formData",
-                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen."
-               },
+                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
+                                 },
                {
                   "name":"banner-image",
                   "type":"integer",
@@ -1907,8 +1907,8 @@
                   "name":"template",
                   "type":"string",
                   "in":"formData",
-                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen."
-               },
+                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
+                                 },
                {
                   "name":"alt_text",
                   "type":"string",
@@ -2103,8 +2103,8 @@
                   "name":"template",
                   "type":"string",
                   "in":"formData",
-                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen."
-               },
+                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
+                                 },
                {
                   "name":"alt_text",
                   "type":"string",
@@ -2403,8 +2403,8 @@
                   "name":"template",
                   "type":"string",
                   "in":"formData",
-                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen."
-               }
+                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
+                                 }
             ],
             "security":[
                {
@@ -2561,8 +2561,8 @@
                   "name":"template",
                   "type":"string",
                   "in":"formData",
-                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen."
-               }
+                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
+                                 }
             ],
             "security":[
                {
@@ -2837,8 +2837,8 @@
                   "name":"template",
                   "type":"string",
                   "in":"formData",
-                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen."
-               }
+                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
+                                 }
             ],
             "security":[
                {
@@ -2995,8 +2995,8 @@
                   "name":"template",
                   "type":"string",
                   "in":"formData",
-                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen."
-               }
+                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
+                                 }
             ],
             "security":[
                {
@@ -3277,8 +3277,8 @@
                   "name":"template",
                   "type":"string",
                   "in":"formData",
-                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen."
-               },
+                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
+                                 },
                {
                   "name":"tile-link",
                   "type":"string",
@@ -3448,8 +3448,8 @@
                   "name":"template",
                   "type":"string",
                   "in":"formData",
-                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen."
-               },
+                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
+                                 },
                {
                   "name":"tile-link",
                   "type":"string",
@@ -3737,8 +3737,8 @@
                   "name":"template",
                   "type":"string",
                   "in":"formData",
-                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen."
-               },
+                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
+                                 },
                {
                   "name":"banner-link",
                   "type":"string",
@@ -3926,8 +3926,8 @@
                   "name":"template",
                   "type":"string",
                   "in":"formData",
-                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen."
-               },
+                  "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
+                                 },
                {
                   "name":"banner-link",
                   "type":"string",
@@ -6497,6 +6497,37 @@
                }
             }
          }
+      },
+      "\/kunta-api\/pagemappings":{
+         "get":{
+            "parameters":[
+
+            ],
+            "security":[
+               {
+                  "cookieAuth":[
+
+                  ]
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"successful operation",
+                  "schema":{
+                     "type":"array",
+                     "items":{
+                        "$ref":"#\/definitions\/pagemappings"
+                     }
+                  }
+               },
+               "default":{
+                  "description":"error",
+                  "schema":{
+                     "$ref":"#\/definitions\/error"
+                  }
+               }
+            }
+         }
       }
    },
    "definitions":{
@@ -6689,8 +6720,8 @@
             },
             "template":{
                "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
-               "type":"string"
-            },
+               "type":"string",
+                           },
             "categories":{
                "description":"Kohteeseen liitetyt termit taksonomiassa category.",
                "type":"array",
@@ -6973,8 +7004,8 @@
             },
             "template":{
                "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
-               "type":"string"
-            },
+               "type":"string",
+                           },
             "banner-image":{
                "type":"integer",
                "format":"int64",
@@ -7196,8 +7227,8 @@
             },
             "template":{
                "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
-               "type":"string"
-            },
+               "type":"string",
+                           },
             "alt_text":{
                "description":"Vaihtoehtoinen teksti n\u00e4ytett\u00e4v\u00e4ksi kun liitett\u00e4 ei voida n\u00e4ytt\u00e4\u00e4.",
                "type":"string"
@@ -7361,8 +7392,8 @@
             },
             "template":{
                "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
-               "type":"string"
-            }
+               "type":"string",
+                           }
          }
       },
       "announcement":{
@@ -7469,8 +7500,8 @@
             },
             "template":{
                "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
-               "type":"string"
-            }
+               "type":"string",
+                           }
          }
       },
       "tile":{
@@ -7581,8 +7612,8 @@
             },
             "template":{
                "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
-               "type":"string"
-            },
+               "type":"string",
+                           },
             "tile-link":{
                "type":"string",
                "format":"url",
@@ -7698,8 +7729,8 @@
             },
             "template":{
                "description":"Teematiedosto joka n\u00e4ytt\u00e4\u00e4 kohteen.",
-               "type":"string"
-            },
+               "type":"string",
+                           },
             "banner-link":{
                "type":"string",
                "format":"url",
@@ -8297,6 +8328,16 @@
                "format":"int64"
             },
             "url":{
+               "type":"string"
+            }
+         }
+      },
+      "pagemappings":{
+         "properties":{
+            "pagePath":{
+               "type":"string"
+            },
+            "parentPath":{
                "type":"string"
             }
          }

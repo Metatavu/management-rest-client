@@ -23,3 +23,4 @@ build
 /.project
 /.tern-project
 generated-sources/pom.xml.before
+/new.json
