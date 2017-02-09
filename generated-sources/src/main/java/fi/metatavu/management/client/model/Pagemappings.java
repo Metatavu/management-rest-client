@@ -34,72 +34,50 @@ import io.swagger.annotations.ApiModelProperty;
 
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 /**
- * Kohteen ote.
+ * Pagemappings
  */
-@ApiModel(description = "Kohteen ote.")
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-09T20:48:13.313+02:00")
-public class PostExcerpt   {
-  @JsonProperty("raw")
-  private String raw = null;
+public class Pagemappings   {
+  @JsonProperty("pagePath")
+  private String pagePath = null;
 
-  @JsonProperty("rendered")
-  private String rendered = null;
+  @JsonProperty("parentPath")
+  private String parentPath = null;
 
-  @JsonProperty("protected")
-  private Boolean _protected = null;
-
-  public PostExcerpt raw(String raw) {
-    this.raw = raw;
+  public Pagemappings pagePath(String pagePath) {
+    this.pagePath = pagePath;
     return this;
   }
 
    /**
-   * Kohteen ote siinä muodossa kuin se on tietokannassa.
-   * @return raw
+   * Get pagePath
+   * @return pagePath
   **/
-  @ApiModelProperty(example = "null", value = "Kohteen ote siinä muodossa kuin se on tietokannassa.")
-  public String getRaw() {
-    return raw;
+  @ApiModelProperty(example = "null", value = "")
+  public String getPagePath() {
+    return pagePath;
   }
 
-  public void setRaw(String raw) {
-    this.raw = raw;
+  public void setPagePath(String pagePath) {
+    this.pagePath = pagePath;
   }
 
-  public PostExcerpt rendered(String rendered) {
-    this.rendered = rendered;
+  public Pagemappings parentPath(String parentPath) {
+    this.parentPath = parentPath;
     return this;
   }
 
    /**
-   * Kohteen HTML-muotoinen ote, sellaisena kuin se tulostetaan selaimelle.
-   * @return rendered
+   * Get parentPath
+   * @return parentPath
   **/
-  @ApiModelProperty(example = "null", value = "Kohteen HTML-muotoinen ote, sellaisena kuin se tulostetaan selaimelle.")
-  public String getRendered() {
-    return rendered;
+  @ApiModelProperty(example = "null", value = "")
+  public String getParentPath() {
+    return parentPath;
   }
 
-  public void setRendered(String rendered) {
-    this.rendered = rendered;
-  }
-
-  public PostExcerpt _protected(Boolean _protected) {
-    this._protected = _protected;
-    return this;
-  }
-
-   /**
-   * Onko ote suojattu salasanalla. 
-   * @return _protected
-  **/
-  @ApiModelProperty(example = "null", value = "Onko ote suojattu salasanalla. ")
-  public Boolean getProtected() {
-    return _protected;
-  }
-
-  public void setProtected(Boolean _protected) {
-    this._protected = _protected;
+  public void setParentPath(String parentPath) {
+    this.parentPath = parentPath;
   }
 
 
@@ -111,25 +89,23 @@ public class PostExcerpt   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PostExcerpt postExcerpt = (PostExcerpt) o;
-    return Objects.equals(this.raw, postExcerpt.raw) &&
-        Objects.equals(this.rendered, postExcerpt.rendered) &&
-        Objects.equals(this._protected, postExcerpt._protected);
+    Pagemappings pagemappings = (Pagemappings) o;
+    return Objects.equals(this.pagePath, pagemappings.pagePath) &&
+        Objects.equals(this.parentPath, pagemappings.parentPath);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(raw, rendered, _protected);
+    return Objects.hash(pagePath, parentPath);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PostExcerpt {\n");
+    sb.append("class Pagemappings {\n");
     
-    sb.append("    raw: ").append(toIndentedString(raw)).append("\n");
-    sb.append("    rendered: ").append(toIndentedString(rendered)).append("\n");
-    sb.append("    _protected: ").append(toIndentedString(_protected)).append("\n");
+    sb.append("    pagePath: ").append(toIndentedString(pagePath)).append("\n");
+    sb.append("    parentPath: ").append(toIndentedString(parentPath)).append("\n");
     sb.append("}");
     return sb.toString();
   }

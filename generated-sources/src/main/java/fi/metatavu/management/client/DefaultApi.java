@@ -29,6 +29,7 @@ import fi.metatavu.management.client.model.*;
 import fi.metatavu.management.client.model.Error;
 import fi.metatavu.management.client.model.Menu;
 import fi.metatavu.management.client.model.Menuitem;
+import fi.metatavu.management.client.model.Pagemappings;
 import java.time.LocalDateTime;
 import fi.metatavu.management.client.model.Announcement;
 import fi.metatavu.management.client.model.Banner;
@@ -53,7 +54,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-02T20:02:25.639+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-09T20:48:13.313+02:00")
 public class DefaultApi {
 
   private ApiClient client;
@@ -111,6 +112,20 @@ public class DefaultApi {
       .replaceAll("\\{" + "menuId" + "\\}", menuId), baseUrl);
       
     ResultType<List<Menuitem>> resultType = new ResultType<List<Menuitem>>() {};
+    return client.doGETRequest(path, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   */
+  public ApiResponse<List<Pagemappings>> kuntaApiPagemappingsGet() {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+        
+    String path = String.format("%s/kunta-api/pagemappings", baseUrl);
+      
+    ResultType<List<Pagemappings>> resultType = new ResultType<List<Pagemappings>>() {};
     return client.doGETRequest(path, resultType, queryParams, formParams);
   }
   /**
