@@ -28,8 +28,6 @@ package fi.metatavu.management.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import fi.metatavu.management.client.model.PostContent;
-import fi.metatavu.management.client.model.PostExcerpt;
 import fi.metatavu.management.client.model.PostGuid;
 import fi.metatavu.management.client.model.PostTitle;
 import io.swagger.annotations.ApiModel;
@@ -39,13 +37,10 @@ import java.time.LocalDateTime;
 
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 /**
- * PageRevision
+ * Shortlink
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-07T07:22:05.208+02:00")
-public class PageRevision   {
-  @JsonProperty("author")
-  private Integer author = null;
-
+public class Shortlink   {
   @JsonProperty("date")
   @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)  
   @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)  
@@ -62,6 +57,9 @@ public class PageRevision   {
   @JsonProperty("id")
   private Integer id = null;
 
+  @JsonProperty("link")
+  private String link = null;
+
   @JsonProperty("modified")
   @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)  
   @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)  
@@ -72,40 +70,69 @@ public class PageRevision   {
   @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)  
   private LocalDateTime modifiedGmt = null;
 
-  @JsonProperty("parent")
-  private Integer parent = null;
-
   @JsonProperty("slug")
   private String slug = null;
+
+  /**
+   * Kohteen nimetty tila.
+   */
+  public enum StatusEnum {
+    PUBLISH("publish"),
+    
+    FUTURE("future"),
+    
+    DRAFT("draft"),
+    
+    PENDING("pending"),
+    
+    PRIVATE("private"),
+    
+    EXPIRATION("expiration");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static StatusEnum fromValue(String text) {
+      for (StatusEnum b : StatusEnum.values()) {
+          if (String.valueOf(b.value).equals(text)) {
+              return b;
+          }
+      }
+      return null;
+    }
+  }
+
+  @JsonProperty("status")
+  private StatusEnum status = null;
+
+  @JsonProperty("type")
+  private String type = null;
+
+  @JsonProperty("password")
+  private String password = null;
 
   @JsonProperty("title")
   private PostTitle title = null;
 
-  @JsonProperty("content")
-  private PostContent content = null;
+  @JsonProperty("template")
+  private String template = null;
 
-  @JsonProperty("excerpt")
-  private PostExcerpt excerpt = null;
+  @JsonProperty("path")
+  private String path = null;
 
-  public PageRevision author(Integer author) {
-    this.author = author;
-    return this;
-  }
+  @JsonProperty("url")
+  private String url = null;
 
-   /**
-   * Kohteen kirjoittajan ID.
-   * @return author
-  **/
-  @ApiModelProperty(example = "null", value = "Kohteen kirjoittajan ID.")
-  public Integer getAuthor() {
-    return author;
-  }
-
-  public void setAuthor(Integer author) {
-    this.author = author;
-  }
-
-  public PageRevision date(LocalDateTime date) {
+  public Shortlink date(LocalDateTime date) {
     this.date = date;
     return this;
   }
@@ -123,7 +150,7 @@ public class PageRevision   {
     this.date = date;
   }
 
-  public PageRevision dateGmt(LocalDateTime dateGmt) {
+  public Shortlink dateGmt(LocalDateTime dateGmt) {
     this.dateGmt = dateGmt;
     return this;
   }
@@ -141,7 +168,7 @@ public class PageRevision   {
     this.dateGmt = dateGmt;
   }
 
-  public PageRevision guid(PostGuid guid) {
+  public Shortlink guid(PostGuid guid) {
     this.guid = guid;
     return this;
   }
@@ -159,7 +186,7 @@ public class PageRevision   {
     this.guid = guid;
   }
 
-  public PageRevision id(Integer id) {
+  public Shortlink id(Integer id) {
     this.id = id;
     return this;
   }
@@ -177,7 +204,25 @@ public class PageRevision   {
     this.id = id;
   }
 
-  public PageRevision modified(LocalDateTime modified) {
+  public Shortlink link(String link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Kohteen URL.
+   * @return link
+  **/
+  @ApiModelProperty(example = "null", value = "Kohteen URL.")
+  public String getLink() {
+    return link;
+  }
+
+  public void setLink(String link) {
+    this.link = link;
+  }
+
+  public Shortlink modified(LocalDateTime modified) {
     this.modified = modified;
     return this;
   }
@@ -195,7 +240,7 @@ public class PageRevision   {
     this.modified = modified;
   }
 
-  public PageRevision modifiedGmt(LocalDateTime modifiedGmt) {
+  public Shortlink modifiedGmt(LocalDateTime modifiedGmt) {
     this.modifiedGmt = modifiedGmt;
     return this;
   }
@@ -213,25 +258,7 @@ public class PageRevision   {
     this.modifiedGmt = modifiedGmt;
   }
 
-  public PageRevision parent(Integer parent) {
-    this.parent = parent;
-    return this;
-  }
-
-   /**
-   * Kohteen vanhemman ID.
-   * @return parent
-  **/
-  @ApiModelProperty(example = "null", value = "Kohteen vanhemman ID.")
-  public Integer getParent() {
-    return parent;
-  }
-
-  public void setParent(Integer parent) {
-    this.parent = parent;
-  }
-
-  public PageRevision slug(String slug) {
+  public Shortlink slug(String slug) {
     this.slug = slug;
     return this;
   }
@@ -249,7 +276,61 @@ public class PageRevision   {
     this.slug = slug;
   }
 
-  public PageRevision title(PostTitle title) {
+  public Shortlink status(StatusEnum status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Kohteen nimetty tila.
+   * @return status
+  **/
+  @ApiModelProperty(example = "null", value = "Kohteen nimetty tila.")
+  public StatusEnum getStatus() {
+    return status;
+  }
+
+  public void setStatus(StatusEnum status) {
+    this.status = status;
+  }
+
+  public Shortlink type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Kohteen artikkelityyppi.
+   * @return type
+  **/
+  @ApiModelProperty(example = "null", value = "Kohteen artikkelityyppi.")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public Shortlink password(String password) {
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Salasana sisällön ja otteen suojaamiseksi. 
+   * @return password
+  **/
+  @ApiModelProperty(example = "null", value = "Salasana sisällön ja otteen suojaamiseksi. ")
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  public Shortlink title(PostTitle title) {
     this.title = title;
     return this;
   }
@@ -267,40 +348,58 @@ public class PageRevision   {
     this.title = title;
   }
 
-  public PageRevision content(PostContent content) {
-    this.content = content;
+  public Shortlink template(String template) {
+    this.template = template;
     return this;
   }
 
    /**
-   * Get content
-   * @return content
+   * Teematiedosto joka näyttää kohteen.
+   * @return template
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public PostContent getContent() {
-    return content;
+  @ApiModelProperty(example = "null", value = "Teematiedosto joka näyttää kohteen.")
+  public String getTemplate() {
+    return template;
   }
 
-  public void setContent(PostContent content) {
-    this.content = content;
+  public void setTemplate(String template) {
+    this.template = template;
   }
 
-  public PageRevision excerpt(PostExcerpt excerpt) {
-    this.excerpt = excerpt;
+  public Shortlink path(String path) {
+    this.path = path;
     return this;
   }
 
    /**
-   * Get excerpt
-   * @return excerpt
+   * Shortlink path
+   * @return path
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public PostExcerpt getExcerpt() {
-    return excerpt;
+  @ApiModelProperty(example = "null", value = "Shortlink path")
+  public String getPath() {
+    return path;
   }
 
-  public void setExcerpt(PostExcerpt excerpt) {
-    this.excerpt = excerpt;
+  public void setPath(String path) {
+    this.path = path;
+  }
+
+  public Shortlink url(String url) {
+    this.url = url;
+    return this;
+  }
+
+   /**
+   * Shortlink URL
+   * @return url
+  **/
+  @ApiModelProperty(example = "null", value = "Shortlink URL")
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
   }
 
 
@@ -312,43 +411,49 @@ public class PageRevision   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PageRevision pageRevision = (PageRevision) o;
-    return Objects.equals(this.author, pageRevision.author) &&
-        Objects.equals(this.date, pageRevision.date) &&
-        Objects.equals(this.dateGmt, pageRevision.dateGmt) &&
-        Objects.equals(this.guid, pageRevision.guid) &&
-        Objects.equals(this.id, pageRevision.id) &&
-        Objects.equals(this.modified, pageRevision.modified) &&
-        Objects.equals(this.modifiedGmt, pageRevision.modifiedGmt) &&
-        Objects.equals(this.parent, pageRevision.parent) &&
-        Objects.equals(this.slug, pageRevision.slug) &&
-        Objects.equals(this.title, pageRevision.title) &&
-        Objects.equals(this.content, pageRevision.content) &&
-        Objects.equals(this.excerpt, pageRevision.excerpt);
+    Shortlink shortlink = (Shortlink) o;
+    return Objects.equals(this.date, shortlink.date) &&
+        Objects.equals(this.dateGmt, shortlink.dateGmt) &&
+        Objects.equals(this.guid, shortlink.guid) &&
+        Objects.equals(this.id, shortlink.id) &&
+        Objects.equals(this.link, shortlink.link) &&
+        Objects.equals(this.modified, shortlink.modified) &&
+        Objects.equals(this.modifiedGmt, shortlink.modifiedGmt) &&
+        Objects.equals(this.slug, shortlink.slug) &&
+        Objects.equals(this.status, shortlink.status) &&
+        Objects.equals(this.type, shortlink.type) &&
+        Objects.equals(this.password, shortlink.password) &&
+        Objects.equals(this.title, shortlink.title) &&
+        Objects.equals(this.template, shortlink.template) &&
+        Objects.equals(this.path, shortlink.path) &&
+        Objects.equals(this.url, shortlink.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(author, date, dateGmt, guid, id, modified, modifiedGmt, parent, slug, title, content, excerpt);
+    return Objects.hash(date, dateGmt, guid, id, link, modified, modifiedGmt, slug, status, type, password, title, template, path, url);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PageRevision {\n");
+    sb.append("class Shortlink {\n");
     
-    sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    dateGmt: ").append(toIndentedString(dateGmt)).append("\n");
     sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    modifiedGmt: ").append(toIndentedString(modifiedGmt)).append("\n");
-    sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    excerpt: ").append(toIndentedString(excerpt)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }
