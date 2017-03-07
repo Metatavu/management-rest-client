@@ -42,11 +42,11 @@ public class {{classname}} {
       formParams.put("{{baseName}}", {{paramName}});
     {{/formParams}}
     
-    String path = String.format("%s{{{path}}}"{{#pathParams}}
+    String requestPath = String.format("%s{{{path}}}"{{#pathParams}}
       .replaceAll("\\{" + "{{baseName}}" + "\\}", {{paramName}}){{/pathParams}}, baseUrl);
       
     ResultType<{{{returnType}}}> resultType = new ResultType<{{{returnType}}}>() {};
-    return client.do{{httpMethod}}Request(path, resultType, queryParams, formParams);
+    return client.do{{httpMethod}}Request(requestPath, resultType, queryParams, formParams);
   }
   {{/operation}}
   
