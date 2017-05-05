@@ -40,7 +40,7 @@ import java.time.LocalDateTime;
 /**
  * Banner
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-07T07:22:05.208+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-05T14:37:16.986+03:00")
 public class Banner   {
   @JsonProperty("date")
   @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)  
@@ -130,8 +130,36 @@ public class Banner   {
   @JsonProperty("featured_media")
   private Integer featuredMedia = null;
 
+  /**
+   * Teematiedosto joka näyttää kohteen.
+   */
+  public enum TemplateEnum {
+    NONE("NONE");
+
+    private String value;
+
+    TemplateEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static TemplateEnum fromValue(String text) {
+      for (TemplateEnum b : TemplateEnum.values()) {
+          if (String.valueOf(b.value).equals(text)) {
+              return b;
+          }
+      }
+      return null;
+    }
+  }
+
   @JsonProperty("template")
-  private String template = null;
+  private TemplateEnum template = null;
 
   @JsonProperty("banner-link")
   private String bannerLink = null;
@@ -397,7 +425,7 @@ public class Banner   {
     this.featuredMedia = featuredMedia;
   }
 
-  public Banner template(String template) {
+  public Banner template(TemplateEnum template) {
     this.template = template;
     return this;
   }
@@ -407,11 +435,11 @@ public class Banner   {
    * @return template
   **/
   @ApiModelProperty(example = "null", value = "Teematiedosto joka näyttää kohteen.")
-  public String getTemplate() {
+  public TemplateEnum getTemplate() {
     return template;
   }
 
-  public void setTemplate(String template) {
+  public void setTemplate(TemplateEnum template) {
     this.template = template;
   }
 

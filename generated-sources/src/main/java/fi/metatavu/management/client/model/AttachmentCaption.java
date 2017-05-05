@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Liitetiedoston kuvateksti.
  */
 @ApiModel(description = "Liitetiedoston kuvateksti.")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-07T07:22:05.208+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-05T14:37:16.986+03:00")
 public class AttachmentCaption   {
   @JsonProperty("raw")
   private String raw = null;

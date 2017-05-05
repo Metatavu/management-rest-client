@@ -55,7 +55,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-07T07:22:05.208+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-05T14:37:16.986+03:00")
 public class DefaultApi {
 
   private ApiClient client;
@@ -86,6 +86,23 @@ public class DefaultApi {
   /**
    * 
    * 
+   * @param slug  (optional)
+   */
+  public ApiResponse<Object> kuntaApiMenusHead(String slug) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (slug != null)
+    queryParams.put("slug", slug);
+    
+        
+    String requestPath = String.format("%s/kunta-api/menus", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
    * @param id  (required)
    */
   public ApiResponse<Menu> kuntaApiMenusIdGet(String id) {
@@ -98,6 +115,22 @@ public class DefaultApi {
       
     ResultType<Menu> resultType = new ResultType<Menu>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   */
+  public ApiResponse<Object> kuntaApiMenusIdHead(String id) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+        
+    String requestPath = String.format("%s/kunta-api/menus/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -118,6 +151,22 @@ public class DefaultApi {
   /**
    * 
    * 
+   * @param menuId  (required)
+   */
+  public ApiResponse<Object> kuntaApiMenusMenuIdItemsHead(String menuId) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+        
+    String requestPath = String.format("%s/kunta-api/menus/{menuId}/items"
+      .replaceAll("\\{" + "menuId" + "\\}", menuId), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
    */
   public ApiResponse<List<Pagemappings>> kuntaApiPagemappingsGet() {
     Map<String, Object> queryParams = new HashMap<>();
@@ -128,6 +177,20 @@ public class DefaultApi {
       
     ResultType<List<Pagemappings>> resultType = new ResultType<List<Pagemappings>>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   */
+  public ApiResponse<Object> kuntaApiPagemappingsHead() {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+        
+    String requestPath = String.format("%s/kunta-api/pagemappings", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -185,6 +248,59 @@ if (status != null)
   /**
    * 
    * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param page Kokoelman nykyinen sivu. (optional, default to 1)
+   * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
+   * @param search Rajaa tulokset niihin, jotka täsmäävät merkkijonoon.  (optional)
+   * @param after Rajoita tulokset artikkeleihin, jotka on julkaistu annetun ISO8601-yhteensopivan päivämäärän jälkeen. (optional)
+   * @param before Rajoita tulokset artikkeleihin, jotka on julkaistu annettua ISO8601-yhteensopivaa päivämäärää ennen. (optional)
+   * @param exclude Varmista, etteivät tulokset sisällä tiettyjä ID:itä. (optional)
+   * @param include Rajaa tulokset tiettyihin ID:ihin. (optional)
+   * @param offset Ohita määritelty määrä kohteita alusta. (optional)
+   * @param order Järjestää tulokset nousevaan tai laskevaan järjestykseen. (optional, default to desc)
+   * @param orderby Järjestä kokoelma kohteen ominaisuuden mukaan. (optional, default to date)
+   * @param slug Rajaa tulokset artikkeleihin joilla on yksi tai useampi polkutunnus. (optional)
+   * @param status Rajaa tulokset artikkeleihin, joilla yksi tai useampi tila. (optional, default to publish)
+   */
+  public ApiResponse<Object> wpV2AnnouncementHead(String context, Integer page, Integer perPage, String search, LocalDateTime after, LocalDateTime before, List<String> exclude, List<String> include, Integer offset, String order, String orderby, List<String> slug, List<String> status) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (page != null)
+    queryParams.put("page", page);
+if (perPage != null)
+    queryParams.put("per_page", perPage);
+if (search != null)
+    queryParams.put("search", search);
+if (after != null)
+    queryParams.put("after", after);
+if (before != null)
+    queryParams.put("before", before);
+if (exclude != null)
+    queryParams.put("exclude", exclude);
+if (include != null)
+    queryParams.put("include", include);
+if (offset != null)
+    queryParams.put("offset", offset);
+if (order != null)
+    queryParams.put("order", order);
+if (orderby != null)
+    queryParams.put("orderby", orderby);
+if (slug != null)
+    queryParams.put("slug", slug);
+if (status != null)
+    queryParams.put("status", status);
+    
+        
+    String requestPath = String.format("%s/wp/v2/announcement", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
    * @param id  (required)
    * @param id2 Kohteen uniikki tunniste. (optional)
    * @param force Ohitetaanko roskakori ja pakotetaan poistaminen. (optional)
@@ -228,6 +344,31 @@ if (password != null)
       
     ResultType<Announcement> resultType = new ResultType<Announcement>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Kohteen uniikki tunniste. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param password Artikkelin salasana, jos se on salasanasuojattu.  (optional)
+   */
+  public ApiResponse<Object> wpV2AnnouncementIdHead(String id, Integer id2, String context, String password) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (id2 != null)
+    queryParams.put("id", id2);
+if (context != null)
+    queryParams.put("context", context);
+if (password != null)
+    queryParams.put("password", password);
+    
+        
+    String requestPath = String.format("%s/wp/v2/announcement/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -366,6 +507,59 @@ if (status != null)
   /**
    * 
    * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param page Kokoelman nykyinen sivu. (optional, default to 1)
+   * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
+   * @param search Rajaa tulokset niihin, jotka täsmäävät merkkijonoon.  (optional)
+   * @param after Rajoita tulokset artikkeleihin, jotka on julkaistu annetun ISO8601-yhteensopivan päivämäärän jälkeen. (optional)
+   * @param before Rajoita tulokset artikkeleihin, jotka on julkaistu annettua ISO8601-yhteensopivaa päivämäärää ennen. (optional)
+   * @param exclude Varmista, etteivät tulokset sisällä tiettyjä ID:itä. (optional)
+   * @param include Rajaa tulokset tiettyihin ID:ihin. (optional)
+   * @param offset Ohita määritelty määrä kohteita alusta. (optional)
+   * @param order Järjestää tulokset nousevaan tai laskevaan järjestykseen. (optional, default to desc)
+   * @param orderby Järjestä kokoelma kohteen ominaisuuden mukaan. (optional, default to date)
+   * @param slug Rajaa tulokset artikkeleihin joilla on yksi tai useampi polkutunnus. (optional)
+   * @param status Rajaa tulokset artikkeleihin, joilla yksi tai useampi tila. (optional, default to publish)
+   */
+  public ApiResponse<Object> wpV2BannerHead(String context, Integer page, Integer perPage, String search, LocalDateTime after, LocalDateTime before, List<String> exclude, List<String> include, Integer offset, String order, String orderby, List<String> slug, List<String> status) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (page != null)
+    queryParams.put("page", page);
+if (perPage != null)
+    queryParams.put("per_page", perPage);
+if (search != null)
+    queryParams.put("search", search);
+if (after != null)
+    queryParams.put("after", after);
+if (before != null)
+    queryParams.put("before", before);
+if (exclude != null)
+    queryParams.put("exclude", exclude);
+if (include != null)
+    queryParams.put("include", include);
+if (offset != null)
+    queryParams.put("offset", offset);
+if (order != null)
+    queryParams.put("order", order);
+if (orderby != null)
+    queryParams.put("orderby", orderby);
+if (slug != null)
+    queryParams.put("slug", slug);
+if (status != null)
+    queryParams.put("status", status);
+    
+        
+    String requestPath = String.format("%s/wp/v2/banner", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
    * @param id  (required)
    * @param id2 Kohteen uniikki tunniste. (optional)
    * @param force Ohitetaanko roskakori ja pakotetaan poistaminen. (optional)
@@ -409,6 +603,31 @@ if (password != null)
       
     ResultType<Banner> resultType = new ResultType<Banner>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Kohteen uniikki tunniste. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param password Artikkelin salasana, jos se on salasanasuojattu.  (optional)
+   */
+  public ApiResponse<Object> wpV2BannerIdHead(String id, Integer id2, String context, String password) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (id2 != null)
+    queryParams.put("id", id2);
+if (context != null)
+    queryParams.put("context", context);
+if (password != null)
+    queryParams.put("password", password);
+    
+        
+    String requestPath = String.format("%s/wp/v2/banner/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -537,7 +756,7 @@ if (bannerHideTitle != null)
    * @param post Rajaa tulokset termeihin, jotka liittyvät tiettyyn artikkeliin. (optional)
    * @param slug Rajaa tulokset tietyn polkutunnuksen mukaan. (optional)
    */
-  public ApiResponse<List<Category>> wpV2CategoriesGet(String context, Integer page, Integer perPage, String search, List<String> exclude, List<String> include, String order, String orderby, Boolean hideEmpty, Integer parent, Integer post, String slug) {
+  public ApiResponse<List<Category>> wpV2CategoriesGet(String context, Integer page, Integer perPage, String search, List<String> exclude, List<String> include, String order, String orderby, Boolean hideEmpty, Integer parent, Integer post, List<String> slug) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
     if (context != null)
@@ -570,6 +789,56 @@ if (slug != null)
       
     ResultType<List<Category>> resultType = new ResultType<List<Category>>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param page Kokoelman nykyinen sivu. (optional, default to 1)
+   * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
+   * @param search Rajaa tulokset niihin, jotka täsmäävät merkkijonoon.  (optional)
+   * @param exclude Varmista, etteivät tulokset sisällä tiettyjä ID:itä. (optional)
+   * @param include Rajaa tulokset tiettyihin ID:ihin. (optional)
+   * @param order Järjestää tulokset nousevaan tai laskevaan järjestykseen. (optional, default to asc)
+   * @param orderby Lajittele kokoelma termin ominaisuuden mukaan. (optional, default to name)
+   * @param hideEmpty Piilotetaanko termit, jotka eivät liity mihinkään artikkeliin? (optional)
+   * @param parent Rajaa tulokset tiettyyn ylätasoon liittymisen mukaan. (optional)
+   * @param post Rajaa tulokset termeihin, jotka liittyvät tiettyyn artikkeliin. (optional)
+   * @param slug Rajaa tulokset tietyn polkutunnuksen mukaan. (optional)
+   */
+  public ApiResponse<Object> wpV2CategoriesHead(String context, Integer page, Integer perPage, String search, List<String> exclude, List<String> include, String order, String orderby, Boolean hideEmpty, Integer parent, Integer post, List<String> slug) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (page != null)
+    queryParams.put("page", page);
+if (perPage != null)
+    queryParams.put("per_page", perPage);
+if (search != null)
+    queryParams.put("search", search);
+if (exclude != null)
+    queryParams.put("exclude", exclude);
+if (include != null)
+    queryParams.put("include", include);
+if (order != null)
+    queryParams.put("order", order);
+if (orderby != null)
+    queryParams.put("orderby", orderby);
+if (hideEmpty != null)
+    queryParams.put("hide_empty", hideEmpty);
+if (parent != null)
+    queryParams.put("parent", parent);
+if (post != null)
+    queryParams.put("post", post);
+if (slug != null)
+    queryParams.put("slug", slug);
+    
+        
+    String requestPath = String.format("%s/wp/v2/categories", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -614,6 +883,28 @@ if (context != null)
       
     ResultType<Category> resultType = new ResultType<Category>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Yksilöivä tunniste termille. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   */
+  public ApiResponse<Object> wpV2CategoriesIdHead(String id, Integer id2, String context) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (id2 != null)
+    queryParams.put("id", id2);
+if (context != null)
+    queryParams.put("context", context);
+    
+        
+    String requestPath = String.format("%s/wp/v2/categories/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -755,6 +1046,80 @@ if (password != null)
   /**
    * 
    * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param page Kokoelman nykyinen sivu. (optional, default to 1)
+   * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
+   * @param search Rajaa tulokset niihin, jotka täsmäävät merkkijonoon.  (optional)
+   * @param after Rajoita tulokset artikkeleihin, jotka on julkaistu annetun ISO8601-yhteensopivan päivämäärän jälkeen. (optional)
+   * @param author Rajaa tulokset kommentteihin, jotka on liitetty tiettyihin käyttäjä-ID:isiin. Vaatii tunnistautumisen. (optional)
+   * @param authorExclude Varmistaa ettei kommentteja ole liitetty tiettyihin käyttäjä-ID:isiin. Vaatii tunnistautumisen. (optional)
+   * @param authorEmail Rajaa tulokset tietyllä kirjoittajan sähköpostiosoitteella. Vaatii tunnistautumisen. (optional)
+   * @param before Rajoita tulokset kommentteihin, jotka on julkaistu annettua ISO8601-yhteensopivaa päivämäärää ennen. (optional)
+   * @param exclude Varmista, etteivät tulokset sisällä tiettyjä ID:itä. (optional)
+   * @param include Rajaa tulokset tiettyihin ID:ihin. (optional)
+   * @param offset Ohita määritelty määrä kohteita alusta. (optional)
+   * @param order Järjestää tulokset nousevaan tai laskevaan järjestykseen. (optional, default to desc)
+   * @param orderby Järjestä kokoelma kohteen ominaisuuden mukaan. (optional, default to date_gmt)
+   * @param parent Rajaa tulokset kommentteihin, joilla on tiettyjen vanhempien ID. (optional)
+   * @param parentExclude Varmistaa ettei tuloksilla ole tiettyä vanhemman ID:tä. (optional)
+   * @param post Rajaa tulokset kommentteihin, joille on asetettu tietty artikkeli-ID. (optional)
+   * @param status Rajaa tulokset kommentteihin, joille on asetettu tietty tila. Vaatii tunnistautumisen. (optional, default to approve)
+   * @param type Rajaa tulokset kommentteihin, joille on asetettu tietty tyyppi. Vaatii tunnistautumisen. (optional, default to comment)
+   * @param password Artikkelin salasana, jos se on salasanasuojattu.  (optional)
+   */
+  public ApiResponse<Object> wpV2CommentsHead(String context, Integer page, Integer perPage, String search, LocalDateTime after, List<String> author, List<String> authorExclude, String authorEmail, LocalDateTime before, List<String> exclude, List<String> include, Integer offset, String order, String orderby, List<String> parent, List<String> parentExclude, List<String> post, String status, String type, String password) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (page != null)
+    queryParams.put("page", page);
+if (perPage != null)
+    queryParams.put("per_page", perPage);
+if (search != null)
+    queryParams.put("search", search);
+if (after != null)
+    queryParams.put("after", after);
+if (author != null)
+    queryParams.put("author", author);
+if (authorExclude != null)
+    queryParams.put("author_exclude", authorExclude);
+if (authorEmail != null)
+    queryParams.put("author_email", authorEmail);
+if (before != null)
+    queryParams.put("before", before);
+if (exclude != null)
+    queryParams.put("exclude", exclude);
+if (include != null)
+    queryParams.put("include", include);
+if (offset != null)
+    queryParams.put("offset", offset);
+if (order != null)
+    queryParams.put("order", order);
+if (orderby != null)
+    queryParams.put("orderby", orderby);
+if (parent != null)
+    queryParams.put("parent", parent);
+if (parentExclude != null)
+    queryParams.put("parent_exclude", parentExclude);
+if (post != null)
+    queryParams.put("post", post);
+if (status != null)
+    queryParams.put("status", status);
+if (type != null)
+    queryParams.put("type", type);
+if (password != null)
+    queryParams.put("password", password);
+    
+        
+    String requestPath = String.format("%s/wp/v2/comments", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
    * @param id  (required)
    * @param id2 Kohteen uniikki tunniste. (optional)
    * @param force Ohitetaanko roskakori ja pakotetaan poistaminen. (optional)
@@ -801,6 +1166,31 @@ if (password != null)
       
     ResultType<Comment> resultType = new ResultType<Comment>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Kohteen uniikki tunniste. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param password Artikkelin salasana, jos se on salasanasuojattu.  (optional)
+   */
+  public ApiResponse<Object> wpV2CommentsIdHead(String id, Integer id2, String context, String password) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (id2 != null)
+    queryParams.put("id", id2);
+if (context != null)
+    queryParams.put("context", context);
+if (password != null)
+    queryParams.put("password", password);
+    
+        
+    String requestPath = String.format("%s/wp/v2/comments/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -969,6 +1359,59 @@ if (status != null)
   /**
    * 
    * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param page Kokoelman nykyinen sivu. (optional, default to 1)
+   * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
+   * @param search Rajaa tulokset niihin, jotka täsmäävät merkkijonoon.  (optional)
+   * @param after Rajoita tulokset artikkeleihin, jotka on julkaistu annetun ISO8601-yhteensopivan päivämäärän jälkeen. (optional)
+   * @param before Rajoita tulokset artikkeleihin, jotka on julkaistu annettua ISO8601-yhteensopivaa päivämäärää ennen. (optional)
+   * @param exclude Varmista, etteivät tulokset sisällä tiettyjä ID:itä. (optional)
+   * @param include Rajaa tulokset tiettyihin ID:ihin. (optional)
+   * @param offset Ohita määritelty määrä kohteita alusta. (optional)
+   * @param order Järjestää tulokset nousevaan tai laskevaan järjestykseen. (optional, default to desc)
+   * @param orderby Järjestä kokoelma kohteen ominaisuuden mukaan. (optional, default to date)
+   * @param slug Rajaa tulokset artikkeleihin joilla on yksi tai useampi polkutunnus. (optional)
+   * @param status Rajaa tulokset artikkeleihin, joilla yksi tai useampi tila. (optional, default to publish)
+   */
+  public ApiResponse<Object> wpV2FragmentHead(String context, Integer page, Integer perPage, String search, LocalDateTime after, LocalDateTime before, List<String> exclude, List<String> include, Integer offset, String order, String orderby, List<String> slug, List<String> status) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (page != null)
+    queryParams.put("page", page);
+if (perPage != null)
+    queryParams.put("per_page", perPage);
+if (search != null)
+    queryParams.put("search", search);
+if (after != null)
+    queryParams.put("after", after);
+if (before != null)
+    queryParams.put("before", before);
+if (exclude != null)
+    queryParams.put("exclude", exclude);
+if (include != null)
+    queryParams.put("include", include);
+if (offset != null)
+    queryParams.put("offset", offset);
+if (order != null)
+    queryParams.put("order", order);
+if (orderby != null)
+    queryParams.put("orderby", orderby);
+if (slug != null)
+    queryParams.put("slug", slug);
+if (status != null)
+    queryParams.put("status", status);
+    
+        
+    String requestPath = String.format("%s/wp/v2/fragment", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
    * @param id  (required)
    * @param id2 Kohteen uniikki tunniste. (optional)
    * @param force Ohitetaanko roskakori ja pakotetaan poistaminen. (optional)
@@ -1012,6 +1455,31 @@ if (password != null)
       
     ResultType<Fragment> resultType = new ResultType<Fragment>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Kohteen uniikki tunniste. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param password Artikkelin salasana, jos se on salasanasuojattu.  (optional)
+   */
+  public ApiResponse<Object> wpV2FragmentIdHead(String id, Integer id2, String context, String password) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (id2 != null)
+    queryParams.put("id", id2);
+if (context != null)
+    queryParams.put("context", context);
+if (password != null)
+    queryParams.put("password", password);
+    
+        
+    String requestPath = String.format("%s/wp/v2/fragment/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -1168,6 +1636,77 @@ if (mimeType != null)
   /**
    * 
    * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param page Kokoelman nykyinen sivu. (optional, default to 1)
+   * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
+   * @param search Rajaa tulokset niihin, jotka täsmäävät merkkijonoon.  (optional)
+   * @param after Rajoita tulokset artikkeleihin, jotka on julkaistu annetun ISO8601-yhteensopivan päivämäärän jälkeen. (optional)
+   * @param author Rajaa tulokset tiettyjen kirjoittajien artikkeleihin.  (optional)
+   * @param authorExclude Varmistaa ettei tuloksissa ole artikkeleita, jotka on liitetty tiettyihin kirjoittajiin. (optional)
+   * @param before Rajoita tulokset artikkeleihin, jotka on julkaistu annettua ISO8601-yhteensopivaa päivämäärää ennen. (optional)
+   * @param exclude Varmista, etteivät tulokset sisällä tiettyjä ID:itä. (optional)
+   * @param include Rajaa tulokset tiettyihin ID:ihin. (optional)
+   * @param offset Ohita määritelty määrä kohteita alusta. (optional)
+   * @param order Järjestää tulokset nousevaan tai laskevaan järjestykseen. (optional, default to desc)
+   * @param orderby Järjestä kokoelma kohteen ominaisuuden mukaan. (optional, default to date)
+   * @param parent Rajaa tulokset kohteisiin, joiden vanhemmalla on jokin määritellyistä id:istä. (optional)
+   * @param parentExclude Rajaa tulokset kohteisiin, joiden vanhemmalla ei ole tiettyä id:tä. (optional)
+   * @param slug Rajaa tulokset artikkeleihin joilla on yksi tai useampi polkutunnus. (optional)
+   * @param status Rajaa tulokset artikkeleihin, joilla yksi tai useampi tila. (optional, default to inherit)
+   * @param mediaType Rajaa tulokset tietyn mediatyypin liitetiedostoihin. (optional)
+   * @param mimeType Rajaa tulokset tietyn MIME-tyypin liitetiedostoihin. (optional)
+   */
+  public ApiResponse<Object> wpV2MediaHead(String context, Integer page, Integer perPage, String search, LocalDateTime after, List<String> author, List<String> authorExclude, LocalDateTime before, List<String> exclude, List<String> include, Integer offset, String order, String orderby, List<String> parent, List<String> parentExclude, List<String> slug, List<String> status, String mediaType, String mimeType) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (page != null)
+    queryParams.put("page", page);
+if (perPage != null)
+    queryParams.put("per_page", perPage);
+if (search != null)
+    queryParams.put("search", search);
+if (after != null)
+    queryParams.put("after", after);
+if (author != null)
+    queryParams.put("author", author);
+if (authorExclude != null)
+    queryParams.put("author_exclude", authorExclude);
+if (before != null)
+    queryParams.put("before", before);
+if (exclude != null)
+    queryParams.put("exclude", exclude);
+if (include != null)
+    queryParams.put("include", include);
+if (offset != null)
+    queryParams.put("offset", offset);
+if (order != null)
+    queryParams.put("order", order);
+if (orderby != null)
+    queryParams.put("orderby", orderby);
+if (parent != null)
+    queryParams.put("parent", parent);
+if (parentExclude != null)
+    queryParams.put("parent_exclude", parentExclude);
+if (slug != null)
+    queryParams.put("slug", slug);
+if (status != null)
+    queryParams.put("status", status);
+if (mediaType != null)
+    queryParams.put("media_type", mediaType);
+if (mimeType != null)
+    queryParams.put("mime_type", mimeType);
+    
+        
+    String requestPath = String.format("%s/wp/v2/media", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
    * @param id  (required)
    * @param id2 Kohteen uniikki tunniste. (optional)
    * @param force Ohitetaanko roskakori ja pakotetaan poistaminen. (optional)
@@ -1208,6 +1747,28 @@ if (context != null)
       
     ResultType<Attachment> resultType = new ResultType<Attachment>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Kohteen uniikki tunniste. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   */
+  public ApiResponse<Object> wpV2MediaIdHead(String id, Integer id2, String context) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (id2 != null)
+    queryParams.put("id", id2);
+if (context != null)
+    queryParams.put("context", context);
+    
+        
+    String requestPath = String.format("%s/wp/v2/media/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -1397,6 +1958,74 @@ if (status != null)
   /**
    * 
    * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param page Kokoelman nykyinen sivu. (optional, default to 1)
+   * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
+   * @param search Rajaa tulokset niihin, jotka täsmäävät merkkijonoon.  (optional)
+   * @param after Rajoita tulokset artikkeleihin, jotka on julkaistu annetun ISO8601-yhteensopivan päivämäärän jälkeen. (optional)
+   * @param author Rajaa tulokset tiettyjen kirjoittajien artikkeleihin.  (optional)
+   * @param authorExclude Varmistaa ettei tuloksissa ole artikkeleita, jotka on liitetty tiettyihin kirjoittajiin. (optional)
+   * @param before Rajoita tulokset artikkeleihin, jotka on julkaistu annettua ISO8601-yhteensopivaa päivämäärää ennen. (optional)
+   * @param exclude Varmista, etteivät tulokset sisällä tiettyjä ID:itä. (optional)
+   * @param include Rajaa tulokset tiettyihin ID:ihin. (optional)
+   * @param menuOrder Rajaa tulokset tiettyyn menu_order-arvoon. (optional)
+   * @param offset Ohita määritelty määrä kohteita alusta. (optional)
+   * @param order Järjestää tulokset nousevaan tai laskevaan järjestykseen. (optional, default to desc)
+   * @param orderby Järjestä kokoelma kohteen ominaisuuden mukaan. (optional, default to date)
+   * @param parent Rajaa tulokset kohteisiin, joiden vanhemmalla on jokin määritellyistä id:istä. (optional)
+   * @param parentExclude Rajaa tulokset kohteisiin, joiden vanhemmalla ei ole tiettyä id:tä. (optional)
+   * @param slug Rajaa tulokset artikkeleihin joilla on yksi tai useampi polkutunnus. (optional)
+   * @param status Rajaa tulokset artikkeleihin, joilla yksi tai useampi tila. (optional, default to publish)
+   */
+  public ApiResponse<Object> wpV2PagesHead(String context, Integer page, Integer perPage, String search, LocalDateTime after, List<String> author, List<String> authorExclude, LocalDateTime before, List<String> exclude, List<String> include, Integer menuOrder, Integer offset, String order, String orderby, List<String> parent, List<String> parentExclude, List<String> slug, List<String> status) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (page != null)
+    queryParams.put("page", page);
+if (perPage != null)
+    queryParams.put("per_page", perPage);
+if (search != null)
+    queryParams.put("search", search);
+if (after != null)
+    queryParams.put("after", after);
+if (author != null)
+    queryParams.put("author", author);
+if (authorExclude != null)
+    queryParams.put("author_exclude", authorExclude);
+if (before != null)
+    queryParams.put("before", before);
+if (exclude != null)
+    queryParams.put("exclude", exclude);
+if (include != null)
+    queryParams.put("include", include);
+if (menuOrder != null)
+    queryParams.put("menu_order", menuOrder);
+if (offset != null)
+    queryParams.put("offset", offset);
+if (order != null)
+    queryParams.put("order", order);
+if (orderby != null)
+    queryParams.put("orderby", orderby);
+if (parent != null)
+    queryParams.put("parent", parent);
+if (parentExclude != null)
+    queryParams.put("parent_exclude", parentExclude);
+if (slug != null)
+    queryParams.put("slug", slug);
+if (status != null)
+    queryParams.put("status", status);
+    
+        
+    String requestPath = String.format("%s/wp/v2/pages", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
    * @param id  (required)
    * @param id2 Kohteen uniikki tunniste. (optional)
    * @param force Ohitetaanko roskakori ja pakotetaan poistaminen. (optional)
@@ -1440,6 +2069,31 @@ if (password != null)
       
     ResultType<Page> resultType = new ResultType<Page>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Kohteen uniikki tunniste. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param password Artikkelin salasana, jos se on salasanasuojattu.  (optional)
+   */
+  public ApiResponse<Object> wpV2PagesIdHead(String id, Integer id2, String context, String password) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (id2 != null)
+    queryParams.put("id", id2);
+if (context != null)
+    queryParams.put("context", context);
+if (password != null)
+    queryParams.put("password", password);
+    
+        
+    String requestPath = String.format("%s/wp/v2/pages/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -1537,6 +2191,28 @@ if (context != null)
    * 
    * 
    * @param parent  (required)
+   * @param parent2 Kohteen vanhemman ID. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   */
+  public ApiResponse<Object> wpV2PagesParentRevisionsHead(String parent, Integer parent2, String context) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (parent2 != null)
+    queryParams.put("parent", parent2);
+if (context != null)
+    queryParams.put("context", context);
+    
+        
+    String requestPath = String.format("%s/wp/v2/pages/{parent}/revisions"
+      .replaceAll("\\{" + "parent" + "\\}", parent), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param parent  (required)
    * @param id  (required)
    * @param parent2 Kohteen vanhemman ID. (optional)
    * @param id2 Kohteen uniikki tunniste. (optional)
@@ -1586,6 +2262,33 @@ if (context != null)
       
     ResultType<PageRevision> resultType = new ResultType<PageRevision>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param parent  (required)
+   * @param id  (required)
+   * @param parent2 Kohteen vanhemman ID. (optional)
+   * @param id2 Kohteen uniikki tunniste. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   */
+  public ApiResponse<Object> wpV2PagesParentRevisionsIdHead(String parent, String id, Integer parent2, Integer id2, String context) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (parent2 != null)
+    queryParams.put("parent", parent2);
+if (id2 != null)
+    queryParams.put("id", id2);
+if (context != null)
+    queryParams.put("context", context);
+    
+        
+    String requestPath = String.format("%s/wp/v2/pages/{parent}/revisions/{id}"
+      .replaceAll("\\{" + "parent" + "\\}", parent)
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -1729,6 +2432,80 @@ if (sticky != null)
   /**
    * 
    * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param page Kokoelman nykyinen sivu. (optional, default to 1)
+   * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
+   * @param search Rajaa tulokset niihin, jotka täsmäävät merkkijonoon.  (optional)
+   * @param after Rajoita tulokset artikkeleihin, jotka on julkaistu annetun ISO8601-yhteensopivan päivämäärän jälkeen. (optional)
+   * @param author Rajaa tulokset tiettyjen kirjoittajien artikkeleihin.  (optional)
+   * @param authorExclude Varmistaa ettei tuloksissa ole artikkeleita, jotka on liitetty tiettyihin kirjoittajiin. (optional)
+   * @param before Rajoita tulokset artikkeleihin, jotka on julkaistu annettua ISO8601-yhteensopivaa päivämäärää ennen. (optional)
+   * @param exclude Varmista, etteivät tulokset sisällä tiettyjä ID:itä. (optional)
+   * @param include Rajaa tulokset tiettyihin ID:ihin. (optional)
+   * @param offset Ohita määritelty määrä kohteita alusta. (optional)
+   * @param order Järjestää tulokset nousevaan tai laskevaan järjestykseen. (optional, default to desc)
+   * @param orderby Järjestä kokoelma kohteen ominaisuuden mukaan. (optional, default to date)
+   * @param slug Rajaa tulokset artikkeleihin joilla on yksi tai useampi polkutunnus. (optional)
+   * @param status Rajaa tulokset artikkeleihin, joilla yksi tai useampi tila. (optional, default to publish)
+   * @param categories Rajaa tulokset kohteisiin, joilla on valittu termi taksonomiassa categories. (optional)
+   * @param categoriesExclude Rajaa tulokset sisältämään kaikki paitsi kohteet, joilla on annettu termi taksonomiassa categories. (optional)
+   * @param tags Rajaa tulokset kohteisiin, joilla on valittu termi taksonomiassa tags. (optional)
+   * @param tagsExclude Rajaa tulokset sisältämään kaikki paitsi kohteet, joilla on annettu termi taksonomiassa tags. (optional)
+   * @param sticky Rajaa tulokset kiinnitettyihin kohteisiin.  (optional)
+   */
+  public ApiResponse<Object> wpV2PostsHead(String context, Integer page, Integer perPage, String search, LocalDateTime after, List<String> author, List<String> authorExclude, LocalDateTime before, List<String> exclude, List<String> include, Integer offset, String order, String orderby, List<String> slug, List<String> status, List<String> categories, List<String> categoriesExclude, List<String> tags, List<String> tagsExclude, Boolean sticky) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (page != null)
+    queryParams.put("page", page);
+if (perPage != null)
+    queryParams.put("per_page", perPage);
+if (search != null)
+    queryParams.put("search", search);
+if (after != null)
+    queryParams.put("after", after);
+if (author != null)
+    queryParams.put("author", author);
+if (authorExclude != null)
+    queryParams.put("author_exclude", authorExclude);
+if (before != null)
+    queryParams.put("before", before);
+if (exclude != null)
+    queryParams.put("exclude", exclude);
+if (include != null)
+    queryParams.put("include", include);
+if (offset != null)
+    queryParams.put("offset", offset);
+if (order != null)
+    queryParams.put("order", order);
+if (orderby != null)
+    queryParams.put("orderby", orderby);
+if (slug != null)
+    queryParams.put("slug", slug);
+if (status != null)
+    queryParams.put("status", status);
+if (categories != null)
+    queryParams.put("categories", categories);
+if (categoriesExclude != null)
+    queryParams.put("categories_exclude", categoriesExclude);
+if (tags != null)
+    queryParams.put("tags", tags);
+if (tagsExclude != null)
+    queryParams.put("tags_exclude", tagsExclude);
+if (sticky != null)
+    queryParams.put("sticky", sticky);
+    
+        
+    String requestPath = String.format("%s/wp/v2/posts", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
    * @param id  (required)
    * @param id2 Kohteen uniikki tunniste. (optional)
    * @param force Ohitetaanko roskakori ja pakotetaan poistaminen. (optional)
@@ -1772,6 +2549,31 @@ if (password != null)
       
     ResultType<Post> resultType = new ResultType<Post>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Kohteen uniikki tunniste. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param password Artikkelin salasana, jos se on salasanasuojattu.  (optional)
+   */
+  public ApiResponse<Object> wpV2PostsIdHead(String id, Integer id2, String context, String password) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (id2 != null)
+    queryParams.put("id", id2);
+if (context != null)
+    queryParams.put("context", context);
+if (password != null)
+    queryParams.put("password", password);
+    
+        
+    String requestPath = String.format("%s/wp/v2/posts/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -1872,6 +2674,28 @@ if (context != null)
    * 
    * 
    * @param parent  (required)
+   * @param parent2 Kohteen vanhemman ID. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   */
+  public ApiResponse<Object> wpV2PostsParentRevisionsHead(String parent, Integer parent2, String context) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (parent2 != null)
+    queryParams.put("parent", parent2);
+if (context != null)
+    queryParams.put("context", context);
+    
+        
+    String requestPath = String.format("%s/wp/v2/posts/{parent}/revisions"
+      .replaceAll("\\{" + "parent" + "\\}", parent), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param parent  (required)
    * @param id  (required)
    * @param parent2 Kohteen vanhemman ID. (optional)
    * @param id2 Kohteen uniikki tunniste. (optional)
@@ -1921,6 +2745,33 @@ if (context != null)
       
     ResultType<PostRevision> resultType = new ResultType<PostRevision>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param parent  (required)
+   * @param id  (required)
+   * @param parent2 Kohteen vanhemman ID. (optional)
+   * @param id2 Kohteen uniikki tunniste. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   */
+  public ApiResponse<Object> wpV2PostsParentRevisionsIdHead(String parent, String id, Integer parent2, Integer id2, String context) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (parent2 != null)
+    queryParams.put("parent", parent2);
+if (id2 != null)
+    queryParams.put("id", id2);
+if (context != null)
+    queryParams.put("context", context);
+    
+        
+    String requestPath = String.format("%s/wp/v2/posts/{parent}/revisions/{id}"
+      .replaceAll("\\{" + "parent" + "\\}", parent)
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -2003,6 +2854,20 @@ if (tags != null)
       
     ResultType<List<Settings>> resultType = new ResultType<List<Settings>>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   */
+  public ApiResponse<Object> wpV2SettingsHead() {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+        
+    String requestPath = String.format("%s/wp/v2/settings", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -2119,6 +2984,59 @@ if (status != null)
   /**
    * 
    * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param page Kokoelman nykyinen sivu. (optional, default to 1)
+   * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
+   * @param search Rajaa tulokset niihin, jotka täsmäävät merkkijonoon.  (optional)
+   * @param after Rajoita tulokset artikkeleihin, jotka on julkaistu annetun ISO8601-yhteensopivan päivämäärän jälkeen. (optional)
+   * @param before Rajoita tulokset artikkeleihin, jotka on julkaistu annettua ISO8601-yhteensopivaa päivämäärää ennen. (optional)
+   * @param exclude Varmista, etteivät tulokset sisällä tiettyjä ID:itä. (optional)
+   * @param include Rajaa tulokset tiettyihin ID:ihin. (optional)
+   * @param offset Ohita määritelty määrä kohteita alusta. (optional)
+   * @param order Järjestää tulokset nousevaan tai laskevaan järjestykseen. (optional, default to desc)
+   * @param orderby Järjestä kokoelma kohteen ominaisuuden mukaan. (optional, default to date)
+   * @param slug Rajaa tulokset artikkeleihin joilla on yksi tai useampi polkutunnus. (optional)
+   * @param status Rajaa tulokset artikkeleihin, joilla yksi tai useampi tila. (optional, default to publish)
+   */
+  public ApiResponse<Object> wpV2ShortlinkHead(String context, Integer page, Integer perPage, String search, LocalDateTime after, LocalDateTime before, List<String> exclude, List<String> include, Integer offset, String order, String orderby, List<String> slug, List<String> status) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (page != null)
+    queryParams.put("page", page);
+if (perPage != null)
+    queryParams.put("per_page", perPage);
+if (search != null)
+    queryParams.put("search", search);
+if (after != null)
+    queryParams.put("after", after);
+if (before != null)
+    queryParams.put("before", before);
+if (exclude != null)
+    queryParams.put("exclude", exclude);
+if (include != null)
+    queryParams.put("include", include);
+if (offset != null)
+    queryParams.put("offset", offset);
+if (order != null)
+    queryParams.put("order", order);
+if (orderby != null)
+    queryParams.put("orderby", orderby);
+if (slug != null)
+    queryParams.put("slug", slug);
+if (status != null)
+    queryParams.put("status", status);
+    
+        
+    String requestPath = String.format("%s/wp/v2/shortlink", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
    * @param id  (required)
    * @param id2 Kohteen uniikki tunniste. (optional)
    * @param force Ohitetaanko roskakori ja pakotetaan poistaminen. (optional)
@@ -2162,6 +3080,31 @@ if (password != null)
       
     ResultType<Shortlink> resultType = new ResultType<Shortlink>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Kohteen uniikki tunniste. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param password Artikkelin salasana, jos se on salasanasuojattu.  (optional)
+   */
+  public ApiResponse<Object> wpV2ShortlinkIdHead(String id, Integer id2, String context, String password) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (id2 != null)
+    queryParams.put("id", id2);
+if (context != null)
+    queryParams.put("context", context);
+if (password != null)
+    queryParams.put("password", password);
+    
+        
+    String requestPath = String.format("%s/wp/v2/shortlink/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -2270,6 +3213,23 @@ if (url != null)
   /**
    * 
    * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   */
+  public ApiResponse<Object> wpV2StatusesHead(String context) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+    
+        
+    String requestPath = String.format("%s/wp/v2/statuses", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
    * @param status  (required)
    * @param status2 Alfanumeerinen tunniste tilalle. (optional)
    * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
@@ -2292,6 +3252,28 @@ if (context != null)
   /**
    * 
    * 
+   * @param status  (required)
+   * @param status2 Alfanumeerinen tunniste tilalle. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   */
+  public ApiResponse<Object> wpV2StatusesStatusHead(String status, String status2, String context) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (status2 != null)
+    queryParams.put("status", status2);
+if (context != null)
+    queryParams.put("context", context);
+    
+        
+    String requestPath = String.format("%s/wp/v2/statuses/{status}"
+      .replaceAll("\\{" + "status" + "\\}", status), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
    * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
    * @param page Kokoelman nykyinen sivu. (optional, default to 1)
    * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
@@ -2305,7 +3287,7 @@ if (context != null)
    * @param post Rajaa tulokset termeihin, jotka liittyvät tiettyyn artikkeliin. (optional)
    * @param slug Rajaa tulokset tietyn polkutunnuksen mukaan. (optional)
    */
-  public ApiResponse<List<Tag>> wpV2TagsGet(String context, Integer page, Integer perPage, String search, List<String> exclude, List<String> include, Integer offset, String order, String orderby, Boolean hideEmpty, Integer post, String slug) {
+  public ApiResponse<List<Tag>> wpV2TagsGet(String context, Integer page, Integer perPage, String search, List<String> exclude, List<String> include, Integer offset, String order, String orderby, Boolean hideEmpty, Integer post, List<String> slug) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
     if (context != null)
@@ -2338,6 +3320,56 @@ if (slug != null)
       
     ResultType<List<Tag>> resultType = new ResultType<List<Tag>>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param page Kokoelman nykyinen sivu. (optional, default to 1)
+   * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
+   * @param search Rajaa tulokset niihin, jotka täsmäävät merkkijonoon.  (optional)
+   * @param exclude Varmista, etteivät tulokset sisällä tiettyjä ID:itä. (optional)
+   * @param include Rajaa tulokset tiettyihin ID:ihin. (optional)
+   * @param offset Ohita määritelty määrä kohteita alusta. (optional)
+   * @param order Järjestää tulokset nousevaan tai laskevaan järjestykseen. (optional, default to asc)
+   * @param orderby Lajittele kokoelma termin ominaisuuden mukaan. (optional, default to name)
+   * @param hideEmpty Piilotetaanko termit, jotka eivät liity mihinkään artikkeliin? (optional)
+   * @param post Rajaa tulokset termeihin, jotka liittyvät tiettyyn artikkeliin. (optional)
+   * @param slug Rajaa tulokset tietyn polkutunnuksen mukaan. (optional)
+   */
+  public ApiResponse<Object> wpV2TagsHead(String context, Integer page, Integer perPage, String search, List<String> exclude, List<String> include, Integer offset, String order, String orderby, Boolean hideEmpty, Integer post, List<String> slug) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (page != null)
+    queryParams.put("page", page);
+if (perPage != null)
+    queryParams.put("per_page", perPage);
+if (search != null)
+    queryParams.put("search", search);
+if (exclude != null)
+    queryParams.put("exclude", exclude);
+if (include != null)
+    queryParams.put("include", include);
+if (offset != null)
+    queryParams.put("offset", offset);
+if (order != null)
+    queryParams.put("order", order);
+if (orderby != null)
+    queryParams.put("orderby", orderby);
+if (hideEmpty != null)
+    queryParams.put("hide_empty", hideEmpty);
+if (post != null)
+    queryParams.put("post", post);
+if (slug != null)
+    queryParams.put("slug", slug);
+    
+        
+    String requestPath = String.format("%s/wp/v2/tags", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -2382,6 +3414,28 @@ if (context != null)
       
     ResultType<Tag> resultType = new ResultType<Tag>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Yksilöivä tunniste termille. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   */
+  public ApiResponse<Object> wpV2TagsIdHead(String id, Integer id2, String context) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (id2 != null)
+    queryParams.put("id", id2);
+if (context != null)
+    queryParams.put("context", context);
+    
+        
+    String requestPath = String.format("%s/wp/v2/tags/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -2463,6 +3517,26 @@ if (type != null)
   /**
    * 
    * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param type Rajaa tuloksiin taksonomioihin, jotka liittyvät tiettyyn sisältötyyppiin. (optional)
+   */
+  public ApiResponse<Object> wpV2TaxonomiesHead(String context, String type) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (type != null)
+    queryParams.put("type", type);
+    
+        
+    String requestPath = String.format("%s/wp/v2/taxonomies", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
    * @param taxonomy  (required)
    * @param taxonomy2 Alfanumeerinen tunniste taksonomialle. (optional)
    * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
@@ -2481,6 +3555,28 @@ if (context != null)
       
     ResultType<Taxonomy> resultType = new ResultType<Taxonomy>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param taxonomy  (required)
+   * @param taxonomy2 Alfanumeerinen tunniste taksonomialle. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   */
+  public ApiResponse<Object> wpV2TaxonomiesTaxonomyHead(String taxonomy, String taxonomy2, String context) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (taxonomy2 != null)
+    queryParams.put("taxonomy", taxonomy2);
+if (context != null)
+    queryParams.put("context", context);
+    
+        
+    String requestPath = String.format("%s/wp/v2/taxonomies/{taxonomy}"
+      .replaceAll("\\{" + "taxonomy" + "\\}", taxonomy), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -2538,6 +3634,59 @@ if (status != null)
   /**
    * 
    * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param page Kokoelman nykyinen sivu. (optional, default to 1)
+   * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
+   * @param search Rajaa tulokset niihin, jotka täsmäävät merkkijonoon.  (optional)
+   * @param after Rajoita tulokset artikkeleihin, jotka on julkaistu annetun ISO8601-yhteensopivan päivämäärän jälkeen. (optional)
+   * @param before Rajoita tulokset artikkeleihin, jotka on julkaistu annettua ISO8601-yhteensopivaa päivämäärää ennen. (optional)
+   * @param exclude Varmista, etteivät tulokset sisällä tiettyjä ID:itä. (optional)
+   * @param include Rajaa tulokset tiettyihin ID:ihin. (optional)
+   * @param offset Ohita määritelty määrä kohteita alusta. (optional)
+   * @param order Järjestää tulokset nousevaan tai laskevaan järjestykseen. (optional, default to desc)
+   * @param orderby Järjestä kokoelma kohteen ominaisuuden mukaan. (optional, default to date)
+   * @param slug Rajaa tulokset artikkeleihin joilla on yksi tai useampi polkutunnus. (optional)
+   * @param status Rajaa tulokset artikkeleihin, joilla yksi tai useampi tila. (optional, default to publish)
+   */
+  public ApiResponse<Object> wpV2TileHead(String context, Integer page, Integer perPage, String search, LocalDateTime after, LocalDateTime before, List<String> exclude, List<String> include, Integer offset, String order, String orderby, List<String> slug, List<String> status) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (page != null)
+    queryParams.put("page", page);
+if (perPage != null)
+    queryParams.put("per_page", perPage);
+if (search != null)
+    queryParams.put("search", search);
+if (after != null)
+    queryParams.put("after", after);
+if (before != null)
+    queryParams.put("before", before);
+if (exclude != null)
+    queryParams.put("exclude", exclude);
+if (include != null)
+    queryParams.put("include", include);
+if (offset != null)
+    queryParams.put("offset", offset);
+if (order != null)
+    queryParams.put("order", order);
+if (orderby != null)
+    queryParams.put("orderby", orderby);
+if (slug != null)
+    queryParams.put("slug", slug);
+if (status != null)
+    queryParams.put("status", status);
+    
+        
+    String requestPath = String.format("%s/wp/v2/tile", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
    * @param id  (required)
    * @param id2 Kohteen uniikki tunniste. (optional)
    * @param force Ohitetaanko roskakori ja pakotetaan poistaminen. (optional)
@@ -2581,6 +3730,31 @@ if (password != null)
       
     ResultType<Tile> resultType = new ResultType<Tile>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Kohteen uniikki tunniste. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param password Artikkelin salasana, jos se on salasanasuojattu.  (optional)
+   */
+  public ApiResponse<Object> wpV2TileIdHead(String id, Integer id2, String context, String password) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (id2 != null)
+    queryParams.put("id", id2);
+if (context != null)
+    queryParams.put("context", context);
+if (password != null)
+    queryParams.put("password", password);
+    
+        
+    String requestPath = String.format("%s/wp/v2/tile/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -2695,6 +3869,23 @@ if (tileLink != null)
   /**
    * 
    * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   */
+  public ApiResponse<Object> wpV2TypesHead(String context) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+    
+        
+    String requestPath = String.format("%s/wp/v2/types", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
    * @param type  (required)
    * @param type2 Alfanumeerinen tunniste sisältötyypille. (optional)
    * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
@@ -2717,6 +3908,28 @@ if (context != null)
   /**
    * 
    * 
+   * @param type  (required)
+   * @param type2 Alfanumeerinen tunniste sisältötyypille. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   */
+  public ApiResponse<Object> wpV2TypesTypeHead(String type, String type2, String context) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (type2 != null)
+    queryParams.put("type", type2);
+if (context != null)
+    queryParams.put("context", context);
+    
+        
+    String requestPath = String.format("%s/wp/v2/types/{type}"
+      .replaceAll("\\{" + "type" + "\\}", type), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
    * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
    * @param page Kokoelman nykyinen sivu. (optional, default to 1)
    * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
@@ -2729,7 +3942,7 @@ if (context != null)
    * @param slug Rajaa tulokset käyttäjiin tietyllä polkutunnuksella. (optional)
    * @param roles Rajaa tulokset koskemaan vähintään yhtä annettua roolia. Hyväksyy csv-luettelon tai yksittäisen roolin. (optional)
    */
-  public ApiResponse<List<User>> wpV2UsersGet(String context, Integer page, Integer perPage, String search, List<String> exclude, List<String> include, Integer offset, String order, String orderby, String slug, List<String> roles) {
+  public ApiResponse<List<User>> wpV2UsersGet(String context, Integer page, Integer perPage, String search, List<String> exclude, List<String> include, Integer offset, String order, String orderby, List<String> slug, List<String> roles) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
     if (context != null)
@@ -2760,6 +3973,53 @@ if (roles != null)
       
     ResultType<List<User>> resultType = new ResultType<List<User>>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param page Kokoelman nykyinen sivu. (optional, default to 1)
+   * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
+   * @param search Rajaa tulokset niihin, jotka täsmäävät merkkijonoon.  (optional)
+   * @param exclude Varmista, etteivät tulokset sisällä tiettyjä ID:itä. (optional)
+   * @param include Rajaa tulokset tiettyihin ID:ihin. (optional)
+   * @param offset Ohita määritelty määrä kohteita alusta. (optional)
+   * @param order Järjestää tulokset nousevaan tai laskevaan järjestykseen. (optional, default to asc)
+   * @param orderby Järjestä kokoelma kohteen ominaisuuden mukaan. (optional, default to name)
+   * @param slug Rajaa tulokset käyttäjiin tietyllä polkutunnuksella. (optional)
+   * @param roles Rajaa tulokset koskemaan vähintään yhtä annettua roolia. Hyväksyy csv-luettelon tai yksittäisen roolin. (optional)
+   */
+  public ApiResponse<Object> wpV2UsersHead(String context, Integer page, Integer perPage, String search, List<String> exclude, List<String> include, Integer offset, String order, String orderby, List<String> slug, List<String> roles) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (page != null)
+    queryParams.put("page", page);
+if (perPage != null)
+    queryParams.put("per_page", perPage);
+if (search != null)
+    queryParams.put("search", search);
+if (exclude != null)
+    queryParams.put("exclude", exclude);
+if (include != null)
+    queryParams.put("include", include);
+if (offset != null)
+    queryParams.put("offset", offset);
+if (order != null)
+    queryParams.put("order", order);
+if (orderby != null)
+    queryParams.put("orderby", orderby);
+if (slug != null)
+    queryParams.put("slug", slug);
+if (roles != null)
+    queryParams.put("roles", roles);
+    
+        
+    String requestPath = String.format("%s/wp/v2/users", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -2807,6 +4067,28 @@ if (context != null)
       
     ResultType<User> resultType = new ResultType<User>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Käyttäjän uniikki tunniste. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   */
+  public ApiResponse<Object> wpV2UsersIdHead(String id, Integer id2, String context) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (id2 != null)
+    queryParams.put("id", id2);
+if (context != null)
+    queryParams.put("context", context);
+    
+        
+    String requestPath = String.format("%s/wp/v2/users/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
@@ -2902,6 +4184,23 @@ if (reassign != null)
       
     ResultType<List<User>> resultType = new ResultType<List<User>>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   */
+  public ApiResponse<Object> wpV2UsersMeHead(String context) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+    
+        
+    String requestPath = String.format("%s/wp/v2/users/me", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
   }
   /**
    * 
