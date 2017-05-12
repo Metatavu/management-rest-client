@@ -28,21 +28,21 @@ package fi.metatavu.management.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import fi.metatavu.management.client.model.PostContent;
-import fi.metatavu.management.client.model.PostExcerpt;
 import fi.metatavu.management.client.model.PostGuid;
 import fi.metatavu.management.client.model.PostTitle;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 /**
- * Page
+ * Incident
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-12T07:46:35.856+03:00")
-public class Page   {
+public class Incident   {
   @JsonProperty("date")
   @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)  
   @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)  
@@ -124,95 +124,8 @@ public class Page   {
   @JsonProperty("password")
   private String password = null;
 
-  @JsonProperty("parent")
-  private Integer parent = null;
-
   @JsonProperty("title")
   private PostTitle title = null;
-
-  @JsonProperty("content")
-  private PostContent content = null;
-
-  @JsonProperty("author")
-  private Integer author = null;
-
-  @JsonProperty("excerpt")
-  private PostExcerpt excerpt = null;
-
-  @JsonProperty("featured_media")
-  private Integer featuredMedia = null;
-
-  /**
-   * Onko kohteen kommentointi käytössä. 
-   */
-  public enum CommentStatusEnum {
-    OPEN("open"),
-    
-    CLOSED("closed");
-
-    private String value;
-
-    CommentStatusEnum(String value) {
-      this.value = value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static CommentStatusEnum fromValue(String text) {
-      for (CommentStatusEnum b : CommentStatusEnum.values()) {
-          if (String.valueOf(b.value).equals(text)) {
-              return b;
-          }
-      }
-      return null;
-    }
-  }
-
-  @JsonProperty("comment_status")
-  private CommentStatusEnum commentStatus = null;
-
-  /**
-   * Voiko kohteelle tehdä paluuviitteen.
-   */
-  public enum PingStatusEnum {
-    OPEN("open"),
-    
-    CLOSED("closed");
-
-    private String value;
-
-    PingStatusEnum(String value) {
-      this.value = value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static PingStatusEnum fromValue(String text) {
-      for (PingStatusEnum b : PingStatusEnum.values()) {
-          if (String.valueOf(b.value).equals(text)) {
-              return b;
-          }
-      }
-      return null;
-    }
-  }
-
-  @JsonProperty("ping_status")
-  private PingStatusEnum pingStatus = null;
-
-  @JsonProperty("menu_order")
-  private Integer menuOrder = null;
-
-  @JsonProperty("meta")
-  private Object meta = null;
 
   /**
    * Teematiedosto joka näyttää kohteen.
@@ -245,10 +158,29 @@ public class Page   {
   @JsonProperty("template")
   private TemplateEnum template = null;
 
-  @JsonProperty("banner-image")
-  private Long bannerImage = null;
+  @JsonProperty("incident_areas")
+  private List<String> incidentAreas = new ArrayList<String>();
 
-  public Page date(LocalDateTime date) {
+  @JsonProperty("incident_type")
+  private String incidentType = null;
+
+  @JsonProperty("description")
+  private String description = null;
+
+  @JsonProperty("areas")
+  private List<String> areas = new ArrayList<String>();
+
+  @JsonProperty("start_time")
+  @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)  
+  @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)  
+  private LocalDateTime startTime = null;
+
+  @JsonProperty("end_time")
+  @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)  
+  @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)  
+  private LocalDateTime endTime = null;
+
+  public Incident date(LocalDateTime date) {
     this.date = date;
     return this;
   }
@@ -266,7 +198,7 @@ public class Page   {
     this.date = date;
   }
 
-  public Page dateGmt(LocalDateTime dateGmt) {
+  public Incident dateGmt(LocalDateTime dateGmt) {
     this.dateGmt = dateGmt;
     return this;
   }
@@ -284,7 +216,7 @@ public class Page   {
     this.dateGmt = dateGmt;
   }
 
-  public Page guid(PostGuid guid) {
+  public Incident guid(PostGuid guid) {
     this.guid = guid;
     return this;
   }
@@ -302,7 +234,7 @@ public class Page   {
     this.guid = guid;
   }
 
-  public Page id(Integer id) {
+  public Incident id(Integer id) {
     this.id = id;
     return this;
   }
@@ -320,7 +252,7 @@ public class Page   {
     this.id = id;
   }
 
-  public Page link(String link) {
+  public Incident link(String link) {
     this.link = link;
     return this;
   }
@@ -338,7 +270,7 @@ public class Page   {
     this.link = link;
   }
 
-  public Page modified(LocalDateTime modified) {
+  public Incident modified(LocalDateTime modified) {
     this.modified = modified;
     return this;
   }
@@ -356,7 +288,7 @@ public class Page   {
     this.modified = modified;
   }
 
-  public Page modifiedGmt(LocalDateTime modifiedGmt) {
+  public Incident modifiedGmt(LocalDateTime modifiedGmt) {
     this.modifiedGmt = modifiedGmt;
     return this;
   }
@@ -374,7 +306,7 @@ public class Page   {
     this.modifiedGmt = modifiedGmt;
   }
 
-  public Page slug(String slug) {
+  public Incident slug(String slug) {
     this.slug = slug;
     return this;
   }
@@ -392,7 +324,7 @@ public class Page   {
     this.slug = slug;
   }
 
-  public Page status(StatusEnum status) {
+  public Incident status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -410,7 +342,7 @@ public class Page   {
     this.status = status;
   }
 
-  public Page type(String type) {
+  public Incident type(String type) {
     this.type = type;
     return this;
   }
@@ -428,7 +360,7 @@ public class Page   {
     this.type = type;
   }
 
-  public Page password(String password) {
+  public Incident password(String password) {
     this.password = password;
     return this;
   }
@@ -446,25 +378,7 @@ public class Page   {
     this.password = password;
   }
 
-  public Page parent(Integer parent) {
-    this.parent = parent;
-    return this;
-  }
-
-   /**
-   * Kohteen vanhemman ID.
-   * @return parent
-  **/
-  @ApiModelProperty(example = "null", value = "Kohteen vanhemman ID.")
-  public Integer getParent() {
-    return parent;
-  }
-
-  public void setParent(Integer parent) {
-    this.parent = parent;
-  }
-
-  public Page title(PostTitle title) {
+  public Incident title(PostTitle title) {
     this.title = title;
     return this;
   }
@@ -482,151 +396,7 @@ public class Page   {
     this.title = title;
   }
 
-  public Page content(PostContent content) {
-    this.content = content;
-    return this;
-  }
-
-   /**
-   * Get content
-   * @return content
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public PostContent getContent() {
-    return content;
-  }
-
-  public void setContent(PostContent content) {
-    this.content = content;
-  }
-
-  public Page author(Integer author) {
-    this.author = author;
-    return this;
-  }
-
-   /**
-   * Kohteen kirjoittajan ID.
-   * @return author
-  **/
-  @ApiModelProperty(example = "null", value = "Kohteen kirjoittajan ID.")
-  public Integer getAuthor() {
-    return author;
-  }
-
-  public void setAuthor(Integer author) {
-    this.author = author;
-  }
-
-  public Page excerpt(PostExcerpt excerpt) {
-    this.excerpt = excerpt;
-    return this;
-  }
-
-   /**
-   * Get excerpt
-   * @return excerpt
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public PostExcerpt getExcerpt() {
-    return excerpt;
-  }
-
-  public void setExcerpt(PostExcerpt excerpt) {
-    this.excerpt = excerpt;
-  }
-
-  public Page featuredMedia(Integer featuredMedia) {
-    this.featuredMedia = featuredMedia;
-    return this;
-  }
-
-   /**
-   * Kohteen artikkelikuvan ID.
-   * @return featuredMedia
-  **/
-  @ApiModelProperty(example = "null", value = "Kohteen artikkelikuvan ID.")
-  public Integer getFeaturedMedia() {
-    return featuredMedia;
-  }
-
-  public void setFeaturedMedia(Integer featuredMedia) {
-    this.featuredMedia = featuredMedia;
-  }
-
-  public Page commentStatus(CommentStatusEnum commentStatus) {
-    this.commentStatus = commentStatus;
-    return this;
-  }
-
-   /**
-   * Onko kohteen kommentointi käytössä. 
-   * @return commentStatus
-  **/
-  @ApiModelProperty(example = "null", value = "Onko kohteen kommentointi käytössä. ")
-  public CommentStatusEnum getCommentStatus() {
-    return commentStatus;
-  }
-
-  public void setCommentStatus(CommentStatusEnum commentStatus) {
-    this.commentStatus = commentStatus;
-  }
-
-  public Page pingStatus(PingStatusEnum pingStatus) {
-    this.pingStatus = pingStatus;
-    return this;
-  }
-
-   /**
-   * Voiko kohteelle tehdä paluuviitteen.
-   * @return pingStatus
-  **/
-  @ApiModelProperty(example = "null", value = "Voiko kohteelle tehdä paluuviitteen.")
-  public PingStatusEnum getPingStatus() {
-    return pingStatus;
-  }
-
-  public void setPingStatus(PingStatusEnum pingStatus) {
-    this.pingStatus = pingStatus;
-  }
-
-  public Page menuOrder(Integer menuOrder) {
-    this.menuOrder = menuOrder;
-    return this;
-  }
-
-   /**
-   * Kohteen järjestysnumero suhteessa muihin samantyyppisiin kohteisiin.
-   * @return menuOrder
-  **/
-  @ApiModelProperty(example = "null", value = "Kohteen järjestysnumero suhteessa muihin samantyyppisiin kohteisiin.")
-  public Integer getMenuOrder() {
-    return menuOrder;
-  }
-
-  public void setMenuOrder(Integer menuOrder) {
-    this.menuOrder = menuOrder;
-  }
-
-  public Page meta(Object meta) {
-    this.meta = meta;
-    return this;
-  }
-
-   /**
-   * Metakentät.
-   * @return meta
-  **/
-  @ApiModelProperty(example = "null", value = "Metakentät.")
-  public Object getMeta() {
-    return meta;
-  }
-
-  public void setMeta(Object meta) {
-    this.meta = meta;
-  }
-
-  public Page template(TemplateEnum template) {
+  public Incident template(TemplateEnum template) {
     this.template = template;
     return this;
   }
@@ -644,22 +414,122 @@ public class Page   {
     this.template = template;
   }
 
-  public Page bannerImage(Long bannerImage) {
-    this.bannerImage = bannerImage;
+  public Incident incidentAreas(List<String> incidentAreas) {
+    this.incidentAreas = incidentAreas;
+    return this;
+  }
+
+  public Incident addIncidentAreasItem(String incidentAreasItem) {
+    this.incidentAreas.add(incidentAreasItem);
     return this;
   }
 
    /**
-   * Banner image
-   * @return bannerImage
+   * Kohteeseen liitetyt termit taksonomiassa incident_areas.
+   * @return incidentAreas
   **/
-  @ApiModelProperty(example = "null", value = "Banner image")
-  public Long getBannerImage() {
-    return bannerImage;
+  @ApiModelProperty(example = "null", value = "Kohteeseen liitetyt termit taksonomiassa incident_areas.")
+  public List<String> getIncidentAreas() {
+    return incidentAreas;
   }
 
-  public void setBannerImage(Long bannerImage) {
-    this.bannerImage = bannerImage;
+  public void setIncidentAreas(List<String> incidentAreas) {
+    this.incidentAreas = incidentAreas;
+  }
+
+  public Incident incidentType(String incidentType) {
+    this.incidentType = incidentType;
+    return this;
+  }
+
+   /**
+   * Incident type
+   * @return incidentType
+  **/
+  @ApiModelProperty(example = "null", value = "Incident type")
+  public String getIncidentType() {
+    return incidentType;
+  }
+
+  public void setIncidentType(String incidentType) {
+    this.incidentType = incidentType;
+  }
+
+  public Incident description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Incident description
+   * @return description
+  **/
+  @ApiModelProperty(example = "null", value = "Incident description")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public Incident areas(List<String> areas) {
+    this.areas = areas;
+    return this;
+  }
+
+  public Incident addAreasItem(String areasItem) {
+    this.areas.add(areasItem);
+    return this;
+  }
+
+   /**
+   * Incident areas
+   * @return areas
+  **/
+  @ApiModelProperty(example = "null", value = "Incident areas")
+  public List<String> getAreas() {
+    return areas;
+  }
+
+  public void setAreas(List<String> areas) {
+    this.areas = areas;
+  }
+
+  public Incident startTime(LocalDateTime startTime) {
+    this.startTime = startTime;
+    return this;
+  }
+
+   /**
+   * Incident start time
+   * @return startTime
+  **/
+  @ApiModelProperty(example = "null", value = "Incident start time")
+  public LocalDateTime getStartTime() {
+    return startTime;
+  }
+
+  public void setStartTime(LocalDateTime startTime) {
+    this.startTime = startTime;
+  }
+
+  public Incident endTime(LocalDateTime endTime) {
+    this.endTime = endTime;
+    return this;
+  }
+
+   /**
+   * Incident end time
+   * @return endTime
+  **/
+  @ApiModelProperty(example = "null", value = "Incident end time")
+  public LocalDateTime getEndTime() {
+    return endTime;
+  }
+
+  public void setEndTime(LocalDateTime endTime) {
+    this.endTime = endTime;
   }
 
 
@@ -671,41 +541,37 @@ public class Page   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Page page = (Page) o;
-    return Objects.equals(this.date, page.date) &&
-        Objects.equals(this.dateGmt, page.dateGmt) &&
-        Objects.equals(this.guid, page.guid) &&
-        Objects.equals(this.id, page.id) &&
-        Objects.equals(this.link, page.link) &&
-        Objects.equals(this.modified, page.modified) &&
-        Objects.equals(this.modifiedGmt, page.modifiedGmt) &&
-        Objects.equals(this.slug, page.slug) &&
-        Objects.equals(this.status, page.status) &&
-        Objects.equals(this.type, page.type) &&
-        Objects.equals(this.password, page.password) &&
-        Objects.equals(this.parent, page.parent) &&
-        Objects.equals(this.title, page.title) &&
-        Objects.equals(this.content, page.content) &&
-        Objects.equals(this.author, page.author) &&
-        Objects.equals(this.excerpt, page.excerpt) &&
-        Objects.equals(this.featuredMedia, page.featuredMedia) &&
-        Objects.equals(this.commentStatus, page.commentStatus) &&
-        Objects.equals(this.pingStatus, page.pingStatus) &&
-        Objects.equals(this.menuOrder, page.menuOrder) &&
-        Objects.equals(this.meta, page.meta) &&
-        Objects.equals(this.template, page.template) &&
-        Objects.equals(this.bannerImage, page.bannerImage);
+    Incident incident = (Incident) o;
+    return Objects.equals(this.date, incident.date) &&
+        Objects.equals(this.dateGmt, incident.dateGmt) &&
+        Objects.equals(this.guid, incident.guid) &&
+        Objects.equals(this.id, incident.id) &&
+        Objects.equals(this.link, incident.link) &&
+        Objects.equals(this.modified, incident.modified) &&
+        Objects.equals(this.modifiedGmt, incident.modifiedGmt) &&
+        Objects.equals(this.slug, incident.slug) &&
+        Objects.equals(this.status, incident.status) &&
+        Objects.equals(this.type, incident.type) &&
+        Objects.equals(this.password, incident.password) &&
+        Objects.equals(this.title, incident.title) &&
+        Objects.equals(this.template, incident.template) &&
+        Objects.equals(this.incidentAreas, incident.incidentAreas) &&
+        Objects.equals(this.incidentType, incident.incidentType) &&
+        Objects.equals(this.description, incident.description) &&
+        Objects.equals(this.areas, incident.areas) &&
+        Objects.equals(this.startTime, incident.startTime) &&
+        Objects.equals(this.endTime, incident.endTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, dateGmt, guid, id, link, modified, modifiedGmt, slug, status, type, password, parent, title, content, author, excerpt, featuredMedia, commentStatus, pingStatus, menuOrder, meta, template, bannerImage);
+    return Objects.hash(date, dateGmt, guid, id, link, modified, modifiedGmt, slug, status, type, password, title, template, incidentAreas, incidentType, description, areas, startTime, endTime);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Page {\n");
+    sb.append("class Incident {\n");
     
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    dateGmt: ").append(toIndentedString(dateGmt)).append("\n");
@@ -718,18 +584,14 @@ public class Page   {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    author: ").append(toIndentedString(author)).append("\n");
-    sb.append("    excerpt: ").append(toIndentedString(excerpt)).append("\n");
-    sb.append("    featuredMedia: ").append(toIndentedString(featuredMedia)).append("\n");
-    sb.append("    commentStatus: ").append(toIndentedString(commentStatus)).append("\n");
-    sb.append("    pingStatus: ").append(toIndentedString(pingStatus)).append("\n");
-    sb.append("    menuOrder: ").append(toIndentedString(menuOrder)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
-    sb.append("    bannerImage: ").append(toIndentedString(bannerImage)).append("\n");
+    sb.append("    incidentAreas: ").append(toIndentedString(incidentAreas)).append("\n");
+    sb.append("    incidentType: ").append(toIndentedString(incidentType)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    areas: ").append(toIndentedString(areas)).append("\n");
+    sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+    sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

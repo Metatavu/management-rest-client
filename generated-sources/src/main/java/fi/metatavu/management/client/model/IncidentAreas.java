@@ -34,10 +34,10 @@ import io.swagger.annotations.ApiModelProperty;
 
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 /**
- * Tag
+ * IncidentAreas
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-12T07:46:35.856+03:00")
-public class Tag   {
+public class IncidentAreas   {
   @JsonProperty("id")
   private Integer id = null;
 
@@ -102,7 +102,7 @@ public class Tag   {
   @JsonProperty("meta")
   private Object meta = null;
 
-  public Tag id(Integer id) {
+  public IncidentAreas id(Integer id) {
     this.id = id;
     return this;
   }
@@ -120,7 +120,7 @@ public class Tag   {
     this.id = id;
   }
 
-  public Tag count(Integer count) {
+  public IncidentAreas count(Integer count) {
     this.count = count;
     return this;
   }
@@ -138,7 +138,7 @@ public class Tag   {
     this.count = count;
   }
 
-  public Tag description(String description) {
+  public IncidentAreas description(String description) {
     this.description = description;
     return this;
   }
@@ -156,7 +156,7 @@ public class Tag   {
     this.description = description;
   }
 
-  public Tag link(String link) {
+  public IncidentAreas link(String link) {
     this.link = link;
     return this;
   }
@@ -174,7 +174,7 @@ public class Tag   {
     this.link = link;
   }
 
-  public Tag name(String name) {
+  public IncidentAreas name(String name) {
     this.name = name;
     return this;
   }
@@ -192,7 +192,7 @@ public class Tag   {
     this.name = name;
   }
 
-  public Tag slug(String slug) {
+  public IncidentAreas slug(String slug) {
     this.slug = slug;
     return this;
   }
@@ -210,7 +210,7 @@ public class Tag   {
     this.slug = slug;
   }
 
-  public Tag taxonomy(TaxonomyEnum taxonomy) {
+  public IncidentAreas taxonomy(TaxonomyEnum taxonomy) {
     this.taxonomy = taxonomy;
     return this;
   }
@@ -228,7 +228,7 @@ public class Tag   {
     this.taxonomy = taxonomy;
   }
 
-  public Tag meta(Object meta) {
+  public IncidentAreas meta(Object meta) {
     this.meta = meta;
     return this;
   }
@@ -255,15 +255,15 @@ public class Tag   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Tag tag = (Tag) o;
-    return Objects.equals(this.id, tag.id) &&
-        Objects.equals(this.count, tag.count) &&
-        Objects.equals(this.description, tag.description) &&
-        Objects.equals(this.link, tag.link) &&
-        Objects.equals(this.name, tag.name) &&
-        Objects.equals(this.slug, tag.slug) &&
-        Objects.equals(this.taxonomy, tag.taxonomy) &&
-        Objects.equals(this.meta, tag.meta);
+    IncidentAreas incidentAreas = (IncidentAreas) o;
+    return Objects.equals(this.id, incidentAreas.id) &&
+        Objects.equals(this.count, incidentAreas.count) &&
+        Objects.equals(this.description, incidentAreas.description) &&
+        Objects.equals(this.link, incidentAreas.link) &&
+        Objects.equals(this.name, incidentAreas.name) &&
+        Objects.equals(this.slug, incidentAreas.slug) &&
+        Objects.equals(this.taxonomy, incidentAreas.taxonomy) &&
+        Objects.equals(this.meta, incidentAreas.meta);
   }
 
   @Override
@@ -274,7 +274,7 @@ public class Tag   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Tag {\n");
+    sb.append("class IncidentAreas {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");

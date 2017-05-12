@@ -36,6 +36,8 @@ import fi.metatavu.management.client.model.Banner;
 import fi.metatavu.management.client.model.Category;
 import fi.metatavu.management.client.model.Comment;
 import fi.metatavu.management.client.model.Fragment;
+import fi.metatavu.management.client.model.IncidentAreas;
+import fi.metatavu.management.client.model.Incident;
 import fi.metatavu.management.client.model.Attachment;
 import fi.metatavu.management.client.model.Page;
 import fi.metatavu.management.client.model.PageRevision;
@@ -55,7 +57,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-05T14:37:16.986+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-12T07:46:35.856+03:00")
 public class DefaultApi {
 
   private ApiClient client;
@@ -1560,6 +1562,530 @@ if (template != null)
     String requestPath = String.format("%s/wp/v2/fragment", baseUrl);
       
     ResultType<Fragment> resultType = new ResultType<Fragment>() {};
+    return client.doPOSTRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param page Kokoelman nykyinen sivu. (optional, default to 1)
+   * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
+   * @param search Rajaa tulokset niihin, jotka täsmäävät merkkijonoon.  (optional)
+   * @param exclude Varmista, etteivät tulokset sisällä tiettyjä ID:itä. (optional)
+   * @param include Rajaa tulokset tiettyihin ID:ihin. (optional)
+   * @param offset Ohita määritelty määrä kohteita alusta. (optional)
+   * @param order Järjestää tulokset nousevaan tai laskevaan järjestykseen. (optional, default to asc)
+   * @param orderby Lajittele kokoelma termin ominaisuuden mukaan. (optional, default to name)
+   * @param hideEmpty Piilotetaanko termit, jotka eivät liity mihinkään artikkeliin? (optional)
+   * @param post Rajaa tulokset termeihin, jotka liittyvät tiettyyn artikkeliin. (optional)
+   * @param slug Rajaa tulokset tietyn polkutunnuksen mukaan. (optional)
+   */
+  public ApiResponse<List<IncidentAreas>> wpV2IncidentAreasGet(String context, Integer page, Integer perPage, String search, List<String> exclude, List<String> include, Integer offset, String order, String orderby, Boolean hideEmpty, Integer post, List<String> slug) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (page != null)
+    queryParams.put("page", page);
+if (perPage != null)
+    queryParams.put("per_page", perPage);
+if (search != null)
+    queryParams.put("search", search);
+if (exclude != null)
+    queryParams.put("exclude", exclude);
+if (include != null)
+    queryParams.put("include", include);
+if (offset != null)
+    queryParams.put("offset", offset);
+if (order != null)
+    queryParams.put("order", order);
+if (orderby != null)
+    queryParams.put("orderby", orderby);
+if (hideEmpty != null)
+    queryParams.put("hide_empty", hideEmpty);
+if (post != null)
+    queryParams.put("post", post);
+if (slug != null)
+    queryParams.put("slug", slug);
+    
+        
+    String requestPath = String.format("%s/wp/v2/incident_areas", baseUrl);
+      
+    ResultType<List<IncidentAreas>> resultType = new ResultType<List<IncidentAreas>>() {};
+    return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param page Kokoelman nykyinen sivu. (optional, default to 1)
+   * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
+   * @param search Rajaa tulokset niihin, jotka täsmäävät merkkijonoon.  (optional)
+   * @param exclude Varmista, etteivät tulokset sisällä tiettyjä ID:itä. (optional)
+   * @param include Rajaa tulokset tiettyihin ID:ihin. (optional)
+   * @param offset Ohita määritelty määrä kohteita alusta. (optional)
+   * @param order Järjestää tulokset nousevaan tai laskevaan järjestykseen. (optional, default to asc)
+   * @param orderby Lajittele kokoelma termin ominaisuuden mukaan. (optional, default to name)
+   * @param hideEmpty Piilotetaanko termit, jotka eivät liity mihinkään artikkeliin? (optional)
+   * @param post Rajaa tulokset termeihin, jotka liittyvät tiettyyn artikkeliin. (optional)
+   * @param slug Rajaa tulokset tietyn polkutunnuksen mukaan. (optional)
+   */
+  public ApiResponse<Object> wpV2IncidentAreasHead(String context, Integer page, Integer perPage, String search, List<String> exclude, List<String> include, Integer offset, String order, String orderby, Boolean hideEmpty, Integer post, List<String> slug) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (page != null)
+    queryParams.put("page", page);
+if (perPage != null)
+    queryParams.put("per_page", perPage);
+if (search != null)
+    queryParams.put("search", search);
+if (exclude != null)
+    queryParams.put("exclude", exclude);
+if (include != null)
+    queryParams.put("include", include);
+if (offset != null)
+    queryParams.put("offset", offset);
+if (order != null)
+    queryParams.put("order", order);
+if (orderby != null)
+    queryParams.put("orderby", orderby);
+if (hideEmpty != null)
+    queryParams.put("hide_empty", hideEmpty);
+if (post != null)
+    queryParams.put("post", post);
+if (slug != null)
+    queryParams.put("slug", slug);
+    
+        
+    String requestPath = String.format("%s/wp/v2/incident_areas", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Yksilöivä tunniste termille. (optional)
+   * @param force Arvon tulee olla true, koska termit eivät tue roskakoria. (optional)
+   */
+  public ApiResponse<IncidentAreas> wpV2IncidentAreasIdDelete(String id, Integer id2, Boolean force) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (id2 != null)
+    queryParams.put("id", id2);
+if (force != null)
+    queryParams.put("force", force);
+    
+        
+    String requestPath = String.format("%s/wp/v2/incident_areas/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<IncidentAreas> resultType = new ResultType<IncidentAreas>() {};
+    return client.doDELETERequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Yksilöivä tunniste termille. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   */
+  public ApiResponse<IncidentAreas> wpV2IncidentAreasIdGet(String id, Integer id2, String context) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (id2 != null)
+    queryParams.put("id", id2);
+if (context != null)
+    queryParams.put("context", context);
+    
+        
+    String requestPath = String.format("%s/wp/v2/incident_areas/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<IncidentAreas> resultType = new ResultType<IncidentAreas>() {};
+    return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Yksilöivä tunniste termille. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   */
+  public ApiResponse<Object> wpV2IncidentAreasIdHead(String id, Integer id2, String context) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (id2 != null)
+    queryParams.put("id", id2);
+if (context != null)
+    queryParams.put("context", context);
+    
+        
+    String requestPath = String.format("%s/wp/v2/incident_areas/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Yksilöivä tunniste termille. (optional)
+   * @param description Termin kuvaus HTML-muodossa. (optional)
+   * @param name HTML-muotoiltu otsikko termille. (optional)
+   * @param slug Termin alfanumeerinen tunniste joka on saman lajin sisällä yksilöivä. (optional)
+   * @param meta Metakentät. (optional)
+   */
+  public ApiResponse<IncidentAreas> wpV2IncidentAreasIdPost(String id, Integer id2, String description, String name, String slug, String meta) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+    if (id2 != null)
+      formParams.put("id", id2);
+if (description != null)
+      formParams.put("description", description);
+if (name != null)
+      formParams.put("name", name);
+if (slug != null)
+      formParams.put("slug", slug);
+if (meta != null)
+      formParams.put("meta", meta);
+    
+    String requestPath = String.format("%s/wp/v2/incident_areas/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<IncidentAreas> resultType = new ResultType<IncidentAreas>() {};
+    return client.doPOSTRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param name HTML-muotoiltu otsikko termille. (required)
+   * @param description Termin kuvaus HTML-muodossa. (optional)
+   * @param slug Termin alfanumeerinen tunniste joka on saman lajin sisällä yksilöivä. (optional)
+   * @param meta Metakentät. (optional)
+   */
+  public ApiResponse<IncidentAreas> wpV2IncidentAreasPost(String name, String description, String slug, String meta) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+    if (description != null)
+      formParams.put("description", description);
+if (name != null)
+      formParams.put("name", name);
+if (slug != null)
+      formParams.put("slug", slug);
+if (meta != null)
+      formParams.put("meta", meta);
+    
+    String requestPath = String.format("%s/wp/v2/incident_areas", baseUrl);
+      
+    ResultType<IncidentAreas> resultType = new ResultType<IncidentAreas>() {};
+    return client.doPOSTRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param page Kokoelman nykyinen sivu. (optional, default to 1)
+   * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
+   * @param search Rajaa tulokset niihin, jotka täsmäävät merkkijonoon.  (optional)
+   * @param after Rajoita tulokset artikkeleihin, jotka on julkaistu annetun ISO8601-yhteensopivan päivämäärän jälkeen. (optional)
+   * @param before Rajoita tulokset artikkeleihin, jotka on julkaistu annettua ISO8601-yhteensopivaa päivämäärää ennen. (optional)
+   * @param exclude Varmista, etteivät tulokset sisällä tiettyjä ID:itä. (optional)
+   * @param include Rajaa tulokset tiettyihin ID:ihin. (optional)
+   * @param offset Ohita määritelty määrä kohteita alusta. (optional)
+   * @param order Järjestää tulokset nousevaan tai laskevaan järjestykseen. (optional, default to desc)
+   * @param orderby Järjestä kokoelma kohteen ominaisuuden mukaan. (optional, default to date)
+   * @param slug Rajaa tulokset artikkeleihin joilla on yksi tai useampi polkutunnus. (optional)
+   * @param status Rajaa tulokset artikkeleihin, joilla yksi tai useampi tila. (optional, default to publish)
+   * @param incidentAreas Rajaa tulokset kohteisiin, joilla on valittu termi taksonomiassa incident_areas. (optional)
+   * @param incidentAreasExclude Rajaa tulokset sisältämään kaikki paitsi kohteet, joilla on annettu termi taksonomiassa incident_areas. (optional)
+   */
+  public ApiResponse<List<Incident>> wpV2IncidentGet(String context, Integer page, Integer perPage, String search, LocalDateTime after, LocalDateTime before, List<String> exclude, List<String> include, Integer offset, String order, String orderby, List<String> slug, List<String> status, List<String> incidentAreas, List<String> incidentAreasExclude) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (page != null)
+    queryParams.put("page", page);
+if (perPage != null)
+    queryParams.put("per_page", perPage);
+if (search != null)
+    queryParams.put("search", search);
+if (after != null)
+    queryParams.put("after", after);
+if (before != null)
+    queryParams.put("before", before);
+if (exclude != null)
+    queryParams.put("exclude", exclude);
+if (include != null)
+    queryParams.put("include", include);
+if (offset != null)
+    queryParams.put("offset", offset);
+if (order != null)
+    queryParams.put("order", order);
+if (orderby != null)
+    queryParams.put("orderby", orderby);
+if (slug != null)
+    queryParams.put("slug", slug);
+if (status != null)
+    queryParams.put("status", status);
+if (incidentAreas != null)
+    queryParams.put("incident_areas", incidentAreas);
+if (incidentAreasExclude != null)
+    queryParams.put("incident_areas_exclude", incidentAreasExclude);
+    
+        
+    String requestPath = String.format("%s/wp/v2/incident", baseUrl);
+      
+    ResultType<List<Incident>> resultType = new ResultType<List<Incident>>() {};
+    return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param page Kokoelman nykyinen sivu. (optional, default to 1)
+   * @param perPage Enimmäismäärä haun palauttamia tuloksia. (optional, default to 10)
+   * @param search Rajaa tulokset niihin, jotka täsmäävät merkkijonoon.  (optional)
+   * @param after Rajoita tulokset artikkeleihin, jotka on julkaistu annetun ISO8601-yhteensopivan päivämäärän jälkeen. (optional)
+   * @param before Rajoita tulokset artikkeleihin, jotka on julkaistu annettua ISO8601-yhteensopivaa päivämäärää ennen. (optional)
+   * @param exclude Varmista, etteivät tulokset sisällä tiettyjä ID:itä. (optional)
+   * @param include Rajaa tulokset tiettyihin ID:ihin. (optional)
+   * @param offset Ohita määritelty määrä kohteita alusta. (optional)
+   * @param order Järjestää tulokset nousevaan tai laskevaan järjestykseen. (optional, default to desc)
+   * @param orderby Järjestä kokoelma kohteen ominaisuuden mukaan. (optional, default to date)
+   * @param slug Rajaa tulokset artikkeleihin joilla on yksi tai useampi polkutunnus. (optional)
+   * @param status Rajaa tulokset artikkeleihin, joilla yksi tai useampi tila. (optional, default to publish)
+   * @param incidentAreas Rajaa tulokset kohteisiin, joilla on valittu termi taksonomiassa incident_areas. (optional)
+   * @param incidentAreasExclude Rajaa tulokset sisältämään kaikki paitsi kohteet, joilla on annettu termi taksonomiassa incident_areas. (optional)
+   */
+  public ApiResponse<Object> wpV2IncidentHead(String context, Integer page, Integer perPage, String search, LocalDateTime after, LocalDateTime before, List<String> exclude, List<String> include, Integer offset, String order, String orderby, List<String> slug, List<String> status, List<String> incidentAreas, List<String> incidentAreasExclude) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (context != null)
+    queryParams.put("context", context);
+if (page != null)
+    queryParams.put("page", page);
+if (perPage != null)
+    queryParams.put("per_page", perPage);
+if (search != null)
+    queryParams.put("search", search);
+if (after != null)
+    queryParams.put("after", after);
+if (before != null)
+    queryParams.put("before", before);
+if (exclude != null)
+    queryParams.put("exclude", exclude);
+if (include != null)
+    queryParams.put("include", include);
+if (offset != null)
+    queryParams.put("offset", offset);
+if (order != null)
+    queryParams.put("order", order);
+if (orderby != null)
+    queryParams.put("orderby", orderby);
+if (slug != null)
+    queryParams.put("slug", slug);
+if (status != null)
+    queryParams.put("status", status);
+if (incidentAreas != null)
+    queryParams.put("incident_areas", incidentAreas);
+if (incidentAreasExclude != null)
+    queryParams.put("incident_areas_exclude", incidentAreasExclude);
+    
+        
+    String requestPath = String.format("%s/wp/v2/incident", baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Kohteen uniikki tunniste. (optional)
+   * @param force Ohitetaanko roskakori ja pakotetaan poistaminen. (optional)
+   */
+  public ApiResponse<Incident> wpV2IncidentIdDelete(String id, Integer id2, Boolean force) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (id2 != null)
+    queryParams.put("id", id2);
+if (force != null)
+    queryParams.put("force", force);
+    
+        
+    String requestPath = String.format("%s/wp/v2/incident/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Incident> resultType = new ResultType<Incident>() {};
+    return client.doDELETERequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Kohteen uniikki tunniste. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param password Artikkelin salasana, jos se on salasanasuojattu.  (optional)
+   */
+  public ApiResponse<Incident> wpV2IncidentIdGet(String id, Integer id2, String context, String password) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (id2 != null)
+    queryParams.put("id", id2);
+if (context != null)
+    queryParams.put("context", context);
+if (password != null)
+    queryParams.put("password", password);
+    
+        
+    String requestPath = String.format("%s/wp/v2/incident/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Incident> resultType = new ResultType<Incident>() {};
+    return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Kohteen uniikki tunniste. (optional)
+   * @param context Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana. (optional, default to view)
+   * @param password Artikkelin salasana, jos se on salasanasuojattu.  (optional)
+   */
+  public ApiResponse<Object> wpV2IncidentIdHead(String id, Integer id2, String context, String password) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+    if (id2 != null)
+    queryParams.put("id", id2);
+if (context != null)
+    queryParams.put("context", context);
+if (password != null)
+    queryParams.put("password", password);
+    
+        
+    String requestPath = String.format("%s/wp/v2/incident/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Object> resultType = new ResultType<Object>() {};
+    return client.doHEADRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param id  (required)
+   * @param id2 Kohteen uniikki tunniste. (optional)
+   * @param date Ajankohta kun kohde julkaistiin sivuston aikavyöhykkeen ajassa. (optional)
+   * @param dateGmt Ajankohta kun kohde julkaistiin GMT-ajassa. (optional)
+   * @param slug Kohteen tyypilleen uniikki alfanumeerinen tunniste. (optional)
+   * @param status Kohteen nimetty tila. (optional)
+   * @param password Salasana sisällön ja otteen suojaamiseksi.  (optional)
+   * @param title Kohteen otsikko.  (optional)
+   * @param template Teematiedosto joka näyttää kohteen. (optional)
+   * @param incidentAreas Kohteeseen liitetyt termit taksonomiassa incident_areas. (optional)
+   * @param incidentType Incident type (optional)
+   * @param description Incident description (optional)
+   * @param areas Incident areas (optional)
+   * @param startTime Incident start time (optional)
+   * @param endTime Incident end time (optional)
+   */
+  public ApiResponse<Incident> wpV2IncidentIdPost(String id, Integer id2, LocalDateTime date, LocalDateTime dateGmt, String slug, String status, String password, String title, String template, List<String> incidentAreas, String incidentType, String description, List<String> areas, LocalDateTime startTime, LocalDateTime endTime) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+    if (id2 != null)
+      formParams.put("id", id2);
+if (date != null)
+      formParams.put("date", date);
+if (dateGmt != null)
+      formParams.put("date_gmt", dateGmt);
+if (slug != null)
+      formParams.put("slug", slug);
+if (status != null)
+      formParams.put("status", status);
+if (password != null)
+      formParams.put("password", password);
+if (title != null)
+      formParams.put("title", title);
+if (template != null)
+      formParams.put("template", template);
+if (incidentAreas != null)
+      formParams.put("incident_areas", incidentAreas);
+if (incidentType != null)
+      formParams.put("incident_type", incidentType);
+if (description != null)
+      formParams.put("description", description);
+if (areas != null)
+      formParams.put("areas", areas);
+if (startTime != null)
+      formParams.put("start_time", startTime);
+if (endTime != null)
+      formParams.put("end_time", endTime);
+    
+    String requestPath = String.format("%s/wp/v2/incident/{id}"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Incident> resultType = new ResultType<Incident>() {};
+    return client.doPOSTRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * 
+   * 
+   * @param date Ajankohta kun kohde julkaistiin sivuston aikavyöhykkeen ajassa. (optional)
+   * @param dateGmt Ajankohta kun kohde julkaistiin GMT-ajassa. (optional)
+   * @param slug Kohteen tyypilleen uniikki alfanumeerinen tunniste. (optional)
+   * @param status Kohteen nimetty tila. (optional)
+   * @param password Salasana sisällön ja otteen suojaamiseksi.  (optional)
+   * @param title Kohteen otsikko.  (optional)
+   * @param template Teematiedosto joka näyttää kohteen. (optional)
+   * @param incidentAreas Kohteeseen liitetyt termit taksonomiassa incident_areas. (optional)
+   * @param incidentType Incident type (optional)
+   * @param description Incident description (optional)
+   * @param areas Incident areas (optional)
+   * @param startTime Incident start time (optional)
+   * @param endTime Incident end time (optional)
+   */
+  public ApiResponse<Incident> wpV2IncidentPost(LocalDateTime date, LocalDateTime dateGmt, String slug, String status, String password, String title, String template, List<String> incidentAreas, String incidentType, String description, List<String> areas, LocalDateTime startTime, LocalDateTime endTime) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+    if (date != null)
+      formParams.put("date", date);
+if (dateGmt != null)
+      formParams.put("date_gmt", dateGmt);
+if (slug != null)
+      formParams.put("slug", slug);
+if (status != null)
+      formParams.put("status", status);
+if (password != null)
+      formParams.put("password", password);
+if (title != null)
+      formParams.put("title", title);
+if (template != null)
+      formParams.put("template", template);
+if (incidentAreas != null)
+      formParams.put("incident_areas", incidentAreas);
+if (incidentType != null)
+      formParams.put("incident_type", incidentType);
+if (description != null)
+      formParams.put("description", description);
+if (areas != null)
+      formParams.put("areas", areas);
+if (startTime != null)
+      formParams.put("start_time", startTime);
+if (endTime != null)
+      formParams.put("end_time", endTime);
+    
+    String requestPath = String.format("%s/wp/v2/incident", baseUrl);
+      
+    ResultType<Incident> resultType = new ResultType<Incident>() {};
     return client.doPOSTRequest(requestPath, resultType, queryParams, formParams);
   }
   /**

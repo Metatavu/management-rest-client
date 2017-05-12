@@ -43,7 +43,7 @@ import java.util.List;
 /**
  * Post
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-05T14:37:16.986+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-12T07:46:35.856+03:00")
 public class Post   {
   @JsonProperty("date")
   @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)  
@@ -90,6 +90,8 @@ public class Post   {
     PENDING("pending"),
     
     PRIVATE("private"),
+    
+    ACF_DISABLED("acf-disabled"),
     
     EXPIRATION("expiration");
 
