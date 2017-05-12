@@ -456,6 +456,7 @@
               "draft",
               "pending",
               "private",
+              "acf-disabled",
               "expiration"
             ]
           },
@@ -749,6 +750,7 @@
               "draft",
               "pending",
               "private",
+              "acf-disabled",
               "expiration"
             ]
           },
@@ -1600,6 +1602,7 @@
               "draft",
               "pending",
               "private",
+              "acf-disabled",
               "expiration"
             ]
           },
@@ -1870,6 +1873,7 @@
               "draft",
               "pending",
               "private",
+              "acf-disabled",
               "expiration"
             ]
           },
@@ -2722,6 +2726,7 @@
               "draft",
               "pending",
               "private",
+              "acf-disabled",
               "expiration"
             ]
           },
@@ -2961,6 +2966,7 @@
               "draft",
               "pending",
               "private",
+              "acf-disabled",
               "expiration"
             ]
           },
@@ -3418,6 +3424,7 @@
               "draft",
               "pending",
               "private",
+              "acf-disabled",
               "expiration"
             ]
           },
@@ -3625,6 +3632,7 @@
               "draft",
               "pending",
               "private",
+              "acf-disabled",
               "expiration"
             ]
           },
@@ -4038,6 +4046,7 @@
               "draft",
               "pending",
               "private",
+              "acf-disabled",
               "expiration"
             ]
           },
@@ -4245,6 +4254,7 @@
               "draft",
               "pending",
               "private",
+              "acf-disabled",
               "expiration"
             ]
           },
@@ -4658,6 +4668,7 @@
               "draft",
               "pending",
               "private",
+              "acf-disabled",
               "expiration"
             ]
           },
@@ -4878,6 +4889,7 @@
               "draft",
               "pending",
               "private",
+              "acf-disabled",
               "expiration"
             ]
           },
@@ -5304,6 +5316,7 @@
               "draft",
               "pending",
               "private",
+              "acf-disabled",
               "expiration"
             ]
           },
@@ -5542,6 +5555,7 @@
               "draft",
               "pending",
               "private",
+              "acf-disabled",
               "expiration"
             ]
           },
@@ -5986,6 +6000,7 @@
               "draft",
               "pending",
               "private",
+              "acf-disabled",
               "expiration"
             ]
           },
@@ -6200,6 +6215,7 @@
               "draft",
               "pending",
               "private",
+              "acf-disabled",
               "expiration"
             ]
           },
@@ -6289,6 +6305,740 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/shortlink"
+            }
+          },
+          "default": {
+            "description": "error",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      }
+    },
+    "/wp/v2/incident": {
+      "get": {
+        "parameters": [
+          {
+            "name": "context",
+            "type": "string",
+            "in": "query",
+            "description": "Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana.",
+            "default": "view",
+            "enum": [
+              "view",
+              "embed",
+              "edit"
+            ]
+          },
+          {
+            "name": "page",
+            "type": "integer",
+            "in": "query",
+            "description": "Kokoelman nykyinen sivu.",
+            "default": 1,
+            "minimum": 1,
+            "format": "number"
+          },
+          {
+            "name": "per_page",
+            "type": "integer",
+            "in": "query",
+            "description": "Enimmäismäärä haun palauttamia tuloksia.",
+            "default": 10,
+            "minimum": 1,
+            "format": "number",
+            "maximum": 100
+          },
+          {
+            "name": "search",
+            "type": "string",
+            "in": "query",
+            "description": "Rajaa tulokset niihin, jotka täsmäävät merkkijonoon. "
+          },
+          {
+            "name": "after",
+            "type": "string",
+            "in": "query",
+            "description": "Rajoita tulokset artikkeleihin, jotka on julkaistu annetun ISO8601-yhteensopivan päivämäärän jälkeen.",
+            "format": "date-time"
+          },
+          {
+            "name": "before",
+            "type": "string",
+            "in": "query",
+            "description": "Rajoita tulokset artikkeleihin, jotka on julkaistu annettua ISO8601-yhteensopivaa päivämäärää ennen.",
+            "format": "date-time"
+          },
+          {
+            "name": "exclude",
+            "type": "array",
+            "in": "query",
+            "description": "Varmista, etteivät tulokset sisällä tiettyjä ID:itä.",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "type": "array",
+            "in": "query",
+            "description": "Rajaa tulokset tiettyihin ID:ihin.",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "type": "integer",
+            "in": "query",
+            "description": "Ohita määritelty määrä kohteita alusta."
+          },
+          {
+            "name": "order",
+            "type": "string",
+            "in": "query",
+            "description": "Järjestää tulokset nousevaan tai laskevaan järjestykseen.",
+            "default": "desc",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          {
+            "name": "orderby",
+            "type": "string",
+            "in": "query",
+            "description": "Järjestä kokoelma kohteen ominaisuuden mukaan.",
+            "default": "date",
+            "enum": [
+              "date",
+              "relevance",
+              "id",
+              "include",
+              "title",
+              "slug"
+            ]
+          },
+          {
+            "name": "slug",
+            "type": "array",
+            "in": "query",
+            "description": "Rajaa tulokset artikkeleihin joilla on yksi tai useampi polkutunnus.",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "type": "array",
+            "in": "query",
+            "description": "Rajaa tulokset artikkeleihin, joilla yksi tai useampi tila.",
+            "default": "publish",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "incident_areas",
+            "type": "array",
+            "in": "query",
+            "description": "Rajaa tulokset kohteisiin, joilla on valittu termi taksonomiassa incident_areas.",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "incident_areas_exclude",
+            "type": "array",
+            "in": "query",
+            "description": "Rajaa tulokset sisältämään kaikki paitsi kohteet, joilla on annettu termi taksonomiassa incident_areas.",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/incident"
+              }
+            }
+          },
+          "default": {
+            "description": "error",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      },
+      "head": {
+        "parameters": [
+          {
+            "name": "context",
+            "type": "string",
+            "in": "query",
+            "description": "Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana.",
+            "default": "view",
+            "enum": [
+              "view",
+              "embed",
+              "edit"
+            ]
+          },
+          {
+            "name": "page",
+            "type": "integer",
+            "in": "query",
+            "description": "Kokoelman nykyinen sivu.",
+            "default": 1,
+            "minimum": 1,
+            "format": "number"
+          },
+          {
+            "name": "per_page",
+            "type": "integer",
+            "in": "query",
+            "description": "Enimmäismäärä haun palauttamia tuloksia.",
+            "default": 10,
+            "minimum": 1,
+            "format": "number",
+            "maximum": 100
+          },
+          {
+            "name": "search",
+            "type": "string",
+            "in": "query",
+            "description": "Rajaa tulokset niihin, jotka täsmäävät merkkijonoon. "
+          },
+          {
+            "name": "after",
+            "type": "string",
+            "in": "query",
+            "description": "Rajoita tulokset artikkeleihin, jotka on julkaistu annetun ISO8601-yhteensopivan päivämäärän jälkeen.",
+            "format": "date-time"
+          },
+          {
+            "name": "before",
+            "type": "string",
+            "in": "query",
+            "description": "Rajoita tulokset artikkeleihin, jotka on julkaistu annettua ISO8601-yhteensopivaa päivämäärää ennen.",
+            "format": "date-time"
+          },
+          {
+            "name": "exclude",
+            "type": "array",
+            "in": "query",
+            "description": "Varmista, etteivät tulokset sisällä tiettyjä ID:itä.",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "type": "array",
+            "in": "query",
+            "description": "Rajaa tulokset tiettyihin ID:ihin.",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "type": "integer",
+            "in": "query",
+            "description": "Ohita määritelty määrä kohteita alusta."
+          },
+          {
+            "name": "order",
+            "type": "string",
+            "in": "query",
+            "description": "Järjestää tulokset nousevaan tai laskevaan järjestykseen.",
+            "default": "desc",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          {
+            "name": "orderby",
+            "type": "string",
+            "in": "query",
+            "description": "Järjestä kokoelma kohteen ominaisuuden mukaan.",
+            "default": "date",
+            "enum": [
+              "date",
+              "relevance",
+              "id",
+              "include",
+              "title",
+              "slug"
+            ]
+          },
+          {
+            "name": "slug",
+            "type": "array",
+            "in": "query",
+            "description": "Rajaa tulokset artikkeleihin joilla on yksi tai useampi polkutunnus.",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "type": "array",
+            "in": "query",
+            "description": "Rajaa tulokset artikkeleihin, joilla yksi tai useampi tila.",
+            "default": "publish",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "incident_areas",
+            "type": "array",
+            "in": "query",
+            "description": "Rajaa tulokset kohteisiin, joilla on valittu termi taksonomiassa incident_areas.",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "incident_areas_exclude",
+            "type": "array",
+            "in": "query",
+            "description": "Rajaa tulokset sisältämään kaikki paitsi kohteet, joilla on annettu termi taksonomiassa incident_areas.",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "default": {
+            "description": "error",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "date",
+            "type": "string",
+            "in": "formData",
+            "description": "Ajankohta kun kohde julkaistiin sivuston aikavyöhykkeen ajassa.",
+            "format": "date-time"
+          },
+          {
+            "name": "date_gmt",
+            "type": "string",
+            "in": "formData",
+            "description": "Ajankohta kun kohde julkaistiin GMT-ajassa.",
+            "format": "date-time"
+          },
+          {
+            "name": "slug",
+            "type": "string",
+            "in": "formData",
+            "description": "Kohteen tyypilleen uniikki alfanumeerinen tunniste."
+          },
+          {
+            "name": "status",
+            "type": "string",
+            "in": "formData",
+            "description": "Kohteen nimetty tila.",
+            "enum": [
+              "publish",
+              "future",
+              "draft",
+              "pending",
+              "private",
+              "acf-disabled",
+              "expiration"
+            ]
+          },
+          {
+            "name": "password",
+            "type": "string",
+            "in": "formData",
+            "description": "Salasana sisällön ja otteen suojaamiseksi. "
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "in": "formData",
+            "description": "Kohteen otsikko. "
+          },
+          {
+            "name": "template",
+            "type": "string",
+            "in": "formData",
+            "description": "Teematiedosto joka näyttää kohteen.",
+            "enum": [
+              ""
+            ]
+          },
+          {
+            "name": "incident_areas",
+            "type": "array",
+            "in": "formData",
+            "description": "Kohteeseen liitetyt termit taksonomiassa incident_areas.",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "incident_type",
+            "type": "string",
+            "in": "formData",
+            "description": "Incident type"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "in": "formData",
+            "description": "Incident description"
+          },
+          {
+            "name": "areas",
+            "type": "array",
+            "in": "formData",
+            "description": "Incident areas",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start_time",
+            "type": "string",
+            "in": "formData",
+            "description": "Incident start time",
+            "format": "date-time"
+          },
+          {
+            "name": "end_time",
+            "type": "string",
+            "in": "formData",
+            "description": "Incident end time",
+            "format": "date-time"
+          }
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/incident"
+            }
+          },
+          "201": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/incident"
+            }
+          },
+          "default": {
+            "description": "error",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      }
+    },
+    "/wp/v2/incident/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "id",
+            "type": "integer",
+            "in": "query",
+            "description": "Kohteen uniikki tunniste."
+          },
+          {
+            "name": "context",
+            "type": "string",
+            "in": "query",
+            "description": "Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana.",
+            "default": "view",
+            "enum": [
+              "view",
+              "embed",
+              "edit"
+            ]
+          },
+          {
+            "name": "password",
+            "type": "string",
+            "in": "query",
+            "description": "Artikkelin salasana, jos se on salasanasuojattu. "
+          }
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/incident"
+            }
+          },
+          "default": {
+            "description": "error",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      },
+      "head": {
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "id",
+            "type": "integer",
+            "in": "query",
+            "description": "Kohteen uniikki tunniste."
+          },
+          {
+            "name": "context",
+            "type": "string",
+            "in": "query",
+            "description": "Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana.",
+            "default": "view",
+            "enum": [
+              "view",
+              "embed",
+              "edit"
+            ]
+          },
+          {
+            "name": "password",
+            "type": "string",
+            "in": "query",
+            "description": "Artikkelin salasana, jos se on salasanasuojattu. "
+          }
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "default": {
+            "description": "error",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "id",
+            "type": "integer",
+            "in": "formData",
+            "description": "Kohteen uniikki tunniste."
+          },
+          {
+            "name": "date",
+            "type": "string",
+            "in": "formData",
+            "description": "Ajankohta kun kohde julkaistiin sivuston aikavyöhykkeen ajassa.",
+            "format": "date-time"
+          },
+          {
+            "name": "date_gmt",
+            "type": "string",
+            "in": "formData",
+            "description": "Ajankohta kun kohde julkaistiin GMT-ajassa.",
+            "format": "date-time"
+          },
+          {
+            "name": "slug",
+            "type": "string",
+            "in": "formData",
+            "description": "Kohteen tyypilleen uniikki alfanumeerinen tunniste."
+          },
+          {
+            "name": "status",
+            "type": "string",
+            "in": "formData",
+            "description": "Kohteen nimetty tila.",
+            "enum": [
+              "publish",
+              "future",
+              "draft",
+              "pending",
+              "private",
+              "acf-disabled",
+              "expiration"
+            ]
+          },
+          {
+            "name": "password",
+            "type": "string",
+            "in": "formData",
+            "description": "Salasana sisällön ja otteen suojaamiseksi. "
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "in": "formData",
+            "description": "Kohteen otsikko. "
+          },
+          {
+            "name": "template",
+            "type": "string",
+            "in": "formData",
+            "description": "Teematiedosto joka näyttää kohteen.",
+            "enum": [
+              ""
+            ]
+          },
+          {
+            "name": "incident_areas",
+            "type": "array",
+            "in": "formData",
+            "description": "Kohteeseen liitetyt termit taksonomiassa incident_areas.",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "incident_type",
+            "type": "string",
+            "in": "formData",
+            "description": "Incident type"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "in": "formData",
+            "description": "Incident description"
+          },
+          {
+            "name": "areas",
+            "type": "array",
+            "in": "formData",
+            "description": "Incident areas",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start_time",
+            "type": "string",
+            "in": "formData",
+            "description": "Incident start time",
+            "format": "date-time"
+          },
+          {
+            "name": "end_time",
+            "type": "string",
+            "in": "formData",
+            "description": "Incident end time",
+            "format": "date-time"
+          }
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/incident"
+            }
+          },
+          "default": {
+            "description": "error",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "id",
+            "type": "integer",
+            "in": "query",
+            "description": "Kohteen uniikki tunniste."
+          },
+          {
+            "name": "force",
+            "type": "boolean",
+            "in": "query",
+            "description": "Ohitetaanko roskakori ja pakotetaan poistaminen."
+          }
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/incident"
             }
           },
           "default": {
@@ -7834,6 +8584,519 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/tag"
+            }
+          },
+          "default": {
+            "description": "error",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      }
+    },
+    "/wp/v2/incident_areas": {
+      "get": {
+        "parameters": [
+          {
+            "name": "context",
+            "type": "string",
+            "in": "query",
+            "description": "Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana.",
+            "default": "view",
+            "enum": [
+              "view",
+              "embed",
+              "edit"
+            ]
+          },
+          {
+            "name": "page",
+            "type": "integer",
+            "in": "query",
+            "description": "Kokoelman nykyinen sivu.",
+            "default": 1,
+            "minimum": 1,
+            "format": "number"
+          },
+          {
+            "name": "per_page",
+            "type": "integer",
+            "in": "query",
+            "description": "Enimmäismäärä haun palauttamia tuloksia.",
+            "default": 10,
+            "minimum": 1,
+            "format": "number",
+            "maximum": 100
+          },
+          {
+            "name": "search",
+            "type": "string",
+            "in": "query",
+            "description": "Rajaa tulokset niihin, jotka täsmäävät merkkijonoon. "
+          },
+          {
+            "name": "exclude",
+            "type": "array",
+            "in": "query",
+            "description": "Varmista, etteivät tulokset sisällä tiettyjä ID:itä.",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "type": "array",
+            "in": "query",
+            "description": "Rajaa tulokset tiettyihin ID:ihin.",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "type": "integer",
+            "in": "query",
+            "description": "Ohita määritelty määrä kohteita alusta."
+          },
+          {
+            "name": "order",
+            "type": "string",
+            "in": "query",
+            "description": "Järjestää tulokset nousevaan tai laskevaan järjestykseen.",
+            "default": "asc",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          {
+            "name": "orderby",
+            "type": "string",
+            "in": "query",
+            "description": "Lajittele kokoelma termin ominaisuuden mukaan.",
+            "default": "name",
+            "enum": [
+              "id",
+              "include",
+              "name",
+              "slug",
+              "term_group",
+              "description",
+              "count"
+            ]
+          },
+          {
+            "name": "hide_empty",
+            "type": "boolean",
+            "in": "query",
+            "description": "Piilotetaanko termit, jotka eivät liity mihinkään artikkeliin?"
+          },
+          {
+            "name": "post",
+            "type": "integer",
+            "in": "query",
+            "description": "Rajaa tulokset termeihin, jotka liittyvät tiettyyn artikkeliin."
+          },
+          {
+            "name": "slug",
+            "type": "array",
+            "in": "query",
+            "description": "Rajaa tulokset tietyn polkutunnuksen mukaan.",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/incident_areas"
+              }
+            }
+          },
+          "default": {
+            "description": "error",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      },
+      "head": {
+        "parameters": [
+          {
+            "name": "context",
+            "type": "string",
+            "in": "query",
+            "description": "Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana.",
+            "default": "view",
+            "enum": [
+              "view",
+              "embed",
+              "edit"
+            ]
+          },
+          {
+            "name": "page",
+            "type": "integer",
+            "in": "query",
+            "description": "Kokoelman nykyinen sivu.",
+            "default": 1,
+            "minimum": 1,
+            "format": "number"
+          },
+          {
+            "name": "per_page",
+            "type": "integer",
+            "in": "query",
+            "description": "Enimmäismäärä haun palauttamia tuloksia.",
+            "default": 10,
+            "minimum": 1,
+            "format": "number",
+            "maximum": 100
+          },
+          {
+            "name": "search",
+            "type": "string",
+            "in": "query",
+            "description": "Rajaa tulokset niihin, jotka täsmäävät merkkijonoon. "
+          },
+          {
+            "name": "exclude",
+            "type": "array",
+            "in": "query",
+            "description": "Varmista, etteivät tulokset sisällä tiettyjä ID:itä.",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "type": "array",
+            "in": "query",
+            "description": "Rajaa tulokset tiettyihin ID:ihin.",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "type": "integer",
+            "in": "query",
+            "description": "Ohita määritelty määrä kohteita alusta."
+          },
+          {
+            "name": "order",
+            "type": "string",
+            "in": "query",
+            "description": "Järjestää tulokset nousevaan tai laskevaan järjestykseen.",
+            "default": "asc",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          {
+            "name": "orderby",
+            "type": "string",
+            "in": "query",
+            "description": "Lajittele kokoelma termin ominaisuuden mukaan.",
+            "default": "name",
+            "enum": [
+              "id",
+              "include",
+              "name",
+              "slug",
+              "term_group",
+              "description",
+              "count"
+            ]
+          },
+          {
+            "name": "hide_empty",
+            "type": "boolean",
+            "in": "query",
+            "description": "Piilotetaanko termit, jotka eivät liity mihinkään artikkeliin?"
+          },
+          {
+            "name": "post",
+            "type": "integer",
+            "in": "query",
+            "description": "Rajaa tulokset termeihin, jotka liittyvät tiettyyn artikkeliin."
+          },
+          {
+            "name": "slug",
+            "type": "array",
+            "in": "query",
+            "description": "Rajaa tulokset tietyn polkutunnuksen mukaan.",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "default": {
+            "description": "error",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "description",
+            "type": "string",
+            "in": "formData",
+            "description": "Termin kuvaus HTML-muodossa."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "in": "formData",
+            "description": "HTML-muotoiltu otsikko termille.",
+            "required": true
+          },
+          {
+            "name": "slug",
+            "type": "string",
+            "in": "formData",
+            "description": "Termin alfanumeerinen tunniste joka on saman lajin sisällä yksilöivä."
+          },
+          {
+            "name": "meta",
+            "type": "string",
+            "in": "formData",
+            "description": "Metakentät."
+          }
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/incident_areas"
+            }
+          },
+          "201": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/incident_areas"
+            }
+          },
+          "default": {
+            "description": "error",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      }
+    },
+    "/wp/v2/incident_areas/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "id",
+            "type": "integer",
+            "in": "query",
+            "description": "Yksilöivä tunniste termille."
+          },
+          {
+            "name": "context",
+            "type": "string",
+            "in": "query",
+            "description": "Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana.",
+            "default": "view",
+            "enum": [
+              "view",
+              "embed",
+              "edit"
+            ]
+          }
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/incident_areas"
+            }
+          },
+          "default": {
+            "description": "error",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      },
+      "head": {
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "id",
+            "type": "integer",
+            "in": "query",
+            "description": "Yksilöivä tunniste termille."
+          },
+          {
+            "name": "context",
+            "type": "string",
+            "in": "query",
+            "description": "Pyynnön konteksti määrää mitä kenttiä vastauksessa on mukana.",
+            "default": "view",
+            "enum": [
+              "view",
+              "embed",
+              "edit"
+            ]
+          }
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "default": {
+            "description": "error",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "id",
+            "type": "integer",
+            "in": "formData",
+            "description": "Yksilöivä tunniste termille."
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "in": "formData",
+            "description": "Termin kuvaus HTML-muodossa."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "in": "formData",
+            "description": "HTML-muotoiltu otsikko termille."
+          },
+          {
+            "name": "slug",
+            "type": "string",
+            "in": "formData",
+            "description": "Termin alfanumeerinen tunniste joka on saman lajin sisällä yksilöivä."
+          },
+          {
+            "name": "meta",
+            "type": "string",
+            "in": "formData",
+            "description": "Metakentät."
+          }
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/incident_areas"
+            }
+          },
+          "default": {
+            "description": "error",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "id",
+            "type": "integer",
+            "in": "query",
+            "description": "Yksilöivä tunniste termille."
+          },
+          {
+            "name": "force",
+            "type": "boolean",
+            "in": "query",
+            "description": "Arvon tulee olla true, koska termit eivät tue roskakoria."
+          }
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/incident_areas"
             }
           },
           "default": {
@@ -9964,6 +11227,7 @@
             "draft",
             "pending",
             "private",
+            "acf-disabled",
             "expiration"
           ]
         },
@@ -10261,6 +11525,7 @@
             "draft",
             "pending",
             "private",
+            "acf-disabled",
             "expiration"
           ]
         },
@@ -10537,6 +11802,7 @@
             "draft",
             "pending",
             "private",
+            "acf-disabled",
             "expiration"
           ]
         },
@@ -10708,6 +11974,7 @@
             "draft",
             "pending",
             "private",
+            "acf-disabled",
             "expiration"
           ]
         },
@@ -10819,6 +12086,7 @@
             "draft",
             "pending",
             "private",
+            "acf-disabled",
             "expiration"
           ]
         },
@@ -10930,6 +12198,7 @@
             "draft",
             "pending",
             "private",
+            "acf-disabled",
             "expiration"
           ]
         },
@@ -11050,6 +12319,7 @@
             "draft",
             "pending",
             "private",
+            "acf-disabled",
             "expiration"
           ]
         },
@@ -11182,6 +12452,7 @@
             "draft",
             "pending",
             "private",
+            "acf-disabled",
             "expiration"
           ]
         },
@@ -11222,6 +12493,132 @@
           "type": "string",
           "format": "url",
           "description": "Shortlink URL"
+        }
+      }
+    },
+    "incident": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "description": "Ajankohta kun kohde julkaistiin sivuston aikavyöhykkeen ajassa.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "date_gmt": {
+          "description": "Ajankohta kun kohde julkaistiin GMT-ajassa.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "guid": {
+          "description": "Kohteen ainutkertainen tunnusnumero.",
+          "type": "object",
+          "properties": {
+            "raw": {
+              "description": "Kohteen GUID sellaisena kuin se on tietokannassa.",
+              "type": "string"
+            },
+            "rendered": {
+              "description": "Kohteen GUID, sellaisena kuin se tulostetaan selaimelle.",
+              "type": "string"
+            }
+          }
+        },
+        "id": {
+          "description": "Kohteen uniikki tunniste.",
+          "type": "integer"
+        },
+        "link": {
+          "description": "Kohteen URL.",
+          "type": "string",
+          "format": "uri"
+        },
+        "modified": {
+          "description": "Kohteen viimeinen muokkauspäivämäärä sivuston aikavyöhykkeen ajassa.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "modified_gmt": {
+          "description": "Kohteen viimeinen muokkauspäivämäärä GMT-ajassa.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "slug": {
+          "description": "Kohteen tyypilleen uniikki alfanumeerinen tunniste.",
+          "type": "string"
+        },
+        "status": {
+          "description": "Kohteen nimetty tila.",
+          "type": "string",
+          "enum": [
+            "publish",
+            "future",
+            "draft",
+            "pending",
+            "private",
+            "acf-disabled",
+            "expiration"
+          ]
+        },
+        "type": {
+          "description": "Kohteen artikkelityyppi.",
+          "type": "string"
+        },
+        "password": {
+          "description": "Salasana sisällön ja otteen suojaamiseksi. ",
+          "type": "string"
+        },
+        "title": {
+          "description": "Kohteen otsikko. ",
+          "type": "object",
+          "properties": {
+            "raw": {
+              "description": "Kohteen otsikko siten, kuin se esiintyy tietokannassa. ",
+              "type": "string"
+            },
+            "rendered": {
+              "description": "Kohteen HTML-muotoinen otsikko, sellaisena kuin se tulostetaan selaimelle.",
+              "type": "string"
+            }
+          }
+        },
+        "template": {
+          "description": "Teematiedosto joka näyttää kohteen.",
+          "type": "string",
+          "enum": [
+            "NONE"
+          ]
+        },
+        "incident_areas": {
+          "description": "Kohteeseen liitetyt termit taksonomiassa incident_areas.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "incident_type": {
+          "type": "string",
+          "description": "Incident type"
+        },
+        "description": {
+          "type": "string",
+          "description": "Incident description"
+        },
+        "areas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Incident areas"
+        },
+        "start_time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Incident start time"
+        },
+        "end_time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Incident end time"
         }
       }
     },
@@ -11379,6 +12776,7 @@
             "nav_menu",
             "link_category",
             "post_format",
+            "incident_areas",
             "category_media"
           ]
         },
@@ -11430,6 +12828,55 @@
             "nav_menu",
             "link_category",
             "post_format",
+            "incident_areas",
+            "category_media"
+          ]
+        },
+        "meta": {
+          "description": "Metakentät.",
+          "type": "object",
+          "properties": []
+        }
+      }
+    },
+    "incident_areas": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Yksilöivä tunniste termille.",
+          "type": "integer"
+        },
+        "count": {
+          "description": "Termin julkaistujen artikkeleiden lukumäärä.",
+          "type": "integer"
+        },
+        "description": {
+          "description": "Termin kuvaus HTML-muodossa.",
+          "type": "string"
+        },
+        "link": {
+          "description": "Termin URL-osoite.",
+          "type": "string",
+          "format": "uri"
+        },
+        "name": {
+          "description": "HTML-muotoiltu otsikko termille.",
+          "type": "string"
+        },
+        "slug": {
+          "description": "Termin alfanumeerinen tunniste joka on saman lajin sisällä yksilöivä.",
+          "type": "string"
+        },
+        "taxonomy": {
+          "description": "Termin kuvailulaji.",
+          "type": "string",
+          "enum": [
+            "category",
+            "post_tag",
+            "nav_menu",
+            "link_category",
+            "post_format",
+            "incident_areas",
             "category_media"
           ]
         },
