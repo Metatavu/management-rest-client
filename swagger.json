@@ -6719,6 +6719,18 @@
             "description": "Incident description"
           },
           {
+            "name": "details_link",
+            "type": "string",
+            "in": "formData",
+            "description": "Incident details link"
+          },
+          {
+            "name": "details_link_text",
+            "type": "string",
+            "in": "formData",
+            "description": "Incident details link text"
+          },
+          {
             "name": "areas",
             "type": "array",
             "in": "formData",
@@ -6963,6 +6975,18 @@
             "type": "string",
             "in": "formData",
             "description": "Incident description"
+          },
+          {
+            "name": "details_link",
+            "type": "string",
+            "in": "formData",
+            "description": "Incident details link"
+          },
+          {
+            "name": "details_link_text",
+            "type": "string",
+            "in": "formData",
+            "description": "Incident details link text"
           },
           {
             "name": "areas",
@@ -12602,6 +12626,14 @@
         "description": {
           "type": "string",
           "description": "Incident description"
+        },
+        "details_link": {
+          "type": "string",
+          "description": "Incident details link"
+        },
+        "details_link_text": {
+          "type": "string",
+          "description": "Incident details link text"
         },
         "areas": {
           "type": "array",
