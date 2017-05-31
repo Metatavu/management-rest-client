@@ -57,7 +57,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-12T07:46:35.856+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-31T10:37:46.120+03:00")
 public class DefaultApi {
 
   private ApiClient client;
@@ -1992,11 +1992,13 @@ if (password != null)
    * @param incidentAreas Kohteeseen liitetyt termit taksonomiassa incident_areas. (optional)
    * @param incidentType Incident type (optional)
    * @param description Incident description (optional)
+   * @param detailsLink Incident details link (optional)
+   * @param detailsLinkText Incident details link text (optional)
    * @param areas Incident areas (optional)
    * @param startTime Incident start time (optional)
    * @param endTime Incident end time (optional)
    */
-  public ApiResponse<Incident> wpV2IncidentIdPost(String id, Integer id2, LocalDateTime date, LocalDateTime dateGmt, String slug, String status, String password, String title, String template, List<String> incidentAreas, String incidentType, String description, List<String> areas, LocalDateTime startTime, LocalDateTime endTime) {
+  public ApiResponse<Incident> wpV2IncidentIdPost(String id, Integer id2, LocalDateTime date, LocalDateTime dateGmt, String slug, String status, String password, String title, String template, List<String> incidentAreas, String incidentType, String description, String detailsLink, String detailsLinkText, List<String> areas, LocalDateTime startTime, LocalDateTime endTime) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
         
@@ -2022,6 +2024,10 @@ if (incidentType != null)
       formParams.put("incident_type", incidentType);
 if (description != null)
       formParams.put("description", description);
+if (detailsLink != null)
+      formParams.put("details_link", detailsLink);
+if (detailsLinkText != null)
+      formParams.put("details_link_text", detailsLinkText);
 if (areas != null)
       formParams.put("areas", areas);
 if (startTime != null)
@@ -2048,11 +2054,13 @@ if (endTime != null)
    * @param incidentAreas Kohteeseen liitetyt termit taksonomiassa incident_areas. (optional)
    * @param incidentType Incident type (optional)
    * @param description Incident description (optional)
+   * @param detailsLink Incident details link (optional)
+   * @param detailsLinkText Incident details link text (optional)
    * @param areas Incident areas (optional)
    * @param startTime Incident start time (optional)
    * @param endTime Incident end time (optional)
    */
-  public ApiResponse<Incident> wpV2IncidentPost(LocalDateTime date, LocalDateTime dateGmt, String slug, String status, String password, String title, String template, List<String> incidentAreas, String incidentType, String description, List<String> areas, LocalDateTime startTime, LocalDateTime endTime) {
+  public ApiResponse<Incident> wpV2IncidentPost(LocalDateTime date, LocalDateTime dateGmt, String slug, String status, String password, String title, String template, List<String> incidentAreas, String incidentType, String description, String detailsLink, String detailsLinkText, List<String> areas, LocalDateTime startTime, LocalDateTime endTime) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
         
@@ -2076,6 +2084,10 @@ if (incidentType != null)
       formParams.put("incident_type", incidentType);
 if (description != null)
       formParams.put("description", description);
+if (detailsLink != null)
+      formParams.put("details_link", detailsLink);
+if (detailsLinkText != null)
+      formParams.put("details_link_text", detailsLinkText);
 if (areas != null)
       formParams.put("areas", areas);
 if (startTime != null)

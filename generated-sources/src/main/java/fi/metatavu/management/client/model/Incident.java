@@ -41,7 +41,7 @@ import java.util.List;
 /**
  * Incident
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-12T07:46:35.856+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-31T10:37:46.120+03:00")
 public class Incident   {
   @JsonProperty("date")
   @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)  
@@ -166,6 +166,12 @@ public class Incident   {
 
   @JsonProperty("description")
   private String description = null;
+
+  @JsonProperty("details_link")
+  private String detailsLink = null;
+
+  @JsonProperty("details_link_text")
+  private String detailsLinkText = null;
 
   @JsonProperty("areas")
   private List<String> areas = new ArrayList<String>();
@@ -473,6 +479,42 @@ public class Incident   {
     this.description = description;
   }
 
+  public Incident detailsLink(String detailsLink) {
+    this.detailsLink = detailsLink;
+    return this;
+  }
+
+   /**
+   * Incident details link
+   * @return detailsLink
+  **/
+  @ApiModelProperty(example = "null", value = "Incident details link")
+  public String getDetailsLink() {
+    return detailsLink;
+  }
+
+  public void setDetailsLink(String detailsLink) {
+    this.detailsLink = detailsLink;
+  }
+
+  public Incident detailsLinkText(String detailsLinkText) {
+    this.detailsLinkText = detailsLinkText;
+    return this;
+  }
+
+   /**
+   * Incident details link text
+   * @return detailsLinkText
+  **/
+  @ApiModelProperty(example = "null", value = "Incident details link text")
+  public String getDetailsLinkText() {
+    return detailsLinkText;
+  }
+
+  public void setDetailsLinkText(String detailsLinkText) {
+    this.detailsLinkText = detailsLinkText;
+  }
+
   public Incident areas(List<String> areas) {
     this.areas = areas;
     return this;
@@ -558,6 +600,8 @@ public class Incident   {
         Objects.equals(this.incidentAreas, incident.incidentAreas) &&
         Objects.equals(this.incidentType, incident.incidentType) &&
         Objects.equals(this.description, incident.description) &&
+        Objects.equals(this.detailsLink, incident.detailsLink) &&
+        Objects.equals(this.detailsLinkText, incident.detailsLinkText) &&
         Objects.equals(this.areas, incident.areas) &&
         Objects.equals(this.startTime, incident.startTime) &&
         Objects.equals(this.endTime, incident.endTime);
@@ -565,7 +609,7 @@ public class Incident   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, dateGmt, guid, id, link, modified, modifiedGmt, slug, status, type, password, title, template, incidentAreas, incidentType, description, areas, startTime, endTime);
+    return Objects.hash(date, dateGmt, guid, id, link, modified, modifiedGmt, slug, status, type, password, title, template, incidentAreas, incidentType, description, detailsLink, detailsLinkText, areas, startTime, endTime);
   }
 
   @Override
@@ -589,6 +633,8 @@ public class Incident   {
     sb.append("    incidentAreas: ").append(toIndentedString(incidentAreas)).append("\n");
     sb.append("    incidentType: ").append(toIndentedString(incidentType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    detailsLink: ").append(toIndentedString(detailsLink)).append("\n");
+    sb.append("    detailsLinkText: ").append(toIndentedString(detailsLinkText)).append("\n");
     sb.append("    areas: ").append(toIndentedString(areas)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
